@@ -1,92 +1,129 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Loop Help Center",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0A0A0A",
+    "light": "#0A0A0A",
+    "dark": "#FAFAFA"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Guias",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Começando",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "pt-br/index"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Social",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "pt-br/social/visao-geral",
+              "pt-br/social/stories",
+              "pt-br/social/reels",
+              "pt-br/social/lives",
+              "pt-br/social/feed",
+              "pt-br/social/explorar",
+              "pt-br/social/pesquisas",
+              "pt-br/social/onboarding"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Comunicação",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "pt-br/comunicacao/visao-geral",
+              "pt-br/comunicacao/chat",
+              "pt-br/comunicacao/canais-comunitarios",
+              "pt-br/comunicacao/broadcast",
+              "pt-br/comunicacao/campanhas",
+              "pt-br/comunicacao/chamadas"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Agentes",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "pt-br/agentes/visao-geral"
+            ]
+          },
+          {
+            "group": "Gamificação",
+            "pages": [
+              "pt-br/gamificacao/visao-geral",
+              "pt-br/gamificacao/continuo",
+              "pt-br/gamificacao/campanhas",
+              "pt-br/gamificacao/desafios",
+              "pt-br/gamificacao/acompanhamento"
+            ]
+          },
+          {
+            "group": "Recompensas",
+            "pages": [
+              "pt-br/recompensas/visao-geral",
+              "pt-br/recompensas/marketplace",
+              "pt-br/recompensas/carteira",
+              "pt-br/recompensas/loop-card"
+            ]
+          },
+          {
+            "group": "Reconhecimento",
+            "pages": [
+              "pt-br/reconhecimento/visao-geral",
+              "pt-br/reconhecimento/via-stories",
+              "pt-br/reconhecimento/destaques-no-perfil",
+              "pt-br/reconhecimento/pilares-e-tipos",
+              "pt-br/reconhecimento/permissoes",
+              "pt-br/reconhecimento/gamificado"
+            ]
+          },
+          {
+            "group": "Desenvolvimento",
+            "pages": [
+              "pt-br/desenvolvimento/visao-geral",
+              "pt-br/desenvolvimento/micro-learning",
+              "pt-br/desenvolvimento/trilhas",
+              "pt-br/desenvolvimento/analytics",
+              "pt-br/desenvolvimento/aprendizado-gamificado"
+            ]
+          },
+          {
+            "group": "Influenciadores Internos",
+            "pages": [
+              "pt-br/influenciadores-internos/visao-geral",
+              "pt-br/influenciadores-internos/descoberta",
+              "pt-br/influenciadores-internos/perfis",
+              "pt-br/influenciadores-internos/campanhas",
+              "pt-br/influenciadores-internos/metricas-de-influencia"
+            ]
+          },
+          {
+            "group": "Plataforma",
+            "pages": [
+              "pt-br/plataforma/visao-geral",
+              "pt-br/plataforma/moderacao",
+              "pt-br/plataforma/analytics",
+              "pt-br/plataforma/integracoes",
+              "pt-br/plataforma/permissoes",
+              "pt-br/plataforma/seguranca"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Jornadas",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Jornadas",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "pt-br/jornadas/em-breve"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -95,27 +132,27 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Suporte",
+        "href": "mailto:felipe@comunica.in"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Abrir Loop",
+      "href": "https://www.comunicain.app"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

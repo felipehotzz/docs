@@ -1,0 +1,20 @@
+#navbar-logo,
+nav-logo,
+a[href="/"] img[alt*="logo" i],
+a[href="/"] svg {
+  height: 48px !important;
+  width: auto !important;
+  max-height: 48px !important;
+}
+
+.dark nav a[href*="comunicain.app"],
+.dark nav button,
+html.dark #navbar a[class*="primary"],
+html.dark #navbar button {
+  color: #0A0A0A !important;
+}
+
+html:not(.dark) #navbar a[class*="primary"],
+html:not(.dark) #navbar button {
+  color: #FAFAFA !important;
+}
