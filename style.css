@@ -20,16 +20,16 @@ html:not(.dark) #navbar button {
 }
 
 /* Sidebar: active item text contrast */
-html.dark aside a[aria-current="page"],
-html.dark nav[aria-label*="sidebar" i] a[aria-current="page"],
+html.dark a[aria-current="page"],
+html.dark a[aria-current="page"] span,
 html.dark [data-active="true"],
-html.dark a[aria-current="page"]:not(#navbar a) {
+html.dark [data-active="true"] span {
   color: #FAFAFA !important;
 }
 
-html:not(.dark) aside a[aria-current="page"],
-html:not(.dark) nav[aria-label*="sidebar" i] a[aria-current="page"],
+html:not(.dark) a[aria-current="page"],
+html:not(.dark) a[aria-current="page"] span,
 html:not(.dark) [data-active="true"],
-html:not(.dark) a[aria-current="page"]:not(#navbar a) {
+html:not(.dark) [data-active="true"] span {
   color: #0A0A0A !important;
 }
