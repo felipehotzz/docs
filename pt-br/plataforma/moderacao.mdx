@@ -1,6 +1,216 @@
 ---
 title: "Moderação"
-description: "Controle granular de conteúdo e usuários"
+description: "Controle de conteúdo no ambiente — filtros de palavras, permissões por recurso e fila de ocorrências"
 ---
 
-Em construção.
+A Moderação é onde os administradores do ambiente controlam **o que pode ser publicado, por quem, e como conteúdo inapropriado é tratado**. Fica dentro do Painel de Gestão e reúne três frentes de controle em abas: **Permissões**, **Filtro de Palavras** e **Ocorrências**.
+
+<Note>
+  Apenas usuários com papel de **Administrador** ou **Proprietário** do ambiente têm acesso ao painel de Moderação. Usuários comuns, verificados ou institucionais não veem essa área.
+</Note>
+
+## Como acessar
+
+No computador, clique no ícone de engrenagem (Configurações) no menu lateral, selecione **Painel de Gestão**, e depois **Moderação** na seção "Governança".
+
+A aba aberta por padrão é **Permissões**.
+
+## Aba Permissões
+
+Controle quais recursos do Loop estão habilitados para os colaboradores do ambiente, e opcionalmente restrinja cada recurso a grupos específicos de pessoas.
+
+### Controles de recursos
+
+<AccordionGroup>
+  <Accordion title="Publicações no Feed" icon="rectangle-list">
+    Toggle `Permitir publicações` controla se colaboradores podem criar Posts no Feed. Desligado, o botão de criar post some do app.
+  </Accordion>
+
+  <Accordion title="Comentários" icon="comment">
+    `Permitir comentários` habilita ou desabilita comentários em Posts e Reels. Desligado, a seção de comentários nem aparece no visualizador.
+  </Accordion>
+
+  <Accordion title="Stories" icon="bolt">
+    `Permitir stories` controla a criação de stories pelo app mobile. Desligado, a aba STORY some da câmera.
+  </Accordion>
+
+  <Accordion title="Reels" icon="film">
+    `Permitir reels` controla a criação de vídeos curtos. Desligado, a aba REEL some e a aba dedicada de Reels não recebe conteúdo novo.
+  </Accordion>
+
+  <Accordion title="Respostas em Stories" icon="reply">
+    `Permitir respostas em stories` é um controle **independente** de comentários — se você quer manter comentários em posts mas bloquear respostas DM em stories, desligue apenas este.
+  </Accordion>
+
+  <Accordion title="Mensagens diretas" icon="message">
+    `Permitir mensagens` controla o sistema de chat privado. Desligado, colaboradores não conseguem iniciar conversas nem receber novas.
+  </Accordion>
+</AccordionGroup>
+
+### Restringir a grupos específicos
+
+Cada um dos 6 controles acima aceita uma **restrição por público**. Em vez de só "ligado para todos" ou "desligado para todos", você pode ter "ligado para todos, exceto estagiários" ou "desligado para todos, exceto líderes".
+
+Ao clicar no botão de filtro ao lado do toggle:
+
+- **Por atributos**: filtre por nome, email, departamento, cargo, localização, grupo ou status
+- **Por IA**: descreva em linguagem natural (ex: "todas as pessoas de TI em São Paulo") e o sistema converte em filtro
+- **Por seleção manual**: marque individualmente quem entra ou sai
+- **Copiar de outro**: importa o filtro já configurado em outro controle
+
+A restrição aparece como "X colaboradores" ao lado do toggle depois de configurada.
+
+
+## Aba Filtro de Palavras
+
+Cadastre palavras que você não quer que apareçam no ambiente. O filtro roda em **todo conteúdo criado**: posts, comentários, stories, reels, broadcasts e chat de lives.
+
+### Dois tipos de ação
+
+<AccordionGroup>
+  <Accordion title="Bloquear" icon="ban">
+    Impede completamente a publicação do conteúdo. A pessoa que tentou publicar recebe uma mensagem informando que a publicação contém palavras não permitidas. Uma ocorrência é registrada na fila de Ocorrências para seu histórico.
+
+    Use para palavras que **não podem existir** no ambiente sob nenhuma circunstância: palavrões pesados, ataques discriminatórios, informações confidenciais.
+  </Accordion>
+
+  <Accordion title="Sinalizar" icon="flag">
+    Permite a publicação, mas envia um email para os administradores configurados e registra uma ocorrência para revisão posterior. A pessoa que publicou não é avisada.
+
+    Use para palavras que **merecem atenção mas não impedem publicação**: termos ambíguos, nomes de concorrentes, assuntos sensíveis da empresa que valem monitoramento.
+  </Accordion>
+</AccordionGroup>
+
+### Adicionar palavras
+
+- **Uma por vez**: digite a palavra, escolha a ação (Bloquear/Sinalizar) e clique em Adicionar
+- **Em lote**: ative "Importação em massa", cole várias palavras (uma por linha), escolha a ação que se aplica ao lote e confirme
+
+As palavras cadastradas aparecem em lista, cada uma com sua ação (badge colorido). Clique no badge para alternar entre Bloquear e Sinalizar. O ícone de lixeira remove a palavra.
+
+### Quem recebe os emails de alerta
+
+Acima da lista de palavras, um botão permite escolher **quais administradores recebem o email** quando uma palavra sinalizada é detectada. Todos os administradores e proprietários ficam disponíveis para seleção.
+
+O email inclui: nome da pessoa que publicou, tipo de conteúdo (post/comentário/reel/story/etc), trecho onde a palavra apareceu e a palavra detectada.
+
+### Como o filtro funciona
+
+- **Palavra inteira**: `lider` não pega `liderança`; o filtro usa limites de palavra. Cadastre variações se quiser pegar todas.
+- **Sem diferença de maiúsculas**: `Demissão`, `demissão` e `DEMISSÃO` são tratadas igualmente.
+- **Escopo do ambiente**: palavras cadastradas valem apenas no seu ambiente. Outros tenants não enxergam nem são afetados.
+- **Lista base do sistema**: o Loop já traz uma **lista padrão de palavras** que atua em todos os ambientes automaticamente (palavrões universais, termos discriminatórios óbvios). Essa lista não aparece na sua interface — fica ativa em segundo plano e você só precisa cadastrar o que é específico da sua empresa.
+
+## Aba Ocorrências
+
+Lista de todo conteúdo que foi **automaticamente capturado** pelo filtro de palavras — tanto os bloqueados quanto os sinalizados.
+
+### O que aparece
+
+Cada linha é uma ocorrência com:
+
+- **Autor**: avatar e nome de quem tentou publicar
+- **Tipo**: Post, Comentário, Reel, Story, Broadcast ou Chat de Live
+- **Trecho**: o texto com a palavra detectada destacada
+- **Palavra**: exatamente qual palavra da sua lista foi identificada
+- **Ação**: "Bloqueado" (não publicou) ou "Sinalizado" (publicou)
+- **Data**: quando aconteceu
+
+### Como agir
+
+Para cada ocorrência com status **pendente**:
+
+<AccordionGroup>
+  <Accordion title="Dispensar" icon="check">
+    Marca a ocorrência como revisada e dispensada. O conteúdo (se estava sinalizado e publicado) **permanece no ar**. Use quando você revisou e achou que não tem problema.
+
+    O sistema registra seu nome e horário da revisão no histórico.
+  </Accordion>
+
+  <Accordion title="Excluir conteúdo" icon="trash">
+    Disponível apenas para ocorrências de conteúdo **sinalizado** (que foi publicado). Remove a publicação do ambiente e marca a ocorrência como "excluída".
+
+    Use quando o conteúdo é realmente problemático e precisa sair do ar. A remoção é permanente e inclui curtidas e comentários associados.
+
+    Para conteúdo bloqueado, não há botão de exclusão pois ele nunca chegou a ser publicado.
+  </Accordion>
+</AccordionGroup>
+
+### Filtros
+
+O filtro de status permite ver:
+
+- **Pendentes**: apenas ocorrências que ainda não foram dispensadas nem tiveram o conteúdo excluído (padrão)
+- **Todas**: incluindo as já processadas (dispensadas e excluídas), para histórico
+
+A aba Ocorrências mostra um **selo numérico** com a quantidade de ocorrências pendentes, assim você sabe rapidamente se tem trabalho de revisão pendente.
+
+## Regras e limites
+
+- **Apenas admins e proprietários**: outros perfis não têm acesso ao painel de Moderação
+- **Isolamento por ambiente**: administradores de um ambiente só veem e gerenciam a moderação do próprio ambiente
+- **Super admins da Loop**: têm acesso técnico para suporte em casos excepcionais
+- **Histórico das ações**: toda ocorrência revisada guarda quem dispensou/excluiu e quando
+- **Notificações**: apenas por email (sem push no momento) e apenas para palavras sinalizadas — bloqueios não geram email pois o autor já recebeu feedback na tela
+- **Moderação de lives**: o chat da live tem controles próprios exercidos pelo host e moderadores nomeados durante a transmissão (veja [Lives](/pt-br/social/lives))
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Desabilitei comentários mas algumas pessoas ainda conseguem comentar. Por quê?">
+    Provavelmente o filtro por atributos está restringindo o desligamento a um grupo específico. Verifique se o toggle está "desligado para todos" ou "desligado apenas para X" ao lado do filtro.
+  </Accordion>
+
+  <Accordion title="Como faço um filtro diferente de permissões por departamento?">
+    No botão de filtro ao lado do toggle, escolha "Por atributos" → Departamento → selecione os departamentos que devem ter o recurso ligado (ou desligado, dependendo do toggle base). Salve. A restrição aparece resumida ao lado.
+  </Accordion>
+
+  <Accordion title="Posso ver o conteúdo original da ocorrência, em contexto?">
+    Por enquanto, as ocorrências mostram apenas o trecho com a palavra detectada. Um link para abrir a publicação inteira em contexto está planejado mas ainda não implementado.
+  </Accordion>
+
+  <Accordion title="A palavra foi detectada mesmo eu não tendo cadastrado ela. Como assim?">
+    O Loop mantém uma **lista base do sistema** com palavras universalmente problemáticas (palavrões pesados, termos discriminatórios) que atua em todos os ambientes. Você não vê essa lista nem pode editá-la — ela só serve pra evitar que cada empresa tenha que cadastrar o óbvio.
+  </Accordion>
+
+  <Accordion title="Cadastrei 'lider' mas 'liderança' não foi bloqueada. Erro?">
+    Não é erro. O filtro captura **palavras inteiras**, não trechos. Para pegar todas as variações, cadastre cada uma: `lider`, `liderança`, `líder`.
+  </Accordion>
+
+  <Accordion title="Quem aparece como revisor quando dispenso uma ocorrência?">
+    Seu nome (o admin que fez a ação) e o horário exato ficam registrados. Isso permite auditoria: qualquer administrador pode ver quem tomou cada decisão de moderação.
+  </Accordion>
+
+  <Accordion title="Posso exportar a lista de palavras banidas para outro ambiente?">
+    Ainda não. Cada ambiente cadastra sua própria lista. A importação em massa acelera o cadastro inicial — basta você salvar a lista em um arquivo e colar quando criar o ambiente novo.
+  </Accordion>
+
+  <Accordion title="Qual a diferença entre Moderação e Denúncias?">
+    **Moderação** é automática — roda filtros e registra ocorrências sem ação humana. **Denúncias** é manual — são reports que colaboradores fazem de conteúdo que acham inapropriado (opções como spam, assédio, discurso de ódio). Denúncias ficam em uma seção separada do Painel de Gestão.
+  </Accordion>
+
+  <Accordion title="Posso banir um usuário de publicar?">
+    Não diretamente pela Moderação. O que você pode fazer: usar o filtro por atributos em "Permitir publicações" para desligar o recurso apenas para aquele usuário específico (seleção manual por nome). Banimento permanente e punitivo ainda não é suportado como ação única.
+  </Accordion>
+
+  <Accordion title="Quanto tempo as ocorrências ficam salvas?">
+    Permanentemente. Ocorrências antigas continuam disponíveis no filtro "Todas" e servem como histórico de auditoria da empresa.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Permissões" icon="lock" href="/pt-br/plataforma/permissoes">
+    Controle de acesso por perfil (admin, proprietário, usuário, verificado, institucional)
+  </Card>
+  <Card title="Segurança" icon="shield" href="/pt-br/plataforma/seguranca">
+    Padrões de proteção de dados e infraestrutura do Loop
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/pt-br/plataforma/analytics">
+    Insights de engajamento e saúde cultural do ambiente
+  </Card>
+  <Card title="Lives" icon="tower-broadcast" href="/pt-br/social/lives">
+    Moderação específica do chat durante transmissões ao vivo
+  </Card>
+</CardGroup>

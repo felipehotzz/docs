@@ -1,6 +1,235 @@
 ---
 title: "Gamificação"
-description: "Plataforma 100% gamificada que transforma comportamento em recompensa"
+description: "Plataforma 100% gamificada que transforma comportamento em recompensa real — pontos automáticos, campanhas com prêmios e desafios recorrentes"
 ---
 
-Em construção.
+O Loop é um **app gamificado por padrão** — cada interação relevante (publicar, reconhecer, comentar, curtir) gera pontos automaticamente para os colaboradores. Esses pontos viram moeda social: alimentam rankings, desbloqueiam badges, completam metas de campanhas e podem se converter em prêmios reais.
+
+Não é uma camada bolt-on que você ativa depois. É a fundação do app — e você configura o modelo que se encaixa na sua empresa.
+
+## Os 4 componentes
+
+<CardGroup cols={2}>
+  <Card title="Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Pontuação automática pelo uso natural do app. Publicar, curtir, comentar, reconhecer — tudo pontua sem precisar entrar em nada.
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Metas com prazo e premiação. Ex: "Top 10 em engajamento até o fim do mês ganham R$500 em pontos".
+  </Card>
+  <Card title="Desafios" icon="trophy" href="/pt-br/gamificacao/desafios">
+    Temporadas recorrentes (semanal, quinzenal, mensal, trimestral) com reset automático e criação da próxima temporada.
+  </Card>
+  <Card title="Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Histórico de cada ponto ganho, ranking em tempo real, dashboard do admin com métricas da operação.
+  </Card>
+</CardGroup>
+
+## Conceito central — Modelo de Gamificação
+
+Tudo gira em torno de um **Modelo de Gamificação** (ou simplesmente "modelo"): a configuração central que define *"nesse ambiente, por quanto tempo, com que regras, com quais prêmios, pontos geram o quê"*.
+
+Você pode ter **múltiplos modelos** no mesmo ambiente:
+
+- **Um modelo contínuo** sempre ativo, que nunca termina, com valores base (pontos do dia-a-dia)
+- **Vários modelos de campanha** com início e fim, cada um focando num objetivo diferente (engajamento Q2, cultura, adoção de feature nova)
+- **Modelos recorrentes** que ciclam automaticamente (desafios mensais que reiniciam todo dia 1)
+
+Cada modelo tem seu próprio conjunto de:
+- **Ações** que geram pontos e quantos pontos cada
+- **Nome da moeda** (Pontos, XP, Moedas, ou o que fizer sentido)
+- **Público-alvo** (todos, área X, grupo específico, novos contratados)
+- **Regras de visibilidade** (se colaboradores veem a tabela de pontos ou só o ranking)
+- **Prêmios** se for um modelo com encerramento
+- **Duração** (permanente ou X dias)
+
+## Como funciona na prática
+
+**Para colaboradores**: invisível. Ninguém precisa saber que o Loop é gamificado pra usar. Quem curte um post ganha pontos automaticamente (com uma notificação sutil de moedinha que aparece no canto da tela). Quem reconhece um colega ganha. Quem publica um reel ganha. Tudo acontece como efeito colateral do uso natural.
+
+Quem quer, pode aprofundar: abrir a aba Recompensas pra ver o saldo, o histórico detalhado, o ranking entre colegas, campanhas disponíveis, desafios em andamento.
+
+**Para admins**: você configura o modelo uma vez e observa. Ajusta os valores se perceber desbalanço (ex: publicar reel está muito alto em relação a curtir). Lança campanhas sazonais pra objetivos específicos. Revisa o dashboard semanalmente.
+
+## Como acessar
+
+### Para colaboradores (apps)
+
+- **Mobile**: aba **Recompensas** na barra inferior mostra saldo, campanhas ativas, ranking
+- **Web**: seção de Recompensas no menu lateral tem informação equivalente
+
+### Para administradores (painel web)
+
+- Painel de Gestão → **Gamificação** no menu lateral
+
+<Note>
+  Apenas **Proprietários** e **Administradores** acessam a configuração da gamificação. Moderadores não têm acesso ao painel, apesar de também usarem o sistema como colaboradores.
+</Note>
+
+## Tipos de modelo
+
+Ao criar um modelo, você escolhe entre 3 tipos que determinam como ele se comporta:
+
+<AccordionGroup>
+  <Accordion title="Main (Contínuo)" icon="infinity">
+    **Nunca termina.** É a pontuação base do ambiente — sempre ativo. Tipicamente 1 por ambiente.
+
+    Use para o funcionamento gamificado do dia-a-dia, sem prazo. Novos colaboradores entram automaticamente.
+
+    Veja mais em [Contínuo](/pt-br/gamificacao/continuo).
+  </Accordion>
+
+  <Accordion title="Challenge (Campanha)" icon="bullseye">
+    **Tem início e fim explícitos.** Prazo (dias ou datas) + meta + prêmio.
+
+    Use para focar em um objetivo de negócio específico: engajamento no lançamento de produto, adoção de um canal novo, celebração de valor específico.
+
+    Veja mais em [Campanhas](/pt-br/gamificacao/campanhas).
+  </Accordion>
+
+  <Accordion title="Recurring (Desafio)" icon="trophy">
+    **Cicla automaticamente.** Você define a cadência (semanal, mensal, trimestral) e o sistema gera cada temporada nova ao fim da anterior, com placar zerado.
+
+    Use para criar rituais recorrentes: "Campeão do Mês", "Top da Semana", "Trimestral da Cultura".
+
+    Veja mais em [Desafios](/pt-br/gamificacao/desafios).
+  </Accordion>
+</AccordionGroup>
+
+## A moeda e seu valor
+
+Os pontos têm **nome customizável**: você pode chamar de "Pontos", "Moedas", "XP", "Estrelas", "[NomeDaEmpresa] Coins" — o que fizer sentido.
+
+Também configura um **valor de conversão** (ex: 100 pontos = R$ 1,00) pra quando usar o Marketplace de Recompensas. Não é obrigatório — você pode rodar um modelo sem conversão em dinheiro, só com ranking e badges.
+
+Veja [Recompensas > Visão Geral](/pt-br/recompensas/visao-geral) pra detalhes do marketplace.
+
+## Animação dos pontos
+
+Quando um colaborador ganha pontos, aparece uma **animação de moedinha** no canto superior direito do app:
+
+- Moeda gira 360°, ganha brilho e some em ~3.5 segundos
+- Cor da moeda varia por intensidade do ganho:
+  - **Cinza**: até 10 pontos (ação simples como curtir)
+  - **Bronze**: 10-50 pontos (comentário, publicação pequena)
+  - **Ouro**: 50-100 pontos (reconhecimento, reel, publicação relevante)
+  - **Roxo**: acima de 100 pontos (eventos especiais, prêmios de campanha)
+- Som discreto de moeda (se som do app estiver ativado)
+
+O colaborador pode tocar na animação pra ir direto pra tela de Recompensas e ver o saldo atualizado.
+
+## Badges (conquistas)
+
+Além dos pontos, o sistema suporta **badges** — medalhas permanentes conquistadas ao bater critérios específicos. Exemplos:
+
+- **Sequência**: usar o app N dias seguidos
+- **Ranking**: atingir a posição #N no ranking geral
+- **Campanha**: completar uma campanha específica
+- **Acumulação**: somar N pontos totais (lifetime)
+- **Intensidade**: fazer X ações no mesmo dia
+
+<Note>
+  A criação manual de badges está disponível no painel admin, mas a **atribuição automática** baseada nos critérios **ainda não está ativa**. Hoje admins criam as badges e podem atribuir via suporte — automação total está no roadmap.
+</Note>
+
+## Quem pode usar
+
+| Recurso | Colaborador | Admin |
+|---|---|---|
+| Ganhar pontos pelas ações | ✓ | ✓ |
+| Ver saldo e histórico próprio | ✓ | ✓ |
+| Ver ranking geral | ✓ (se modelo permite) | ✓ |
+| Participar de campanhas e desafios | ✓ | ✓ |
+| Receber badges | ✓ | ✓ |
+| Criar/editar Modelos | ✗ | ✓ |
+| Criar Campanhas e Desafios | ✗ | ✓ |
+| Configurar valores de pontos | ✗ | ✓ |
+| Criar badges | ✗ | ✓ |
+| Atribuir pontos manualmente | ✗ | ✓ (via scores externos) |
+| Ver dashboard de métricas | ✗ | ✓ |
+
+## Integrações com outras áreas do Loop
+
+<CardGroup cols={2}>
+  <Card title="Reconhecimento" icon="handshake" href="/pt-br/reconhecimento/gamificado">
+    Cada tipo de reconhecimento pode ser configurado pra gerar pontos para o giver e o receiver
+  </Card>
+  <Card title="Recompensas" icon="gift" href="/pt-br/recompensas/visao-geral">
+    Pontos viram saldo resgatável no Marketplace de Recompensas
+  </Card>
+  <Card title="Desenvolvimento" icon="graduation-cap" href="/pt-br/desenvolvimento/aprendizado-gamificado">
+    Conclusão de trilhas e módulos gera pontos (integração manual por enquanto)
+  </Card>
+  <Card title="Social" icon="heart" href="/pt-br/social/feed">
+    Posts, Reels, Stories, curtidas, comentários e segue tudo pontua automaticamente
+  </Card>
+</CardGroup>
+
+## Regras e limites gerais
+
+- **Isolamento por ambiente**: cada ambiente (tenant) tem seus próprios modelos, pontos, badges e histórico. Pontos não atravessam ambientes — se você trabalha em dois, tem saldo independente em cada
+- **Pontos não expiram**: uma vez ganhos, ficam para sempre no histórico e no saldo
+- **Transações imutáveis**: o histórico de cada ponto ganho é permanente — não pode ser editado por admin
+- **Múltiplos modelos ativos suportados**: tecnicamente o sistema aceita, mas recomenda-se manter **1 modelo main ativo por vez** mais as campanhas específicas
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Onde fica o painel de configuração?">
+    Painel de Gestão (web) → **Gamificação** no menu lateral. Acesso exclusivo a Proprietários e Administradores.
+  </Accordion>
+
+  <Accordion title="Preciso ativar a gamificação ou ela já vem ligada?">
+    Já vem ligada, mas **sem regras preenchidas** — isso significa que nenhum ponto é gerado até você configurar um modelo com as ações que quer pontuar. É o primeiro passo pós-criação do ambiente.
+  </Accordion>
+
+  <Accordion title="Posso rodar sem premiação em dinheiro, só com badges e ranking?">
+    Sim. Você cria um modelo contínuo, define pontos por ação, e **não configura** conversão pra moeda real. O sistema fica 100% social — ranking, badges, orgulho — sem custo financeiro.
+  </Accordion>
+
+  <Accordion title="Vou inflacionar os pontos se eu calibrar mal os valores?">
+    Sim, por isso o sistema tem **max_daily** por ação — limite de pontos por ação por pessoa por dia. Comece conservador (valores baixos) e suba conforme vê que o engajamento tá vindo. É fácil reajustar.
+  </Accordion>
+
+  <Accordion title="Tenho um modelo pra novos contratados e outro pro resto. Dá?">
+    Sim. No cadastro do modelo você escolhe o **público-alvo**: todos, novos contratados, grupo específico. Onboarding e modelo principal podem rodar em paralelo sem conflito.
+  </Accordion>
+
+  <Accordion title="Dá pra rodar campanha interna de vendas com score externo (ex: vendas fechadas no CRM)?">
+    Sim. Campanhas suportam **3 tipos de scoring**: plataforma (pontos ganhos no app), externo (admins injetam scores manualmente, ex: do CRM) e misto (combina ambos). Útil pra cross-system gamification.
+  </Accordion>
+
+  <Accordion title="Como evitar farming (alguém curtir 1000 posts pra ganhar pontos)?">
+    Cada ação tem um campo **max_daily** na configuração. Ex: "curtir post" pode dar 5 pontos, até 10 curtidas por dia (total 50 pts diários máximos). Acima disso, não pontua. Configure limites realistas.
+  </Accordion>
+
+  <Accordion title="Como os pontos alimentam a Carteira de Recompensas?">
+    Pontos acumulados **não viram** saldo direto de Carteira — esses são sistemas paralelos. O que vira saldo de Carteira é **prêmio de campanha**: você bate a meta → ganha pontos resgatáveis que caem na Carteira e podem ser usados no Marketplace.
+
+    Veja [Recompensas > Carteira](/pt-br/recompensas/carteira) pra detalhes.
+  </Accordion>
+
+  <Accordion title="Posso resetar todos os pontos de um ambiente?">
+    Hoje não via UI — é uma ação permanente e sensível demais pra botão. Se precisa resetar (inauguração de nova temporada, rollback de teste, etc), contate o suporte pra executar via banco.
+  </Accordion>
+
+  <Accordion title="Quais ações geram pontos por padrão?">
+    Cerca de 20 ações, organizadas em categorias: engajamento (curtir, comentar, seguir), conteúdo (publicar post/reel/story), social (reconhecer, menções), treinamento (começar/concluir trilha, quiz certo), descoberta (buscar, ver perfil). Cada uma com valor padrão, ajustável pelo admin. Veja [Contínuo](/pt-br/gamificacao/continuo) pra lista completa.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Todas as ações que geram pontos automaticamente
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Criar campanhas com meta, prazo e prêmio
+  </Card>
+  <Card title="Desafios" icon="trophy" href="/pt-br/gamificacao/desafios">
+    Temporadas recorrentes com reset automático
+  </Card>
+  <Card title="Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Histórico e dashboard de métricas
+  </Card>
+</CardGroup>

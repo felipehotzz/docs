@@ -1,6 +1,292 @@
 ---
 title: "Contínuo"
-description: "Pontuação automática por usar o app"
+description: "Pontuação automática gerada pelo uso natural do app — cada interação relevante credita pontos em tempo real"
 ---
 
-Em construção.
+A pontuação **contínua** é o coração da Gamificação do Loop. Ela não depende de campanha, prazo ou meta. É o motor que **credita pontos automaticamente** sempre que um colaborador faz uma ação relevante no app — publicar, curtir, comentar, reconhecer, seguir alguém, completar uma trilha.
+
+Funciona o ambiente inteiro, o tempo todo, sem começo nem fim.
+
+## Como funciona
+
+Sempre que um usuário realiza uma ação configurada, o sistema:
+
+1. **Detecta** a ação (ex: nova curtida, novo post, novo comentário)
+2. **Verifica** se essa ação está **ativa** no modelo de gamificação atual
+3. **Confere** se o usuário ainda não estourou o limite diário daquela ação
+4. **Credita** os pontos no saldo do colaborador
+5. **Registra** a transação no histórico (com ação, referência, timestamp)
+6. **Envia** uma notificação com a moedinha animada pro dispositivo do colaborador
+
+Tudo isso em menos de 1 segundo — o usuário vê a moedinha pipar na tela quase imediatamente depois da ação.
+
+## Lista completa de ações
+
+Aqui estão **todas as ações** que podem gerar pontos, com valores padrão (você pode customizar no painel de Gamificação):
+
+### Engajamento
+
+<AccordionGroup>
+  <Accordion title="Curtir um post" icon="heart">
+    **Padrão**: 5 pontos
+
+    Creditado quando um colaborador curte um post no Feed ou um Reel. Primeira vez = pontua. Curtir várias vezes o mesmo conteúdo não pontua (o sistema registra unicamente).
+  </Accordion>
+
+  <Accordion title="Comentar em um post" icon="comment">
+    **Padrão**: 10 pontos
+
+    Creditado quando o colaborador comenta em um post ou reel. Cada comentário distinto pontua; responder o próprio comentário não.
+  </Accordion>
+
+  <Accordion title="Ver um story" icon="bolt">
+    **Padrão**: 2 pontos
+
+    Creditado quando o colaborador abre um story completo. Limite diário típico alto (stories são consumo rápido).
+  </Accordion>
+
+  <Accordion title="Seguir um perfil" icon="user-plus">
+    **Padrão**: 10 pontos
+
+    Creditado ao seguir outro colaborador. Parar de seguir e re-seguir não pontua de novo (sistema rastreia unicidade).
+  </Accordion>
+
+  <Accordion title="Seguir uma página" icon="flag">
+    **Padrão**: 10 pontos
+
+    Creditado ao seguir um canal/grupo institucional. Útil para impulsionar adoção de canais novos.
+  </Accordion>
+</AccordionGroup>
+
+### Criação de conteúdo
+
+<AccordionGroup>
+  <Accordion title="Publicar post de texto" icon="file-lines">
+    **Padrão**: 20 pontos
+
+    Creditado por um post publicado sem imagens ou vídeo — só texto.
+  </Accordion>
+
+  <Accordion title="Publicar post com imagem" icon="image">
+    **Padrão**: 30 pontos
+
+    Vale mais que post de texto porque exige mais esforço e gera mais engajamento.
+  </Accordion>
+
+  <Accordion title="Publicar Reel" icon="film">
+    **Padrão**: 50 pontos
+
+    A ação mais valiosa de criação básica. Vídeo curto exige trabalho e rende alcance alto no Feed.
+  </Accordion>
+
+  <Accordion title="Publicar Story" icon="bolt">
+    **Padrão**: 15 pontos
+
+    Publicar um story comum. Stories com reconhecimento geram pontos adicionais via integração com Reconhecimento.
+  </Accordion>
+</AccordionGroup>
+
+### Social e cultura
+
+<AccordionGroup>
+  <Accordion title="Reconhecer um colega" icon="handshake">
+    **Padrão**: 25 pontos para quem dá
+
+    Creditado a quem emite o reconhecimento. O recebedor ganha **separadamente** os pontos do tipo específico do reconhecimento (configurado por tipo em Reconhecimento).
+
+    Veja [Reconhecimento > Gamificado](/pt-br/reconhecimento/gamificado) pra detalhes.
+  </Accordion>
+
+  <Accordion title="Comentar em outra área" icon="comments">
+    **Padrão**: 20 pontos
+
+    Vale mais que um comentário comum porque reforça integração entre áreas. Útil para ambientes com silos organizacionais.
+  </Accordion>
+</AccordionGroup>
+
+### Treinamento
+
+<AccordionGroup>
+  <Accordion title="Começar uma trilha" icon="play">
+    **Padrão**: 10 pontos
+
+    Creditado quando o colaborador inicia uma trilha de desenvolvimento.
+
+  </Accordion>
+
+  <Accordion title="Concluir um módulo" icon="check">
+    **Padrão**: 30 pontos
+
+    Mesmo status do acima — definido no sistema mas sem gatilho automático ainda.
+  </Accordion>
+
+  <Accordion title="Concluir trilha inteira" icon="graduation-cap">
+    **Padrão**: 100 pontos
+
+    Definido mas não auto-acionado (status em desenvolvimento).
+  </Accordion>
+
+  <Accordion title="Acertar um quiz" icon="lightbulb">
+    **Padrão**: 50 pontos
+
+    Responder corretamente a uma pergunta de quiz dentro de uma trilha. Sem gatilho automático ainda.
+  </Accordion>
+
+  <Accordion title="Concluir trilha antes do prazo" icon="rocket">
+    **Padrão**: variável (admin define)
+
+    Bônus para quem termina antes da data limite. Sem gatilho automático ainda.
+  </Accordion>
+</AccordionGroup>
+
+### Descoberta
+
+<AccordionGroup>
+  <Accordion title="Usar a busca" icon="magnifying-glass">
+    **Padrão**: 2 pontos
+
+    Pequeno incentivo para explorar — útil nas primeiras semanas de uso.
+  </Accordion>
+
+  <Accordion title="Ver um perfil" icon="user">
+    **Padrão**: 3 pontos
+
+    Abrir o perfil de um colega. Incentiva descoberta social.
+  </Accordion>
+</AccordionGroup>
+
+## Limite diário (max_daily)
+
+Cada ação tem um campo opcional de **limite diário** — quantas vezes um mesmo usuário pode pontuar naquela ação por dia. Por exemplo:
+
+- **Curtir post**: 5 pts, max_daily 10 → máximo 50 pts/dia com curtidas
+- **Publicar post**: 20 pts, max_daily 3 → máximo 60 pts/dia com posts
+- **Reconhecer colega**: 25 pts, max_daily 5 → máximo 125 pts/dia reconhecendo
+
+<Note>
+  O limite conta por **usuário, por ação, por dia**. Não é por ambiente nem acumulado. Se o usuário estourou o limite de "curtir post" hoje, não pontua mais nessa ação até o dia seguinte (reinicia à meia-noite no fuso do ambiente).
+</Note>
+
+### Por que existem limites
+
+O objetivo é **evitar farming** — alguém curtir 1000 posts em 5 minutos pra inflar o saldo. Sem limite, a gamificação vira concurso de velocidade, não engajamento real.
+
+Recomendações de limite:
+
+- Ações passivas (curtir, ver): limites altos (20-50 por dia)
+- Ações ativas (comentar, publicar): limites médios (5-10 por dia)
+- Ações sociais chave (reconhecer): limites baixos-médios (3-10 por dia) pra preservar significado
+
+## Como configurar
+
+### Caminho
+
+1. Painel de Gestão → **Gamificação**
+2. Abra o **Modelo ativo** (ou crie um novo se não houver)
+3. Aba **Ações**
+4. Para cada ação:
+   - **Toggle ON/OFF** — se ela gera pontos nesse modelo
+   - **Valor de pontos** — quantos pontos por evento
+   - **Limite diário** (opcional) — máximo de eventos pontuáveis por dia
+5. Salvar
+
+O painel agrupa as ações por categoria (engajamento, conteúdo, social, treinamento, descoberta) pra facilitar edição em bloco.
+
+### Múltiplos modelos, pontos diferentes
+
+Você pode ter a mesma ação configurada com pontos diferentes em modelos diferentes. Exemplo:
+
+- **Modelo contínuo "Dia-a-dia"**: publicar reel vale 30 pts
+- **Modelo de campanha "Mês da Inovação"**: publicar reel vale 60 pts
+
+Enquanto a campanha está ativa, ela **se sobrepõe** ao modelo contínuo. Quando acaba, volta aos valores do contínuo.
+
+<Warning>
+  Se dois modelos estão ativos simultaneamente e ambos pontuam a mesma ação, o sistema usa **o primeiro modelo encontrado**. Para evitar comportamento ambíguo, mantenha **apenas um modelo main ativo** e use campanhas (challenge/recurring) para sobreposições pontuais.
+</Warning>
+
+## O que acontece ao ganhar pontos
+
+Quando um colaborador ganha pontos por uma ação:
+
+1. **Toast animado** aparece no canto superior direito do app
+2. **Moeda gira 360°** com som de coin (se som estiver ativado)
+3. **Cor da moeda** varia pela intensidade do ganho:
+   - Cinza (até 10 pts)
+   - Bronze (10-50 pts)
+   - Ouro (50-100 pts)
+   - Roxo (acima de 100 pts)
+4. **Saldo atualiza em tempo real** na aba Recompensas (via subscription Realtime)
+5. **Histórico registra** a transação com descrição (ex: "Curtiu um post")
+
+Tocar no toast leva direto pra aba Recompensas, onde o colaborador vê saldo, histórico e ranking.
+
+## Por que alguns usuários não veem pontos imediatamente
+
+Causas comuns:
+
+- **Ação desativada** no modelo — admin desligou o toggle
+- **Limite diário atingido** — pontos do dia já esgotados nessa ação
+- **Modelo não ativo** — não existe modelo ativo, logo nada pontua
+- **Notificação silenciada** — pontos foram creditados mas notificação push está desligada no dispositivo
+
+No histórico (aba Recompensas → Histórico) fica claro se a ação foi creditada ou não.
+
+## Regras e limites
+
+- **Transações imutáveis**: uma vez creditado, o ponto fica no histórico para sempre. Não há "cancelar" no app
+- **Sem expiração**: pontos não expiram no tempo — ficam no saldo indefinidamente
+- **Aplicação de valores é instantânea**: ajustar pontos no painel afeta **ações futuras** imediatamente. Não reprocessa histórico
+- **Exclusão do conteúdo não devolve pontos**: se o colaborador publica um reel, ganha 50 pts, depois exclui o reel — os 50 pts ficam no saldo
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Como desativar temporariamente a pontuação?">
+    Três opções:
+    - **Desativar o modelo atual**: desliga tudo, zero pontuação no ambiente
+    - **Desativar ações específicas**: mantém o modelo ativo mas para de pontuar ações que você não quer
+    - **Zerar os valores**: mantém as ações ativas mas com 0 pontos (registra evento, não credita)
+  </Accordion>
+
+  <Accordion title="Todas as ações precisam estar ativas?">
+    Não. Você só precisa ativar as que fazem sentido pro seu ambiente. Nada errado em ter um modelo minimalista com só 3-4 ações (ex: publicar, curtir, reconhecer).
+  </Accordion>
+
+  <Accordion title="Posso adicionar minhas próprias ações?">
+    Hoje o catálogo é fixo — cerca de 20 ações pré-definidas pelo Loop. Ações customizadas (ex: "participou de reunião X") não podem ser auto-criadas — exigem desenvolvimento. Se precisa urgente, use **scores externos** em uma campanha (admins inserem pontos manualmente).
+  </Accordion>
+
+  <Accordion title="Qual a diferença entre pontos por curtir e por ser curtido?">
+    Pontos por curtir = o usuário ganha por **dar** uma curtida. Pontos por ser curtido = o **autor do conteúdo** ganha quando alguém curte. O Loop hoje dá pontos por **dar** a curtida. Pontos por receber engajamento está sendo avaliado mas não é comum pra evitar desbalanço entre criadores e consumidores.
+  </Accordion>
+
+  <Accordion title="Se eu publicar e depois apagar, os pontos voltam?">
+    Não. A publicação gerou o ponto, e o histórico é imutável. Apagar depois tira o conteúdo do Feed mas os pontos ficam. Isso pode virar brecha de farming pra casos específicos — admins devem monitorar padrões de publicação e exclusão rápidos.
+  </Accordion>
+
+  <Accordion title="Pontos contam em campanhas e no contínuo ao mesmo tempo?">
+    Depende do design. Normalmente: enquanto uma campanha está ativa, **ela se sobrepõe** ao contínuo para o período. Fora da campanha, vale o contínuo. Se você quer que pontos contem pros dois, use scoring_source=mixed na campanha.
+  </Accordion>
+
+  <Accordion title="Como medir se a gamificação está funcionando?">
+    Hoje, o painel principal de métricas está em desenvolvimento ([Acompanhamento](/pt-br/gamificacao/acompanhamento)). Você tem acesso aos dados via suporte ou consultas diretas no banco. Sinais qualitativos: taxa de pessoas olhando a aba Recompensas, ranking sendo compartilhado informalmente, colaboradores falando em pontos em reuniões.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Visão Geral" icon="layer-group" href="/pt-br/gamificacao/visao-geral">
+    Como gamificação do Loop funciona globalmente
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Pontuação especial com meta e prêmio
+  </Card>
+  <Card title="Desafios" icon="trophy" href="/pt-br/gamificacao/desafios">
+    Temporadas recorrentes com reset
+  </Card>
+  <Card title="Reconhecimento Gamificado" icon="handshake" href="/pt-br/reconhecimento/gamificado">
+    Pontos de reconhecimento (giver e receiver)
+  </Card>
+</CardGroup>

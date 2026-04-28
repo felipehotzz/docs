@@ -1,6 +1,172 @@
 ---
 title: "Via Stories"
-description: "Marque colegas publicamente nos stories"
+description: "Como reconhecer um colega publicamente usando o sticker de reconhecimento em um story"
 ---
 
-Em construção.
+O único canal atual para dar reconhecimento no Loop é o **sticker de reconhecimento dentro de um story**. Esta página detalha o passo a passo completo, os 4 estilos visuais disponíveis, e o que acontece quando você publica.
+
+<Note>
+  Reconhecer é uma ação feita **pelo app mobile** — assim como publicar um story normal, você precisa do Loop Native (iOS/Android).
+</Note>
+
+## Passo a passo
+
+<Steps>
+  <Step title="Abra a aba Câmera">
+    No app mobile, toque no ícone de câmera na barra inferior.
+  </Step>
+  <Step title="Selecione o tipo STORY">
+    Deslize pra aba STORY na parte superior e grave uma foto ou vídeo (ou importe da galeria).
+  </Step>
+  <Step title="Abra a barra de stickers">
+    No editor, toque no ícone de sticker (geralmente um quadrado com estrela) na barra lateral direita.
+  </Step>
+  <Step title="Escolha 'Reconhecimento'">
+    Entre os stickers disponíveis (localização, música, link, menção, etc), selecione **Reconhecimento**.
+  </Step>
+  <Step title="Escolha quem vai ser reconhecido">
+    O sistema abre a busca de colaboradores do ambiente. Use a busca por nome ou role a lista. Toque na pessoa.
+  </Step>
+  <Step title="Escolha o tipo de reconhecimento">
+    Depois de escolher a pessoa, o sistema mostra **os tipos de reconhecimento ativos** no seu ambiente (configurados pelo admin). Cada tipo tem ícone, nome e os pontos que gera.
+
+    Toque no tipo que melhor representa o comportamento que você quer celebrar.
+  </Step>
+  <Step title="Escreva uma mensagem (opcional)">
+    Até **200 caracteres**. Este texto complementa o ícone e o nome do tipo — é onde você explica em palavras o que a pessoa fez.
+  </Step>
+  <Step title="Posicione e estilize o sticker">
+    O sticker aparece sobre o vídeo/foto do story. Você pode:
+    - Arrastar pra mover
+    - Gesto de pinça pra redimensionar
+    - Gesto de rotação pra inclinar
+    - **Tocar no sticker** pra alternar entre 4 estilos visuais
+
+    Veja a próxima seção pros 4 estilos.
+  </Step>
+  <Step title="Publique">
+    Toque em **Publicar**. O story sobe com o sticker visível, os pontos são creditados automaticamente e o story entra pro destaque de Reconhecimentos do colega que você reconheceu.
+  </Step>
+</Steps>
+
+## Estilos do sticker
+
+Toque no sticker para alternar entre 4 visuais. Escolha o que combina com o tom do seu story:
+
+<AccordionGroup>
+  <Accordion title="White — limpo e neutro" icon="circle">
+    Fundo branco semi-transparente, texto preto, acento dourado nos detalhes. Ideal pra stories com fundo colorido forte ou para momentos mais formais.
+  </Accordion>
+
+  <Accordion title="Gradient — vibrante e energético" icon="palette">
+    Gradiente roxo-pra-rosa de fundo, texto branco, pontos em amarelo. Excelente pra celebrações fortes e momentos de alta energia.
+  </Accordion>
+
+  <Accordion title="Gold — premium e festivo" icon="crown">
+    Gradiente âmbar-pra-dourado, texto branco. Visual de premiação. Perfeito pra reconhecimentos de alto valor ou entregas excepcionais.
+  </Accordion>
+
+  <Accordion title="Dark — discreto e sério" icon="moon">
+    Fundo preto semi-transparente, texto branco, pontos em âmbar. Menos chamativo — bom para stories com muitos elementos visuais onde você quer equilíbrio.
+  </Accordion>
+</AccordionGroup>
+
+## O que aparece no sticker
+
+Independente do estilo escolhido, o sticker mostra:
+
+- **Ícone** do tipo de reconhecimento (ex: 💡 💛 🤝 🌱)
+- **Nome do tipo** (ex: "Inovação", "Colaboração")
+- **Avatar do recebedor**
+- **Nome do recebedor**
+- **Pontos que o recebedor ganha** (se configurados e > 0)
+- **Sua mensagem** (se você escreveu)
+
+## O que acontece quando você publica
+
+<CardGroup cols={2}>
+  <Card title="Story normal" icon="bolt">
+    O story aparece no Feed de Stories para todo o ambiente por 24 horas, como qualquer outro
+  </Card>
+  <Card title="Pontos creditados" icon="coins">
+    Você (giver) e o colega (receiver) recebem automaticamente os pontos configurados para aquele tipo
+  </Card>
+  <Card title="Destaque permanente" icon="medal">
+    O story vai automaticamente pro destaque "Reconhecimentos" no perfil do colega — fica lá pra sempre
+  </Card>
+  <Card title="Notificação" icon="bell">
+    O colega recebe notificação de que foi reconhecido (push + notificação in-app)
+  </Card>
+</CardGroup>
+
+## Dicas para reconhecimentos eficazes
+
+<AccordionGroup>
+  <Accordion title="Seja específico na mensagem" icon="bullseye">
+    "Parabéns pela entrega do projeto X. Seu cuidado com a qualidade da API salvou nossa sprint" vibra muito mais do que "parabéns, ótimo trabalho". Use os 200 caracteres.
+  </Accordion>
+
+  <Accordion title="Use o tipo certo, não o mais fácil" icon="scale-balanced">
+    Se o comportamento foi de **Inovação**, use o tipo de inovação mesmo que ele dê menos pontos. A consistência dos tipos é o que gera a narrativa cultural ao longo do tempo.
+  </Accordion>
+
+  <Accordion title="Mostre o contexto no vídeo/foto" icon="image">
+    Uma foto do colega, do resultado entregue, ou até um vídeo dele em ação tornam o reconhecimento mais poderoso. Evite reconhecimento "só texto em fundo liso".
+  </Accordion>
+
+  <Accordion title="Não use reconhecimento pra agradar" icon="thumbs-down">
+    O sistema funciona quando reconhecimento acontece por **comportamento real** alinhado a valor. Se virar commodities trocadas por favores, perde a força cultural. Admins monitoram padrões suspeitos.
+  </Accordion>
+</AccordionGroup>
+
+## Limitações atuais
+
+- **Apenas via story**: não dá pra reconhecer em post, comentário, reel ou DM
+- **Uma pessoa por story**: o sticker reconhece uma pessoa por vez. Pra reconhecer várias, faça stories separados
+- **Tipos precisam existir**: se nenhum tipo foi configurado pelo admin, o sticker de reconhecimento não aparece na barra
+- **Sem edição depois de publicado**: uma vez publicado, não dá pra trocar a pessoa, o tipo ou a mensagem. Pra corrigir, exclua e publique de novo (perde os pontos do story excluído)
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Quantos reconhecimentos posso dar por dia?">
+    Não há limite rígido hoje, mas admins podem configurar um **limite mensal por tipo** em desenvolvimento. O sistema está preparado para receber a regra — basta o limite ser enforcido na versão atual.
+  </Accordion>
+
+  <Accordion title="O colega precisa fazer alguma coisa pra receber os pontos?">
+    Não. Os pontos são creditados automaticamente ao publicar. O colega só recebe a notificação e vê o reconhecimento aparecer no perfil dele.
+  </Accordion>
+
+  <Accordion title="Posso incluir reconhecimento em um story com outros stickers (música, localização)?">
+    Sim. O sticker de reconhecimento é compatível com todos os outros stickers do editor de stories — combine música, menção, pergunta, localização, tudo junto.
+  </Accordion>
+
+  <Accordion title="O que acontece se eu excluir um story com reconhecimento?">
+    O story some normalmente. Mas o **registro do reconhecimento permanece** no histórico do sistema e o item continua no destaque do colega recebedor (apenas fica sem link ativo pro story original). Os pontos já creditados também ficam — não são revertidos.
+  </Accordion>
+
+  <Accordion title="Posso reconhecer alguém em outro ambiente?">
+    Não. Reconhecimento é sempre dentro do seu próprio ambiente (tenant). Não há reconhecimento cruzado entre ambientes.
+  </Accordion>
+
+  <Accordion title="Por que não encontro um tipo de reconhecimento que eu queria?">
+    Significa que o admin do seu ambiente ainda não cadastrou esse tipo. Peça pra ele criar — veja [Pilares e Tipos](/pt-br/reconhecimento/pilares-e-tipos).
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Reconhecimento — Visão Geral" icon="handshake" href="/pt-br/reconhecimento/visao-geral">
+    Entenda o sistema completo de reconhecimento
+  </Card>
+  <Card title="Stories" icon="bolt" href="/pt-br/social/stories">
+    Como publicar stories, outros stickers disponíveis e o editor completo
+  </Card>
+  <Card title="Destaques no Perfil" icon="medal" href="/pt-br/reconhecimento/destaques-no-perfil">
+    Onde os reconhecimentos recebidos ficam arquivados
+  </Card>
+  <Card title="Gamificado" icon="trophy" href="/pt-br/reconhecimento/gamificado">
+    Como os pontos creditados viram moeda em campanhas
+  </Card>
+</CardGroup>

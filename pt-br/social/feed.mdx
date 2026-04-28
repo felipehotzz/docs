@@ -1,6 +1,319 @@
 ---
 title: "Feed"
-description: "Linha do tempo de publicações da empresa"
+description: "A linha do tempo principal do Loop — Posts, Reels sugeridos e conteúdo permanente da empresa"
 ---
 
-Em construção.
+O Feed é a tela inicial do Loop: onde você vê **tudo que a empresa está publicando** em ordem relevante. Ele aparece logo abaixo da barra de Stories no topo e reúne posts (fotos, carrosséis, vídeos longos), sugestões de Reels e sugestões de pessoas para seguir.
+
+Diferente de Stories (que somem em 24h), o conteúdo do Feed é **permanente**: fica no perfil do autor e continua acessível pra qualquer membro do ambiente.
+
+<Note>
+  **Posts podem ser criados tanto no app mobile quanto no computador.** Essa é a principal diferença em relação a Stories e Reels, que só podem ser gravados no celular.
+</Note>
+
+## O que aparece no Feed
+
+<CardGroup cols={2}>
+  <Card title="Posts" icon="rectangle-list">
+    Publicações permanentes com foto, carrossel, vídeo ou texto — criados por você ou por outros membros do ambiente
+  </Card>
+  <Card title="Cards de Reels" icon="film">
+    Cards de "Reels para você" com sugestões de vídeos curtos para assistir, levando à aba Reels
+  </Card>
+  <Card title="Sugestão de pessoas" icon="users">
+    Cards com colegas para você seguir, quando não há Reels suficientes para sugerir
+  </Card>
+  <Card title="Cards institucionais" icon="building">
+    Posts da conta institucional da empresa ganham espaço garantido no Feed
+  </Card>
+</CardGroup>
+
+<Note>
+  Stories, Lives, Reconhecimentos e Comunicados (Broadcasts) **não aparecem no Feed** — cada um tem seu próprio lugar no app (barra de Stories, canais dedicados, seção de reconhecimento, aba de comunicados).
+</Note>
+
+## Como publicar um Post
+
+### Pelo computador
+
+<Steps>
+  <Step title="Abra a caixa de publicação">
+    Na tela inicial, clique na caixa "O que você quer compartilhar?" no topo do Feed.
+  </Step>
+  <Step title="Escreva o texto">
+    Digite a mensagem do post. Use `@` para mencionar colegas e `#` para adicionar hashtags.
+  </Step>
+  <Step title="Adicione mídia (opcional)">
+    Clique no ícone de imagem para anexar uma ou várias fotos (carrossel). Vídeos também são suportados.
+  </Step>
+  <Step title="Configure opções avançadas">
+    Adicione localização, marque pessoas e, se quiser alcance segmentado, defina a audiência (por departamento, cargo, local).
+  </Step>
+  <Step title="Publique">
+    Clique em **Publicar**. O Post aparece no seu perfil e no Feed dos colegas imediatamente.
+  </Step>
+</Steps>
+
+### Pelo celular
+
+<Steps>
+  <Step title="Toque no botão + ou abra a aba Câmera">
+    Use o botão de criar no cabeçalho do Feed, ou acesse a aba Câmera e selecione **POST**.
+  </Step>
+  <Step title="Capture ou escolha a mídia">
+    Tire fotos, grave vídeos ou selecione da galeria. Você pode adicionar vários itens em carrossel.
+  </Step>
+  <Step title="Edite a mídia">
+    Aplique trim em vídeos, filtros, textos sobrepostos e trilha sonora da biblioteca Deezer.
+  </Step>
+  <Step title="Escreva legenda e metadados">
+    Adicione texto, menções, hashtags, localização e marque pessoas que aparecem.
+  </Step>
+  <Step title="Publique">
+    Toque em **Publicar**. A publicação vai ao ar na hora.
+  </Step>
+</Steps>
+
+## Recursos de um Post
+
+<AccordionGroup>
+  <Accordion title="Texto, menções e hashtags" icon="text">
+    - Texto livre sem limite rígido de caracteres
+    - Menções com `@` notificam a pessoa marcada
+    - Hashtags com `#` ficam clicáveis e levam à busca
+  </Accordion>
+
+  <Accordion title="Foto única ou carrossel" icon="images">
+    Adicione uma única imagem ou um carrossel com várias. No Feed, o leitor desliza lateralmente para ver cada imagem do carrossel.
+  </Accordion>
+
+  <Accordion title="Vídeo longo" icon="video">
+    Publique vídeos maiores do que caberiam em um Reel. Aplique trim (corte de início e fim) e ajuste o volume do áudio original.
+  </Accordion>
+
+  <Accordion title="Trilha sonora" icon="music">
+    Adicione música da biblioteca Deezer ao vídeo do Post. Ajuste os volumes do áudio original e da música, com fade in e fade out.
+  </Accordion>
+
+  <Accordion title="Textos sobrepostos" icon="text-size">
+    Em vídeos, adicione textos com fonte, cor, tamanho, fundo e tempo de aparição (entrada e saída) por cima da mídia.
+  </Accordion>
+
+  <Accordion title="Localização" icon="location-dot">
+    Marque o local onde o conteúdo foi produzido. A localização fica clicável e agrupa outros posts do mesmo lugar.
+  </Accordion>
+
+  <Accordion title="Pessoas marcadas" icon="user-plus">
+    Marque colegas que aparecem no Post. Cada pessoa marcada recebe notificação.
+  </Accordion>
+
+  <Accordion title="Botão CTA (Call-to-action)" icon="megaphone">
+    Adicione um botão de ação com texto e link.
+
+    <Warning>
+      Disponível apenas para contas **institucionais**.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Segmentação de audiência" icon="bullseye">
+    Ao criar pelo computador, escolha quem vê o Post: toda a empresa, departamentos específicos, cargos, localizações ou combinações. Útil para comunicações direcionadas.
+  </Accordion>
+</AccordionGroup>
+
+## Como o Feed ordena o conteúdo
+
+O Feed combina um **algoritmo de relevância** com uma regra de **destaque institucional**, tudo calculado servidor-side e respeitando o seu ambiente.
+
+### Algoritmo de relevância
+
+Cada item recebe uma pontuação baseada em quatro fatores:
+
+- **Recência** (35%) — conteúdo mais novo tem prioridade
+- **Tipo do autor** (25%) — institucional > verificado > usuário comum
+- **Engajamento** (20%) — curtidas, comentários e compartilhamentos do item
+- **Afinidade** (20%) — sua interação histórica com o autor
+
+Itens que você já viu são **despriorizados** para evitar repetição. Autores que publicam muito em pouco tempo podem ter peso reduzido para evitar saturação do Feed.
+
+### Destaque institucional
+
+Em sequências de 5 posts, a **posição 2 e a posição 5** ficam reservadas a posts da conta institucional da empresa (publicados nas últimas 48h), se houver. Isso garante que comunicados oficiais sempre alcancem os colaboradores.
+
+### Cards de estímulo
+
+A cada sequência de 5+ posts orgânicos, o Feed injeta um **card de estímulo**: Reels sugeridos ou pessoas para seguir. Esses cards são **descartáveis** — quem fecha um card não vê ele de novo naquela sessão.
+
+## Interações
+
+### Curtir
+
+Toque ou clique no coração. A curtida soma no contador do post e gera sinal de afinidade com o autor.
+
+### Comentar
+
+Clique no ícone de balão para abrir a área de comentários.
+
+- **Thread de respostas**: clique em "Responder" abaixo de um comentário para criar uma sub-thread
+- **Menções**: use `@` para mencionar alguém dentro do comentário
+- **Curtir comentários**: cada comentário tem seu próprio contador de curtidas
+- **Tempo real**: novos comentários aparecem sem precisar atualizar
+
+<Note>
+  Administradores podem **desabilitar comentários** ou exigir **aprovação prévia** antes deles ficarem visíveis — veja a seção "Quem pode usar" abaixo.
+</Note>
+
+### Salvar
+
+Clique no ícone de marcador para salvar o Post pra revisitar depois.
+
+**Coleções salvas**: organize seus posts salvos em pastas nomeadas (ex: "Dicas úteis", "Materiais de onboarding", "Fotos do time"). Cada Post pode ir pra uma coleção específica ou só pros salvos genéricos.
+
+Seus salvos são privados — só você vê.
+
+### Compartilhar
+
+Clique no ícone de avião de papel para enviar o Post:
+
+- Em **mensagem direta** para um ou vários colegas
+- Em um **canal comunitário** do qual você participa
+
+O destinatário recebe um card com preview do Post e link pro original.
+
+### Visualização (impressão)
+
+Ao deslizar por um Post e deixá-lo pelo menos 50% visível na tela, uma **impressão** é registrada. Se você voltar ao mesmo Post, conta como nova impressão (re-visita), mas o Post não é duplicado no Feed.
+
+### Reportar
+
+Clique no menu (⋯) e selecione **Reportar**. Escolha entre 7 motivos (spam, nudez, violência, discurso de ódio, assédio, informação falsa, outros) e adicione detalhes até 500 caracteres. A denúncia vai pra fila de moderação dos admins do ambiente.
+
+## Atualização em tempo real
+
+O Feed é **reativo**: novos Posts, curtidas e comentários aparecem sem você precisar atualizar a página. Quando alguém da sua empresa publica algo enquanto você está no Feed, um indicador aparece no topo permitindo carregar os novos itens quando quiser.
+
+**Puxar para atualizar**: no celular, puxe o topo do Feed pra baixo para forçar uma atualização completa.
+
+## Quem pode usar
+
+| Recurso | Usuário comum | Verificado | Institucional | Admin |
+|---|---|---|---|---|
+| Publicar Post | ✓ (se liberado) | ✓ | ✓ | ✓ |
+| Publicar com CTA | ✗ | ✗ | ✓ | ✓ |
+| Segmentar audiência (web) | ✓ | ✓ | ✓ | ✓ |
+| Editar próprio Post | ✓ | ✓ | ✓ | ✓ |
+| Excluir próprio Post | ✓ | ✓ | ✓ | ✓ |
+| Curtir, comentar, salvar | ✓ | ✓ | ✓ | ✓ |
+| Compartilhar | ✓ | ✓ | ✓ | ✓ |
+| Reportar conteúdo | ✓ | ✓ | ✓ | ✓ |
+| Excluir Post de outro | ✗ | ✗ | ✗ | ✓ |
+| Habilitar/desabilitar Posts no ambiente | ✗ | ✗ | ✗ | ✓ |
+| Aprovar comentários pendentes | ✗ | ✗ | ✗ | ✓ |
+| Configurar filtro de palavras | ✗ | ✗ | ✗ | ✓ |
+| Ver fila de incidentes de moderação | ✗ | ✗ | ✗ | ✓ |
+
+<Note>
+  Contas **institucionais** recebem destaque garantido no Feed (posições 2 e 5 de cada sequência de 5), por até 48h após a publicação. Contas **verificadas** têm peso 2x no algoritmo de relevância.
+</Note>
+
+## Regras e limites
+
+- **Permanência**: Posts ficam disponíveis indefinidamente (sem TTL)
+- **Ordenação**: algoritmo + destaque institucional, calculados servidor-side
+- **Carrossel**: sem limite rígido de quantidade de imagens
+- **Legenda**: sem limite explícito de caracteres
+- **Compressão de mídia**: automática antes do envio
+- **Filtro de palavras**: palavras bloqueadas pelo admin impedem a publicação; palavras sinalizadas permitem publicar mas criam incidente para revisão
+- **Isolamento por ambiente**: Posts nunca vazam entre tenants
+
+## Analytics do seu Post
+
+Como autor, abra o menu (⋯) do seu Post e acesse **Insights** pra ver:
+
+- **Impressões**: total de vezes que o Post apareceu em telas
+- **Alcance**: número de contas únicas que viram
+- **Taxa de engajamento**: (curtidas + comentários + salvamentos) ÷ impressões
+- **Breakdown por departamento, cargo e localização**: onde seu conteúdo ressoou mais
+- **Velocidade de propagação**: curva hora a hora de quantas pessoas viram o Post
+- **Seguidores ganhos**: quantas pessoas passaram a te seguir depois deste Post
+
+Para autores institucionais e verificados, os insights incluem comparativos de 7, 14, 30 e 90 dias com o período anterior.
+
+## Editar e excluir
+
+### Editar
+
+Depois de publicado, você pode alterar:
+
+- Legenda (texto)
+- Menções e hashtags
+- Pessoas marcadas
+- Localização
+
+Não é possível alterar as mídias do Post (imagens, vídeos, áudio). Para substituí-las, delete e publique de novo.
+
+### Excluir
+
+Toque no menu (⋯) do seu Post e selecione **Excluir**. A exclusão remove o Post, todos os comentários, curtidas e salvamentos associados. A ação não pode ser desfeita.
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Qual a diferença entre Post, Story e Reel?">
+    - **Post**: permanente, fica no Feed e no seu perfil. Foto, carrossel, vídeo ou texto. Criado no app **ou** no computador.
+    - **Story**: efêmero, some em 24h (mas fica no seu arquivo). Foto ou vídeo até 15s. Criado só no app mobile.
+    - **Reel**: permanente, fica na aba Reels e no seu perfil. Vídeo vertical curto (3-60s). Criado só no app mobile.
+  </Accordion>
+
+  <Accordion title="Posso criar um Post pelo computador?">
+    Sim. No computador você tem acesso completo ao editor de Posts (texto, carrossel, localização, tags, segmentação de audiência). Essa é a principal diferença em relação a Stories e Reels.
+  </Accordion>
+
+  <Accordion title="Por que alguns Posts aparecem primeiro mesmo sendo mais antigos?">
+    O algoritmo do Feed considera sua afinidade com o autor, o engajamento do Post e o tipo de conta. Posts institucionais recentes (até 48h) têm destaque garantido em posições específicas.
+  </Accordion>
+
+  <Accordion title="O que são os cards de 'Reels para você' no Feed?">
+    São sugestões de Reels que o algoritmo considera relevantes pra você. Clicando em qualquer um, você entra na aba Reels já no vídeo escolhido. Se não quiser mais ver aquele card, feche ele — não aparece mais na mesma sessão.
+  </Accordion>
+
+  <Accordion title="Posso segmentar quem vê meu Post?">
+    Sim, pelo computador. Ao criar o Post, escolha a audiência: toda a empresa, departamentos, cargos, localizações ou combinações. O Post aparece apenas no Feed das pessoas que se encaixam na segmentação.
+  </Accordion>
+
+  <Accordion title="Meu Post ganhou destaque institucional — como?">
+    Isso acontece automaticamente se você publica pela **conta institucional** da empresa. Contas institucionais têm posições garantidas (2ª e 5ª de cada sequência de 5) nas primeiras 48h após a publicação.
+  </Accordion>
+
+  <Accordion title="O que acontece quando reporto um Post?">
+    Sua denúncia vai para a fila de moderação dos administradores do ambiente. Eles revisam o conteúdo e decidem entre manter, ocultar ou excluir. Você recebe resposta sobre a decisão quando aplicável.
+  </Accordion>
+
+  <Accordion title="Posso fixar um Post no topo do Feed?">
+    Essa funcionalidade ainda não existe para Posts do Feed. Se precisa de um comunicado que permanece visível, considere usar a conta institucional (ganha destaque nas primeiras 48h) ou um **Broadcast** em canal.
+  </Accordion>
+
+  <Accordion title="Por que o filtro de palavras bloqueou meu Post?">
+    Administradores do ambiente configuram uma lista de palavras banidas. Se seu texto contém uma palavra marcada como "bloquear", o Post é rejeitado antes de publicar. Se está marcada como "sinalizar", o Post sobe normalmente mas gera um incidente para revisão.
+  </Accordion>
+
+  <Accordion title="Minha coleção de salvos é privada?">
+    Sim, 100% privada. Ninguém vê o que você salva nem os nomes das suas coleções. Elas servem apenas como sua organização pessoal.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Stories" icon="bolt" href="/pt-br/social/stories">
+    Publicações efêmeras que somem em 24h
+  </Card>
+  <Card title="Reels" icon="film" href="/pt-br/social/reels">
+    Vídeos curtos verticais na aba dedicada
+  </Card>
+  <Card title="Explorar" icon="compass" href="/pt-br/social/explorar">
+    Descobrir conteúdo além de quem você segue
+  </Card>
+  <Card title="Broadcast" icon="tower-broadcast" href="/pt-br/comunicacao/broadcast">
+    Comunicados oficiais onde só admins publicam
+  </Card>
+</CardGroup>

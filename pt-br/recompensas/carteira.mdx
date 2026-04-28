@@ -1,6 +1,212 @@
 ---
 title: "Carteira"
-description: "Saldo, histórico e progresso diário"
+description: "Saldo de pontos, histórico detalhado de ganhos e gastos, progresso diário e gráfico de atividade"
 ---
 
-Em construção.
+A **Carteira** é a visão pessoal de cada colaborador sobre os pontos que acumula no Loop. É o ponto de entrada da aba **Recompensas** e reúne em uma só tela:
+
+- **Saldo atual** em destaque
+- **Progresso diário** (quanto ganhou hoje)
+- **Histórico detalhado** de cada ponto ganho ou gasto
+- **Gráfico de atividade** dos últimos 7, 30 ou 90 dias
+
+A Carteira é **privada** — cada colaborador vê apenas a própria. Nem colegas nem gestores (exceto admins, que veem o sistema inteiro) enxergam a Carteira dos outros.
+
+## A tela principal
+
+A Carteira tem estilo visual de **cartão digital**: um card grande no topo com efeito 3D sutil (tilt parallax ao mover o dispositivo), simulando um cartão físico. Nele você vê:
+
+<CardGroup cols={2}>
+  <Card title="Nome da moeda" icon="coins">
+    Customizado pelo admin do ambiente — pode ser "Moedas", "Pontos", "XP", "[NomeDaEmpresa] Coins" ou o que fizer sentido
+  </Card>
+  <Card title="Saldo disponível" icon="wallet">
+    Número grande e claro: quantos pontos você tem agora, pronto pra gastar no Marketplace
+  </Card>
+  <Card title="Seu nome e data" icon="user">
+    Nome do colaborador + desde quando está no ambiente — como um cartão de membro
+  </Card>
+  <Card title="Ícone contactless" icon="wifi">
+    Detalhe visual que reforça a metáfora de cartão contactless — intencional pra remeter ao "cartão de benefícios"
+  </Card>
+</CardGroup>
+
+### Botões de ação rápida
+
+Abaixo do card principal, 4 botões de atalho:
+
+<CardGroup cols={2}>
+  <Card title="Meu Rank" icon="ranking-star">
+    Abre o leaderboard do ambiente e mostra sua posição
+  </Card>
+  <Card title="Campanhas" icon="bullseye">
+    Lista das campanhas e desafios ativos em que você está participando
+  </Card>
+  <Card title="Marketplace" icon="store">
+    Vai direto pro catálogo de recompensas resgatáveis
+  </Card>
+  <Card title="Histórico" icon="clock-rotate-left">
+    Abre a linha do tempo completa de todos os ganhos e gastos
+  </Card>
+</CardGroup>
+
+## Saldo atual
+
+O saldo é calculado em tempo real: cada ação que gera pontos soma no saldo imediatamente. Cada resgate subtrai. Nenhum cache — o número que você vê é o que está realmente disponível.
+
+<Note>
+  O saldo **nunca fica negativo**. Se você tenta resgatar algo que custa mais do que tem, o sistema bloqueia antes de debitar. Não existe crédito ou parcelamento.
+</Note>
+
+### Como o saldo cresce
+
+Pontos vêm de várias fontes no Loop — todas alimentam o mesmo saldo:
+
+- **Engajamento social** (curtir, comentar, publicar)
+- **Reconhecimento** (dar e receber reconhecimento)
+- **Trilhas** (começar, concluir item, concluir trilha)
+- **Campanhas** (atingir metas de campanhas ativas)
+- **Desafios** (ganhar temporadas recorrentes)
+
+O valor de cada ação é configurado pelo admin no Modelo de Gamificação. Veja [Gamificação — Contínuo](/pt-br/gamificacao/continuo) pra lista completa das ações e valores padrão.
+
+### Como o saldo diminui
+
+Apenas **resgates no Marketplace** consomem pontos. Os pontos saem na hora que você confirma o resgate, mesmo que a entrega ainda esteja pendente com o admin.
+
+Se o resgate for **cancelado** depois (pelo admin), os pontos voltam automaticamente pro saldo.
+
+## Progresso diário
+
+A seção de **progresso diário** mostra quantos pontos você ganhou **hoje**, de 0h00 até agora (considerando o fuso UTC). Útil pra sentir ritmo do dia a dia e ver se está ativo.
+
+Se o seu ambiente tem um **limite diário** configurado pelo admin (um teto de pontos que você pode ganhar por dia), o progresso mostra também quanto falta pra chegar nesse teto.
+
+**Exemplo**:
+
+- Limite diário: 500 pts
+- Ganhos hoje: 180 pts
+- Visualização: "180 de 500 pts · 36% do limite diário"
+
+Ao atingir o teto, ações desse dia não pontuam mais (até o reset da meia-noite UTC). Isso protege contra farming e mantém o sistema balanceado.
+
+## Histórico de transações
+
+A aba **Histórico** mostra uma linha do tempo completa. Cada item tem:
+
+- **Ícone** da ação (coração pra curtida, troféu pra reconhecimento, etc)
+- **Descrição** ("Curtiu um post", "Reconheceu [Nome]", "Concluiu trilha Onboarding")
+- **Data e hora** exatas
+- **Valor em pontos** (verde se ganho, laranja se gasto)
+
+Você pode filtrar por:
+
+- **Período**: últimos 7 dias, 30 dias, 90 dias
+- **Tipo**: só ganhos, só gastos, ou tudo
+- **Origem** (quando aplicável): só contínuo, só campanha X, só desafio Y
+
+### Gráfico de atividade
+
+Acima da lista, um gráfico de barras mostra atividade por dia (se período é 7 dias), por semana (30 dias) ou por mês (90 dias). Barras empilhadas:
+
+- **Verde**: pontos ganhos
+- **Laranja**: pontos gastos (resgates)
+
+Ajuda a ver padrões: se você tem dias muito ativos, semanas mais fracas, momentos de gasto grande.
+
+## Saldo no Ranking
+
+Na aba **Ranking**, você vê onde está na classificação geral do ambiente (se o admin deixar visível). Formato:
+
+- Top 3 em destaque com medalhas
+- Lista dos 20 primeiros
+- Seu card separado mostrando sua posição (mesmo se você não está no top 20)
+
+O ranking considera **lifetime** — total acumulado desde que você começou. Não é saldo atual; é acumulado (gastar pontos não tira você do ranking).
+
+<Note>
+  Se o admin configura o modelo como "privado" — sem mostrar ranking aos colaboradores — essa aba some pra você. A ideia é permitir ambientes onde gamificação opera sem competição pública.
+</Note>
+
+## Regras e limites
+
+- **Carteira é pessoal e intransferível**: não tem como passar pontos pra outra pessoa
+- **Pontos não expiram**: permanecem no saldo indefinidamente
+- **Saldo nunca negativo**: sistema bloqueia resgates além do saldo
+- **Histórico é imutável**: transações passadas não são editáveis nem apagáveis, nem pelo colaborador nem pelo admin
+- **Reset do limite diário**: à meia-noite UTC (ajusta pro seu fuso local no app)
+- **Isolamento por ambiente**: se você trabalha em 2 ambientes Loop, tem 2 Carteiras independentes. Pontos não cruzam
+- **Exclusão da conta**: pontos acumulados somem quando o colaborador é removido do ambiente. Resgates pendentes são cancelados
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Por que meu saldo não atualizou depois de uma ação?">
+    Normalmente atualiza em segundos. Se não atualizou:
+    - Confira se a ação estava habilitada pra pontuar (admin pode ter desligado aquela ação)
+    - Verifique se o limite diário não foi atingido (se sim, ações do resto do dia não somam)
+    - Force um refresh (puxe a tela pra baixo ou troque de aba e volte)
+    - Se persiste, fale com o suporte
+  </Accordion>
+
+  <Accordion title="Tenho saldo, mas o botão de resgate aparece desabilitado. Por quê?">
+    Possíveis causas:
+    - A recompensa está **esgotada** (estoque zerou)
+    - A recompensa está **fora da janela de disponibilidade** (ainda não começou ou já acabou)
+    - Você não é **elegível** pra recompensa (restrição por grupo ou nível)
+    - O ambiente está **bloqueado** temporariamente (manutenção rara)
+
+    No detalhe da recompensa aparece a causa específica quando o botão é desabilitado.
+  </Accordion>
+
+  <Accordion title="O que é lifetime vs. saldo?">
+    **Saldo**: pontos que você tem disponíveis pra gastar agora.
+    **Lifetime**: total que você já ganhou desde que começou (inclui o que já gastou).
+
+    Exemplo: ganhou 3000 lifetime, gastou 1500 em resgates → saldo atual é 1500. Lifetime continua 3000.
+
+    O ranking usa lifetime — gastar não te faz descer posição.
+  </Accordion>
+
+  <Accordion title="Posso ver o ranking completo ou só o top N?">
+    Você vê o **top 20** + sua posição. Ver ranking completo de centenas de pessoas traria pouca informação útil — sua posição é mais relevante pra motivação.
+  </Accordion>
+
+  <Accordion title="Se eu estou empatado no ranking com alguém, quem fica na frente?">
+    Desempate é pela **data de entrada no ambiente** — quem está há mais tempo, aparece na frente. Isso premia consistência de longo prazo.
+  </Accordion>
+
+  <Accordion title="Como sei quantos pontos ganho em cada tipo de ação?">
+    Na aba **Histórico**, cada transação tem descrição e valor. Com o tempo você vê padrão. Para lista completa dos valores padrão, veja [Gamificação — Contínuo](/pt-br/gamificacao/continuo). Lembrando: admin pode customizar os valores do seu ambiente.
+  </Accordion>
+
+  <Accordion title="Meu saldo diminuiu de repente. O que aconteceu?">
+    Causas possíveis:
+    - Você resgatou algo e esqueceu
+    - Admin fez um **ajuste manual** (raro — geralmente é comunicado)
+    - Um resgate que tinha sido cancelado foi **re-processado** com erro
+
+    Olhe o histórico — cada mudança no saldo está registrada com descrição e timestamp.
+  </Accordion>
+
+  <Accordion title="Posso pedir pontos de bônus ao admin pra um evento pontual?">
+    Admins podem fazer ajustes manuais via suporte quando necessário (aniversário da empresa, evento especial, erro compensatório). Não há botão de "dar bônus" no painel — é operação específica. Contate admin ou suporte com o pedido.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Marketplace" icon="store" href="/pt-br/recompensas/marketplace">
+    Catálogo de recompensas onde os pontos são gastos
+  </Card>
+  <Card title="Visão Geral de Recompensas" icon="layer-group" href="/pt-br/recompensas/visao-geral">
+    Sistema completo de pontos, resgate e entrega
+  </Card>
+  <Card title="Gamificação — Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Ranking geral e dashboards de gamificação
+  </Card>
+  <Card title="Gamificação — Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Lista de todas as ações que geram pontos automaticamente
+  </Card>
+</CardGroup>

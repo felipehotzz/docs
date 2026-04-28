@@ -1,6 +1,230 @@
 ---
 title: "Métricas de Influência"
-description: "Capital social e impacto em tempo real"
+description: "Como o score de 0 a 100 é calculado a partir de 5 dimensões — seguidores, impressões, engajamento, diversidade e consistência"
 ---
 
-Em construção.
+O **score de influência** é o número de 0 a 100 que aparece em cada linha do painel de Descoberta. Ele reúne 5 sinais observáveis do comportamento de cada colaborador no app e os combina em um valor único que permite ranqueamento e comparação.
+
+Entender as 5 dimensões ajuda a:
+
+- Interpretar por que uma pessoa está ranqueada acima de outra
+- Escolher o melhor influenciador pra uma campanha específica
+- Identificar pontos fortes e fracos do capital social do ambiente como um todo
+
+## A fórmula completa
+
+O score de 0 a 100 é composto por:
+
+| Dimensão | Peso | O que mede |
+|---|---|---|
+| **Seguidores** | 30% | Quantas pessoas do ambiente seguem a conta |
+| **Impressões** | 25% | Quantas vezes o conteúdo apareceu em telas de colegas |
+| **Engajamento** | 25% | Taxa de curtidas + comentários por impressão |
+| **Diversidade de formatos** | 10% | Se a pessoa publica em posts, reels e stories |
+| **Consistência** | 10% | Em quantas semanas (das últimas 4) a pessoa publicou |
+
+Cada dimensão contribui com no máximo o seu peso. Ninguém estoura 30% na dimensão de seguidores mesmo tendo 10.000 seguidores.
+
+## Dimensão 1 — Seguidores (30%)
+
+**O que é**: a conta quantas pessoas do ambiente **seguem ativamente** aquele colaborador.
+
+**Por que importa**: seguidores são a medida mais pura de "rede construída". Quem tem mais, chega mais longe — simples. A pessoa escolheu deliberadamente acompanhar.
+
+**Como é calculado**: cada 100 seguidores contribuem com 30% da pontuação. Ou seja, com 100 seguidores você já satura essa dimensão.
+
+<Note>
+  O limite baixo (100 seguidores) é proposital. Em ambientes corporativos, poucos colaboradores acumulam mais que 100 seguidores — faria a dimensão dominar o score e esconder as outras. Com 100 seguidores já sendo o máximo, quem tem 80 e quem tem 400 ficam muito próximos nessa dimensão e as outras pesam mais.
+</Note>
+
+**Sinal fraco quando**: ambientes novos (todo mundo tem poucos seguidores porque o hábito de seguir ainda não pegou). Com o tempo, a dimensão fica mais discriminante.
+
+**O que pode distorcer**: pessoas que **pedem** seguidores sistemática ou criam "pactos" (sigo se você me segue). Em geral o sinal se autocorrige em semanas, mas admins atentos identificam.
+
+## Dimensão 2 — Impressões (25%)
+
+**O que é**: o total de vezes que os conteúdos da pessoa apareceram em telas de outros colaboradores (visualizações de story, views de reel, impressões de post no Feed).
+
+**Por que importa**: "impressão" é a prova de que a rede entregou. Você pode ter 200 seguidores mas se ninguém olhou seu conteúdo, a influência é teórica. Impressões confirmam reach real.
+
+**Como é calculado**: cada 10.000 impressões contribuem com 25%. Ou seja, com 10.000 impressões acumuladas você satura essa dimensão.
+
+**Sinal forte quando**: a pessoa publica frequentemente e o conteúdo **roda** (aparece no Feed, é sugerido, é compartilhado).
+
+**Sinal fraco quando**: publica pouco, ou publica muito mas só pra um círculo pequeno. Impressões precisam de volume + distribuição.
+
+**Relação com seguidores**: são correlacionadas mas não idênticas. Pessoa pode ter pouco seguidor e muita impressão (conteúdo viral isolado) ou muito seguidor e pouca impressão (seguidores passivos).
+
+## Dimensão 3 — Engajamento (25%)
+
+**O que é**: a **taxa** de impressões que converteram em curtidas ou comentários.
+
+Fórmula: `(curtidas + comentários) ÷ impressões × 100`.
+
+**Por que importa**: impressão mostra alcance, mas engajamento mostra **qualidade**. 10.000 impressões com 100 curtidas (1%) é ok. 10.000 impressões com 500 curtidas (5%) é excelente — tem mais gente **reagindo** ao conteúdo.
+
+Engajamento é o que separa **audiência passiva** de **audiência ativa**. E o segundo é o que constrói cultura.
+
+**Como é calculado**: cada ponto percentual de engajamento contribui com 2,5% da pontuação, saturando em 10% de engajamento (que é um índice muito alto no contexto corporativo — equivalente a bom creator do Instagram).
+
+**Sinal forte quando**: conteúdo que **mobiliza conversa**. Posts com muitos comentários e reels que viralizam internamente.
+
+**Sinal fraco quando**: conteúdo de alto alcance mas baixa interação (sinal de conteúdo institucional "cumprindo tabela"). Também fraco quando volume é muito baixo — poucos dados geram % volátil.
+
+## Dimensão 4 — Diversidade de formatos (10%)
+
+**O que é**: quantos dos 3 formatos (post, reel, story) a pessoa publica.
+
+**Por que importa**: quem publica só em um formato tem audiência limitada (só quem gosta daquele formato). Quem publica nos 3 chega em mais pessoas com estilos de consumo diferentes:
+
+- Quem consome mais stories (rápido, efêmero)
+- Quem consome mais reels (vertical, entretenimento)
+- Quem consome mais posts (texto, referência)
+
+**Como é calculado**: cada formato contribui com cerca de 3,3%. Publicar em 1 formato = ~3%. Em 2 = ~7%. Em todos os 3 = 10% (saturado).
+
+**Sinal forte quando**: a pessoa usa o app de forma madura, aproveitando cada formato pelo que ele serve.
+
+**Sinal fraco quando**: publica só em um formato. Pode ser escolha deliberada (quem quer ser reel creator, por exemplo), mas dilui o score composto.
+
+<Note>
+  Essa dimensão tem peso menor (10%) porque existem especialistas de formato legítimos. Um analista de tech que só publica posts densos pode ter influência alta num tema específico mesmo sem stories. A diversidade entra como bônus, não como obrigação.
+</Note>
+
+## Dimensão 5 — Consistência (10%)
+
+**O que é**: em quantas das últimas 4 semanas a pessoa publicou ao menos um conteúdo.
+
+**Por que importa**: influência é **presença sustentada**, não flash. Alguém que publicou 20 posts no primeiro mês e sumiu nos últimos 3 meses não é influenciador ativo. Alguém que publica 2-3 por semana com regularidade mantém presença mental na rede.
+
+**Como é calculado**: cada semana com conteúdo contribui com cerca de 3,3%. 0 semanas = 0%. 1 semana = ~3%. 4 semanas = 10% (saturado).
+
+**Sinal forte quando**: quem publica em todas as 4 semanas — mesmo que varie volume por semana — está sempre presente.
+
+**Sinal fraco quando**: publicou muito em 1 semana mas sumiu nas outras 3. Sinal de burst, não consistência.
+
+<Note>
+  Janela de 4 semanas é curta proposital. Reflete a "presença atual" — quem é influenciador **hoje**, não quem foi 6 meses atrás. Admins podem ver mais longo prazo pelo gráfico de evolução individual.
+</Note>
+
+## Faixas do score
+
+O score de 0 a 100 tem um código de cor visual no painel:
+
+<CardGroup cols={2}>
+  <Card title="Verde: 80 a 100" icon="circle-check">
+    **Altíssima influência.** Poucos chegam aqui. São "celebrities internas" — pauta conversa, mobiliza rede, define o tom.
+  </Card>
+  <Card title="Azul: 60 a 79" icon="circle">
+    **Influência forte.** Cream de cream da empresa. Eficazes em qualquer campanha que cobra conteúdo e alcance.
+  </Card>
+  <Card title="Amarelo: 40 a 59" icon="circle-half-stroke">
+    **Influência média.** Bons multiplicadores, especialmente em suas áreas ou temas. Ótimos pra campanhas segmentadas.
+  </Card>
+  <Card title="Laranja: 20 a 39" icon="circle-dot">
+    **Influência em construção.** Têm presença mas ainda não consolidaram. Podem crescer rápido com incentivo certo.
+  </Card>
+</CardGroup>
+
+Abaixo de 20: a influência é baixa ou o sinal ainda é insuficiente pra classificar com segurança.
+
+## As dimensões dos 4 tipos
+
+Além do score composto, cada tipo de perfil (Autoridade, Especialista, Conector, Criador) tem sua **própria dimensão de 0 a 100** calculada separadamente:
+
+- **Autoridade** usa cargo formal da Gestão de Usuários (CEO, Diretor, Gerente, etc.) como principal sinal
+- **Especialista** combina engajamento alto + concentração de temas
+- **Conector** combina razão seguidores/seguindo + volume de comentários em relação ao conteúdo
+- **Criador** combina volume total + diversidade de formatos + consistência
+
+Essas 4 dimensões são **independentes** do score composto e aparecem no **radar chart** da gaveta de detalhe de cada influenciador.
+
+O **tipo atribuído** é simplesmente qual dimensão está mais alta.
+
+## Gráfico de evolução
+
+Na gaveta de detalhe de cada influenciador, um **gráfico de linha** mostra o score ao longo das últimas atualizações (até 30 snapshots). Isso permite:
+
+- Ver se a pessoa está subindo, caindo ou estável
+- Identificar picos (alguma campanha específica levantou a pessoa?)
+- Notar quedas (parou de publicar? mudou de área?)
+
+Cada snapshot é criada quando o admin dispara **Atualizar scores** — não há captura automática. Então a densidade do gráfico depende da cadência de atualizações do admin.
+
+## Interpretar o painel
+
+### "Essa pessoa tem score alto mas não tem tipo. Como?"
+
+Tipo requer um piso de conteúdo mínimo (5 publicações) E score ≥ 15. Se alguém tem score alto só por seguidores mas publica muito pouco, o tipo fica vazio proposital. Score alto sem tipo = presença passiva (só segue e é seguido), não influência ativa.
+
+### "Por que pessoa X tem score mais alto que Y se tem menos seguidores?"
+
+Porque o score é composto de 5 dimensões. Talvez Y tenha muitos seguidores passivos (alta dimensão 1) mas baixa diversidade, baixo engajamento e baixa consistência — e X tenha seguidores moderados mas máximo em todas as outras.
+
+### "Todo mundo no top 10 tem o mesmo tipo. Problema?"
+
+Pode ser. Se os top 10 são todos Criadores, talvez a cultura do ambiente recompense volume demais e esteja faltando lideranças formais ativando o app. Cruze o top 10 com a estrutura organizacional — se há muito diretor fora do top, vale convidá-los pra serem mais ativos.
+
+## Regras e limites
+
+- **Atualização manual**: o admin precisa apertar "Atualizar scores" para recomputar
+- **Snapshots** são criados a cada atualização e ficam no histórico individual
+- **Piso de classificação**: tipo só é atribuído com score ≥ 15 e ao menos 5 conteúdos
+- **Contas excluídas**: assistentes de IA e contas marcadas como bots ficam fora
+- **Ambiente novo**: pode demorar semanas até o painel ter dados suficientes pra ranqueamento útil — a recomputação é **cumulativa**, o tempo de uso preenche os dados
+- **Mudança de tipo**: o tipo pode mudar entre atualizações se o comportamento mudar (ex: Criador que virou Conector porque começou a comentar em vez de publicar)
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="O score considera conteúdo antigo ou só recente?">
+    Depende da dimensão:
+    - Seguidores e impressões são **acumulativos** (consideram toda a história)
+    - Engajamento é **média agregada** de todo o conteúdo
+    - Consistência é **janela de 4 semanas** (só conta se a pessoa publicou recentemente)
+
+    O resultado: alguém que foi forte há anos mas parou pode ter score alto por acumulado, mas consistência baixa.
+  </Accordion>
+
+  <Accordion title="Se um colaborador se muda de departamento, a influência sofre?">
+    Não diretamente. O departamento entra como filtro no painel, não no cálculo. Mas como mudança de área costuma mudar temas e rede, o score pode oscilar naturalmente nas semanas seguintes.
+  </Accordion>
+
+  <Accordion title="A gente pode pesar dimensões diferentes para cenários diferentes?">
+    Hoje não — os pesos (30/25/25/10/10) são fixos. Customização dos pesos está em avaliação, mas tem risco: permitir "ajustar os pesos" pode transformar o painel em algo subjetivo e difícil de comparar entre empresas e períodos.
+  </Accordion>
+
+  <Accordion title="O que significa se alguém tem score 0?">
+    Literalmente: nada de publicação, nenhum seguidor, nenhuma impressão. Ou é alguém que nunca usou o app, ou está muito inativo, ou foi excluído (conta de bot).
+  </Accordion>
+
+  <Accordion title="Reconhecimentos recebidos entram no score?">
+    Hoje ainda não. A integração está no roadmap — reconhecimentos recebidos devem fortalecer especialmente a dimensão de Especialista (sinal de expertise reconhecida) e Conector (sinal de participação valorizada).
+  </Accordion>
+
+  <Accordion title="Dá pra ver como a dimensão de engajamento muda ao longo do tempo?">
+    No gráfico de evolução da gaveta, você vê o **score composto** ao longo do tempo. Evolução das dimensões individuais separadamente ainda não é visualizada — só no snapshot atual via radar chart. Está no roadmap.
+  </Accordion>
+
+  <Accordion title="Empresas grandes ou pequenas têm scores comparáveis?">
+    Dentro do mesmo ambiente, sim. Entre ambientes diferentes, não diretamente — o 100 depende da base. Com 10.000 colaboradores, 10.000 impressões é comum; com 100 colaboradores, 10.000 impressões é quase impossível. Compare rankings **dentro do mesmo ambiente**, não entre ambientes.
+  </Accordion>
+
+  <Accordion title="Se eu quero uma pessoa com alto engajamento independente do score geral?">
+    Ordene a tabela por **engajamento** (coluna clicável) em vez do score. Mostra quem tem a maior proporção de reação por impressão, independente de quantos seguidores ou quantas publicações totais.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Descoberta" icon="magnifying-glass" href="/pt-br/influenciadores-internos/descoberta">
+    Ver o ranking, ordenar por cada métrica, filtrar a lista
+  </Card>
+  <Card title="Perfis" icon="layer-group" href="/pt-br/influenciadores-internos/perfis">
+    Os 4 tipos e como cada dimensão se relaciona com eles
+  </Card>
+  <Card title="Visão Geral" icon="layer-group" href="/pt-br/influenciadores-internos/visao-geral">
+    Contexto completo do painel de Influenciadores Internos
+  </Card>
+</CardGroup>

@@ -1,6 +1,300 @@
 ---
 title: "Trilhas"
-description: "Percursos de conhecimento que crescem com novos conteúdos"
+description: "Percursos curados de conhecimento — como criar, gerenciar, atribuir e acompanhar trilhas de reels"
 ---
 
-Em construção.
+**Trilhas** são **sequências curadas de reels** organizadas por tema, com inscrição, progresso e conclusão. São o jeito estruturado de transformar a biblioteca de reels do ambiente em **experiências de aprendizado intencionais**.
+
+Esta página cobre tudo: estrutura, criação, atribuição automática, acompanhamento e operação no dia-a-dia.
+
+## Estrutura de uma trilha
+
+Cada trilha tem dois componentes:
+
+<CardGroup cols={2}>
+  <Card title="Metadados" icon="file-lines">
+    Nome, descrição, ícone emoji, hashtag, tempo estimado, ativo/inativo. O "rosto" da trilha que o colaborador vê antes de entrar.
+  </Card>
+  <Card title="Itens" icon="list-ol">
+    A lista ordenada de reels que compõem o conteúdo. Cada item é um reel do ambiente, posicionado em uma ordem específica.
+  </Card>
+</CardGroup>
+
+<Note>
+  Trilhas são **estrutura plana** — todos os itens ficam no mesmo nível, em sequência. Não existem sub-módulos ou aninhamento. Isso é intencional: mantém a experiência simples e focada.
+</Note>
+
+## Como criar uma trilha
+
+<Steps>
+  <Step title="Abra o painel de Desenvolvimento">
+    Painel de Gestão → **Desenvolvimento** → aba **Trilhas**.
+  </Step>
+  <Step title="Clique em 'Nova trilha'">
+    Abre um modal com os campos da trilha.
+  </Step>
+  <Step title="Preencha os metadados">
+    - **Nome** (obrigatório): ex. "Segurança no Trabalho", "Onboarding Vendas"
+    - **Hashtag** (opcional): pra descoberta, ex. "seguranca"
+    - **Descrição**: os objetivos da trilha (pra que serve, o que o colaborador vai aprender)
+    - **Ícone (emoji)**: um emoji único pra visualização rápida (🛡️, 🚀, 🎓)
+    - **Tempo estimado (em minutos)**: soma aproximada de todos os itens
+    - **Ativa**: toggle pra publicar ou deixar como rascunho
+  </Step>
+  <Step title="Salve">
+    A trilha aparece na lista, ainda sem itens. Status depende do toggle: publicada (visível aos colaboradores) ou rascunho (oculta).
+  </Step>
+  <Step title="Adicione itens">
+    Clique na trilha recém-criada e use o gerenciador de itens pra buscar e adicionar reels. Veja seção abaixo.
+  </Step>
+</Steps>
+
+## Adicionar reels à trilha
+
+<Steps>
+  <Step title="Entre no detalhe da trilha">
+    Clique na trilha na lista. Aparece a tela de itens.
+  </Step>
+  <Step title="Clique em 'Adicionar reels'">
+    Abre o buscador de reels do ambiente.
+  </Step>
+  <Step title="Busque">
+    - Por **palavra da legenda**: ex. "onboarding", "política", "boas práticas"
+    - Por **autor**: nome do colaborador que publicou
+    - O sistema mostra thumbnails dos reels encontrados, com duração e autor
+  </Step>
+  <Step title="Selecione os reels desejados">
+    Clique em cada reel que quer adicionar. Reels já adicionados à trilha aparecem com um selo de conferência pra você não duplicar.
+  </Step>
+  <Step title="Ordene">
+    Arraste os reels para a ordem didática desejada. A ordem determina a sequência de consumo pelo colaborador.
+  </Step>
+  <Step title="Confirme">
+    Salve a lista. A trilha agora está pronta pra consumo — desde que esteja com o toggle "Ativa" ligado.
+  </Step>
+</Steps>
+
+### Adicionar reels novos
+
+Se precisa de um reel que ainda não existe no ambiente, o caminho é:
+
+1. Pedir que um colaborador (especialista, gestor) publique o reel pelo app mobile
+2. Aguardar publicação
+3. Voltar no gerenciador de itens da trilha e adicionar
+
+Não é possível criar reel **dentro do fluxo da trilha** — sempre passa pela publicação normal.
+
+## Publicar ou deixar como rascunho
+
+- **Ativa = ligada**: a trilha aparece na seção de Desenvolvimento para todos os colaboradores do ambiente
+- **Ativa = desligada**: a trilha fica oculta dos colaboradores. Útil pra montar com calma antes de lançar
+
+Não há workflow de review/aprovação — o admin que criou pode publicar direto.
+
+## Inscrição: manual ou automática
+
+### Manual (auto-inscrição do colaborador)
+
+Colaboradores entram na seção de Desenvolvimento, olham as trilhas disponíveis e decidem se inscrever.
+
+- Abre a trilha → preview
+- Clica em "Inscrever-se"
+- A trilha passa pra lista de "Minhas trilhas"
+
+Essa é a inscrição padrão. Não precisa de nada extra configurado — toda trilha ativa é auto-inscrevível por padrão.
+
+### Automática (regras de onboarding)
+
+Para trilhas que devem ser **aplicadas automaticamente** a novos colaboradores, você configura regras de onboarding.
+
+<Steps>
+  <Step title="Abra a aba 'Regras de Onboarding'">
+    Dentro do painel de Desenvolvimento.
+  </Step>
+  <Step title="Clique em 'Nova regra'">
+    Define qual trilha e pra quem.
+  </Step>
+  <Step title="Selecione a trilha">
+    Escolha a trilha criada anteriormente.
+  </Step>
+  <Step title="Defina o público-alvo">
+    - **Toda a empresa**: todo novo colaborador recebe a trilha
+    - **Por departamento**: apenas colaboradores do departamento X
+    - **Por grupo**: apenas colaboradores em grupos específicos
+  </Step>
+  <Step title="Ative">
+    Assim que um novo colaborador entrar no ambiente e bater com a regra, a trilha é automaticamente atribuída a ele.
+  </Step>
+</Steps>
+
+<Warning>
+  Regras de onboarding só disparam para colaboradores **novos** a partir do momento em que a regra está ativa. Colaboradores que já estavam no ambiente antes da criação da regra **não recebem** a trilha automaticamente — se precisar atribuir a todo mundo retroativamente, cada colaborador tem que se inscrever voluntariamente, ou pedir ao suporte.
+</Warning>
+
+## Gerenciar trilhas existentes
+
+Na lista de trilhas, cada linha tem opções:
+
+<AccordionGroup>
+  <Accordion title="Editar metadados" icon="pencil">
+    Troca nome, descrição, ícone, hashtag, tempo estimado. Não afeta itens nem inscrições.
+  </Accordion>
+
+  <Accordion title="Gerenciar itens" icon="list">
+    Abre a tela de itens pra adicionar, remover ou reordenar reels.
+  </Accordion>
+
+  <Accordion title="Ativar / desativar" icon="toggle-on">
+    Publica ou oculta a trilha dos colaboradores. Desativar **não** apaga inscrições e progressos existentes — preserva tudo, só esconde a trilha da lista pública.
+  </Accordion>
+
+  <Accordion title="Ver analytics" icon="chart-line">
+    Mostra quantos se inscreveram, quantos concluíram, progresso médio. Veja [Analytics](/pt-br/desenvolvimento/analytics) pra detalhes.
+  </Accordion>
+
+  <Accordion title="Excluir" icon="trash">
+    Remove a trilha permanentemente. Apaga todos os itens da trilha e todos os registros de inscrição e progresso dos colaboradores. **Ação irreversível** — prefira desativar quando estiver em dúvida.
+  </Accordion>
+</AccordionGroup>
+
+## Experiência do colaborador
+
+### Descoberta
+
+Na seção de Desenvolvimento, o colaborador vê:
+
+- **Trilhas disponíveis**: todas as trilhas ativas do ambiente, em forma de cards com ícone, nome e tempo estimado
+- **Minhas trilhas**: as que ele já se inscreveu, com barra de progresso em cada uma
+- **Busca**: por nome ou hashtag
+
+### Consumo
+
+Ao entrar em uma trilha:
+
+1. Vê a lista de itens (reels em ordem), com indicador de quais já concluiu
+2. Toca no primeiro item (ou de onde parou) → abre o reel em tela cheia
+3. Assiste o reel; ao terminar, desliza pro próximo — como um feed de reels, mas restrito à trilha
+4. A cada item concluído, o progresso da trilha atualiza
+5. Quando conclui todos os itens, a trilha é marcada como concluída
+
+### Sem obrigação de ordem
+
+Apesar da trilha **sugerir** uma ordem didática, o colaborador pode pular itens ou consumir em ordem diferente. O sistema registra cada item concluído individualmente.
+
+Para trilhas de compliance onde a ordem é crítica, essa é uma limitação — enforcement de ordem está no roadmap.
+
+### Retomar
+
+Hoje o colaborador precisa lembrar visualmente onde parou (os itens concluídos têm indicador). **Retomar automaticamente do último item visto** está no roadmap.
+
+## Pontos e gamificação
+
+Cada ação na trilha gera pontos no sistema de gamificação:
+
+| Ação | Padrão |
+|---|---|
+| Começar uma trilha (inscrever-se) | 10 pontos |
+| Concluir um item da trilha | 30 pontos |
+| Concluir a trilha inteira | 100 pontos |
+
+Esses valores são configuráveis pelo admin no painel de Gamificação. Veja [Aprendizado Gamificado](/pt-br/desenvolvimento/aprendizado-gamificado) pra entender em profundidade.
+
+## Boas práticas de curadoria
+
+<AccordionGroup>
+  <Accordion title="6-12 reels por trilha é o ideal" icon="chart-bar">
+    Poucos demais parece raso e o colaborador pergunta "só isso?". Muitos demais parece trabalho e o colaborador adia pra "quando sobrar tempo" — e nunca sobra. 6 a 12 é o ponto doce.
+  </Accordion>
+
+  <Accordion title="Ordenação didática importa" icon="sort">
+    Comece com o "por que isso importa" (motivação), depois "o que é" (conceito), depois "como fazer" (prático), depois "casos de erro" (o que evitar), termine com "próximos passos".
+  </Accordion>
+
+  <Accordion title="Variação de autores é bom" icon="users">
+    Se todos os reels são da mesma pessoa, o consumo fica monótono. Mescle gestores, especialistas, pares. Dá ritmo diferente e reforça que conhecimento é distribuído.
+  </Accordion>
+
+  <Accordion title="Comece com um reel curto e cativante" icon="bolt">
+    Primeiro item define se o colaborador vai até o fim. Use um reel de 20-30 segundos que entregue um insight imediato, não uma introdução longa.
+  </Accordion>
+
+  <Accordion title="Atualize trimestralmente" icon="rotate">
+    Bibliotecas envelhecem. Uma vez por trimestre, revise as trilhas ativas: reels desatualizados saem, novos entram. Trilha viva > trilha perfeita congelada.
+  </Accordion>
+
+  <Accordion title="Duplicação de reels entre trilhas é ok" icon="copy">
+    O mesmo reel pode aparecer em 3 trilhas diferentes. Não é preguiça — é reaproveitamento inteligente. Reel excelente merece exposição em vários contextos.
+  </Accordion>
+
+  <Accordion title="Comece simples, não supercomplicado" icon="seedling">
+    Primeira trilha não precisa ser o onboarding completo da empresa. Comece com algo pequeno (5-8 reels sobre um tema específico), meça, aprenda, escale.
+  </Accordion>
+</AccordionGroup>
+
+## Regras e limites
+
+- **Apenas admins e proprietários criam trilhas**: moderadores e colaboradores comuns não têm acesso à criação
+- **Estrutura plana**: sem sub-módulos; todos os itens ficam em um único nível ordenado
+- **Apenas reels (hoje)**: posts podem ser adicionados em teoria, mas a experiência é otimizada pra reels
+- **Sem limite de itens**: você pode ter 2 ou 100 itens na mesma trilha — mas lembre-se da recomendação de 6-12
+- **Trilhas visíveis para todos**: não há restrição por departamento. Se quiser conteúdo restrito, o caminho é deixar a trilha como rascunho e atribuir manualmente via suporte
+- **Exclusão apaga progresso**: deletar a trilha remove a trilha + itens + inscrições + progressos de todos os colaboradores
+- **Sem versões**: editar uma trilha substitui o conteúdo imediatamente pra todos
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Trilha desativada permanece na conta dos colaboradores que já se inscreveram?">
+    Não aparece mais na descoberta, mas o progresso já feito continua registrado no histórico. Se reativar, o colaborador retoma de onde parou.
+  </Accordion>
+
+  <Accordion title="Posso atribuir uma trilha retroativamente a todo o time?">
+    Hoje não via UI — regras de onboarding só atingem colaboradores **novos**. Para atribuição retroativa em massa, contate o suporte.
+  </Accordion>
+
+  <Accordion title="Como saber se a trilha está funcionando?">
+    Abra o painel de analytics da trilha. Olhe 3 métricas principais:
+    - **Taxa de inscrição** (quantos se inscreveram vs. expostos à trilha)
+    - **Taxa de conclusão** (quantos concluíram vs. inscritos)
+    - **Progresso médio** (em que ponto médio as pessoas estão)
+
+    Se inscrição baixa, o problema é atração (título/descrição fracos). Se conclusão baixa, o problema é a trilha em si (muito longa, ordem ruim, conteúdo fraco).
+  </Accordion>
+
+  <Accordion title="Colaboradores de outras empresas (parceiros) podem consumir nossas trilhas?">
+    Se estão cadastrados como colaboradores do seu ambiente (mesmo como externos), sim. Se são de outro tenant, não — trilhas são isoladas por ambiente.
+  </Accordion>
+
+  <Accordion title="Posso exigir que o colaborador faça uma trilha antes de usar o app normal?">
+    Hoje não bloqueia. Recursos como "gating" de acesso pós-onboarding estão em avaliação, mas é uma decisão delicada — pode bloquear gente trabalhando.
+  </Accordion>
+
+  <Accordion title="Dá pra duplicar uma trilha existente?">
+    Duplicação com um clique está no roadmap. Por enquanto, crie uma nova trilha e adicione os mesmos reels manualmente.
+  </Accordion>
+
+  <Accordion title="Posso ter trilhas só pra liderança, outras só pra operação?">
+    Visibilidade segmentada da própria trilha na descoberta ainda não existe — todas trilhas ativas aparecem pra todo mundo. Segmentação de atribuição automática, sim (via onboarding rules por departamento/grupo). Roadmap inclui segmentação de visibilidade.
+  </Accordion>
+
+  <Accordion title="O que acontece se eu remover um reel de uma trilha?">
+    O reel desaparece daquela trilha. Colaboradores que já haviam concluído aquele item perdem o "check" daquele item (se era o último da trilha, a conclusão geral volta pra incompleta). Use com cuidado.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Micro-learning" icon="film" href="/pt-br/desenvolvimento/micro-learning">
+    O formato reel como unidade de aprendizado
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/pt-br/desenvolvimento/analytics">
+    Métricas de conclusão e engajamento por trilha
+  </Card>
+  <Card title="Aprendizado Gamificado" icon="trophy" href="/pt-br/desenvolvimento/aprendizado-gamificado">
+    Pontos ganhos a cada ação em trilhas
+  </Card>
+  <Card title="Reels" icon="film" href="/pt-br/social/reels">
+    Como os reels que compõem trilhas são produzidos
+  </Card>
+</CardGroup>

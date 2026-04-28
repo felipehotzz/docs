@@ -1,6 +1,319 @@
 ---
 title: "Marketplace"
-description: "Catálogo de recompensas resgatáveis"
+description: "Catálogo de recompensas resgatáveis — como admins cadastram itens e colaboradores resgatam"
 ---
 
-Em construção.
+O **Marketplace** é o catálogo de recompensas disponíveis no ambiente. É onde os colaboradores **gastam pontos** em itens tangíveis — vouchers, produtos, folgas, experiências, benefícios — e onde o admin cadastra e gerencia essa vitrine.
+
+Esta página cobre os dois lados: a **experiência do colaborador** ao navegar e resgatar, e a **configuração do admin** ao criar e operar o catálogo.
+
+## Como o colaborador vê o Marketplace
+
+Na aba **Recompensas** do app, o colaborador vê a própria Carteira e, abaixo, as recompensas disponíveis. Cada recompensa aparece como um card com:
+
+- **Imagem** (ou carrossel de até 5 imagens)
+- **Nome** da recompensa
+- **Descrição** curta
+- **Custo em pontos**
+- **Disponibilidade** (quantidade restante se for limitada, janela de datas se for sazonal)
+- **Categoria** (Experiência, Benefício, Produto, Voucher, Desenvolvimento)
+
+Ao tocar em um card, abre o **detalhe completo** com carrossel de imagens, descrição estendida, regras de elegibilidade e quem é o responsável pela entrega na empresa.
+
+### Filtros e busca
+
+Na parte superior do Marketplace:
+
+- **Filtro por categoria**: abas pra navegar entre tipos (Experiências, Produtos, etc)
+- **Busca por texto**: digita nome ou palavra da descrição
+- **Ordenação**: hoje por data de cadastro (mais recente primeiro); ordenação por custo ou popularidade em desenvolvimento
+
+### Regras de elegibilidade
+
+Cada recompensa tem uma regra que define **quem pode ver e resgatar**:
+
+- **Todos**: visível pra todo colaborador do ambiente
+- **Grupos específicos**: só membros dos grupos selecionados
+- **Níveis específicos**: só colaboradores com cargo/nível específico
+
+Quem não é elegível **nem vê** a recompensa na lista. O sistema filtra transparentemente — não mostra opção bloqueada, não gera curiosidade sobre "recompensa de chefe".
+
+## Fluxo de resgate (colaborador)
+
+<Steps>
+  <Step title="Navega ou busca">
+    Abre o Marketplace, filtra por categoria, lê as opções.
+  </Step>
+  <Step title="Abre o detalhe">
+    Toca num card pra ver imagens, descrição completa, disponibilidade e regras.
+  </Step>
+  <Step title="Verifica o saldo">
+    O app mostra "Você tem X pontos disponíveis" e habilita ou desabilita o botão de resgate.
+  </Step>
+  <Step title="Confirma o resgate">
+    Toca em **Resgatar** → aparece modal "Usar X pontos para resgatar?". Confirma.
+  </Step>
+  <Step title="Pontos debitados">
+    Os pontos saem do saldo na hora. O resgate fica com status **Pendente** na lista de histórico do colaborador.
+  </Step>
+  <Step title="Acompanha pelo chat">
+    O responsável pela entrega (definido pelo admin) recebe mensagem automática com o resgate. O colaborador também recebe notificação de cada mudança de status.
+  </Step>
+  <Step title="Recebe a recompensa">
+    Quando o admin marca como **Entregue**, o colaborador recebe notificação final. Voucher, produto, experiência — depende do item.
+  </Step>
+</Steps>
+
+## O admin: criar e gerenciar recompensas
+
+O painel de Recompensas no Painel de Gestão tem duas abas principais:
+
+- **Catálogo**: lista e CRUD de recompensas
+- **Resgates**: fila de pedidos pendentes, aprovados e entregues
+
+### Criar uma recompensa
+
+<Steps>
+  <Step title="Abra o Painel de Gestão → Recompensas">
+    Na aba **Catálogo**, clique em **Nova recompensa**.
+  </Step>
+  <Step title="Preencha os campos obrigatórios">
+    - **Nome** (obrigatório)
+    - **Tipo**: Experiência, Benefício, Produto, Voucher, Desenvolvimento
+    - **Custo em pontos** (inteiro, mínimo 1)
+  </Step>
+  <Step title="Adicione os detalhes">
+    - **Descrição**: texto explicando o que é a recompensa
+    - **Imagens**: até 5 imagens, mostradas em carrossel no detalhe
+  </Step>
+  <Step title="Configure disponibilidade">
+    - **Quantidade**: ilimitada ou limitada (com estoque total)
+    - **Janela de datas**: sempre disponível ou apenas entre datas específicas (útil pra promoções sazonais)
+  </Step>
+  <Step title="Defina elegibilidade">
+    - **Todos** os colaboradores
+    - **Grupos específicos** (filtra por grupo cadastrado em Usuários)
+    - **Níveis específicos** (filtra por cargo/nível)
+  </Step>
+  <Step title="Escolha o responsável pela entrega">
+    Busca e seleciona um colaborador do ambiente. Essa pessoa vai receber mensagem automática sempre que alguém resgatar este item.
+  </Step>
+  <Step title="Salve como ativa ou rascunho">
+    Toggle **Ativa** pra publicar no Marketplace. Deixa desativada se quer preparar com calma antes de lançar.
+  </Step>
+</Steps>
+
+### Gerenciar itens existentes
+
+Na lista do Catálogo, cada recompensa mostra:
+
+- Imagem em thumbnail
+- Nome, tipo e custo
+- Estoque atual (se limitada)
+- Status ativo/inativo
+- Ações rápidas
+
+Para cada recompensa, o admin pode:
+
+<AccordionGroup>
+  <Accordion title="Ativar / desativar" icon="toggle-on">
+    Switch rápido pra ligar/desligar a recompensa sem excluí-la. Desativada, some do Marketplace pros colaboradores — mas o histórico de quem já resgatou permanece intacto.
+  </Accordion>
+
+  <Accordion title="Editar detalhes" icon="pencil">
+    Abre o mesmo formulário de criação. Pode alterar qualquer campo (nome, descrição, imagens, custo, estoque, elegibilidade). Mudanças valem pra **futuros resgates** — quem já resgatou antes não é afetado.
+  </Accordion>
+
+  <Accordion title="Gerenciar estoque" icon="boxes-stacked">
+    Edita a recompensa → altera a quantidade total. O sistema ajusta estoque disponível conforme regatagens já feitas.
+  </Accordion>
+
+  <Accordion title="Excluir" icon="trash">
+    Remove do ambiente. **Use com cuidado** — resgates pendentes e histórico ficam órfãos. Prefira desativar sempre que possível.
+  </Accordion>
+</AccordionGroup>
+
+## Categorias de recompensas
+
+O Loop traz 5 categorias padrão, cadastradas automaticamente quando você abre o painel pela primeira vez:
+
+<CardGroup cols={3}>
+  <Card title="Experiência" icon="ticket">
+    Ingressos, passeios, jantares, viagens, eventos
+  </Card>
+  <Card title="Benefício" icon="hand-holding-heart">
+    Dias de folga, plano estendido, gympass, home office extra
+  </Card>
+  <Card title="Produto" icon="box">
+    Itens físicos — kits, livros, eletrônicos, merch da empresa
+  </Card>
+  <Card title="Voucher" icon="receipt">
+    Créditos em apps e redes — iFood, Uber, Amazon, etc
+  </Card>
+  <Card title="Desenvolvimento" icon="graduation-cap">
+    Cursos, livros técnicos, mentorias, assinaturas educacionais
+  </Card>
+</CardGroup>
+
+### Configurar categorias
+
+No painel de Recompensas → **Configurações** → **Categorias**, você pode:
+
+- Adicionar categorias customizadas (nome, emoji, descrição)
+- Editar ou renomear as padrões (se quiser ajustar ao seu contexto)
+- Reordenar a aparição no Marketplace
+- Desativar categorias temporariamente
+
+## Fluxo do admin: operar resgates
+
+Quando um colaborador resgata uma recompensa, ela aparece na aba **Resgates** do Painel de Gestão com status **Pendente**.
+
+### Status possíveis
+
+| Status | O que significa |
+|---|---|
+| **Pendente** | Colaborador acabou de resgatar. Pontos já foram debitados. Aguardando ação do admin |
+| **Aprovado** | Admin revisou e confirmou. Sinaliza que está em preparação |
+| **Entregue** | Admin confirmou que o colaborador recebeu a recompensa |
+| **Cancelado** | Admin cancelou. Pontos devolvidos ao colaborador automaticamente, estoque restaurado se era limitado |
+
+### Ações possíveis por status
+
+<AccordionGroup>
+  <Accordion title="Pendente → Aprovado" icon="check">
+    Admin revisa e aprova. Colaborador recebe mensagem "Seu resgate foi aprovado". Ideal quando a entrega precisa de preparação (ex: comprar voucher externo).
+  </Accordion>
+
+  <Accordion title="Pendente → Entregue (direto)" icon="paper-plane">
+    Se a entrega é instantânea, admin pode pular Aprovado e marcar Entregue direto. Colaborador recebe mensagem final.
+  </Accordion>
+
+  <Accordion title="Aprovado → Entregue" icon="truck">
+    Depois de preparar (ex: voucher gerado, produto comprado), admin marca Entregue e envia o item (link, email, produto físico). Colaborador recebe confirmação final.
+  </Accordion>
+
+  <Accordion title="Qualquer status → Cancelado" icon="ban">
+    Se não vai rolar (estoque errado, problema logístico, colaborador pediu por engano), admin cancela. Pontos voltam ao colaborador automaticamente, estoque é restaurado, colaborador recebe mensagem "Seu resgate foi cancelado. Os pontos voltaram ao seu saldo".
+  </Accordion>
+</AccordionGroup>
+
+### Mensagens automáticas
+
+Cada transição de status dispara uma **mensagem automática via chat** pro colaborador:
+
+- **Resgate feito**: mensagem pro responsável pela entrega, avisando
+- **Aprovado**: mensagem pro colaborador
+- **Entregue**: mensagem pro colaborador
+- **Cancelado**: mensagem pro colaborador (com pontos devolvidos)
+
+Os textos dessas mensagens são **templates configuráveis** pelo admin no painel de Recompensas → Configurações → Mensagens. Você personaliza com a voz da empresa.
+
+## Calibragem de preços em pontos
+
+Escolher quanto custa cada recompensa é uma das decisões mais críticas. Algumas referências:
+
+<AccordionGroup>
+  <Accordion title="Alinhe ao ganho médio mensal" icon="calendar">
+    Faça a conta reversa: um colaborador médio ganha aproximadamente quantos pontos por mês? Se ganha 200-300 pts, então um voucher de R$30 (custando 200 pts) é atingível em 1 mês de uso normal. Um prêmio grande de 1000 pts deve ser meta de ~3-5 meses.
+  </Accordion>
+
+  <Accordion title="Diversifique por faixas" icon="chart-bar">
+    Tenha recompensas pequenas (50-200 pts) que qualquer um consegue rápido, médias (300-800 pts) que exigem engajamento de 1-2 meses, e grandes (1000+ pts) como objetivo de longo prazo. Cria níveis de aspiração.
+  </Accordion>
+
+  <Accordion title="Teste e ajuste" icon="flask">
+    Não tem fórmula exata. Publique com um preço, observe quanto demora pra esgotar ou ficar parado, ajuste. Preço é calibrável — mexa quando necessário.
+  </Accordion>
+
+  <Accordion title="Defina valor de conversão" icon="calculator">
+    No painel de Gamificação, há um campo "valor da moeda" (ex: 100 pts = R$ 1). Isso é usado internamente como referência pra calibrar o preço dos itens — mas o colaborador não vê o valor em reais, só em pontos.
+  </Accordion>
+</AccordionGroup>
+
+## Boas práticas operacionais
+
+<AccordionGroup>
+  <Accordion title="Designe um responsável dedicado" icon="user">
+    Alguém da equipe (geralmente RH ou Comunicação Interna) precisa ser o **dono da fila de resgates**. Revisar e entregar deve ser tarefa com SLA definido — ex: resgates respondidos em até 48h.
+  </Accordion>
+
+  <Accordion title="Atualize o catálogo regularmente" icon="rotate">
+    Vitrine parada vira ignorada. Troque itens a cada trimestre — retira o que não tá saindo, adiciona novidades. Novidade chama atenção.
+  </Accordion>
+
+  <Accordion title="Tenha recompensas sazonais" icon="calendar-days">
+    Use janelas de disponibilidade pra criar urgência — "Voucher de sorvete só neste verão", "Kit de natal pelos próximos 15 dias", "Ingresso do show da empresa só até dia X". Sazonalidade aumenta engajamento.
+  </Accordion>
+
+  <Accordion title="Use quantidade limitada estrategicamente" icon="boxes-stacked">
+    Recompensa escassa (só 10 unidades) vira corrida. Use pra itens desejados mas caros — ingresso de show, kit especial. Colaborador que se mobiliza rápido é recompensado.
+  </Accordion>
+
+  <Accordion title="Personalize mensagens automáticas" icon="message">
+    Os templates padrão funcionam, mas escrever com a voz da empresa faz enorme diferença. "Oba! Seu voucher chegou" funciona melhor que "Status do seu pedido atualizado".
+  </Accordion>
+
+  <Accordion title="Monitore cancelamentos" icon="chart-line">
+    Muito cancelamento é sinal de problema operacional (estoque desatualizado, item indisponível externamente). Reveja seu catálogo se aparecer padrão.
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Colaborador pode cancelar um resgate que fez por engano?">
+    Hoje não — cancelamento é só pelo admin. Se o colaborador pediu por engano, o caminho é contatar o admin ou o responsável da entrega via chat e pedir cancelamento. O admin cancela e pontos voltam automaticamente.
+
+    Cancelamento self-service está no roadmap.
+  </Accordion>
+
+  <Accordion title="Posso ter a mesma recompensa com preços diferentes pra grupos diferentes?">
+    Não diretamente. Cada recompensa tem um preço único. Se quer 'preço especial pra líderes', cria uma recompensa duplicada restrita a eles com o preço desejado.
+  </Accordion>
+
+  <Accordion title="Como entrego um voucher digital?">
+    Opções comuns:
+    - Comprar o voucher externamente e mandar o código por mensagem direta
+    - Ter um estoque de códigos pré-comprados e usar um por resgate
+    - Ter um link/link único que o colaborador usa
+
+    O sistema não automatiza a entrega do voucher em si — a parte "de onde vem o voucher" fica fora do Loop. O que o Loop faz é coordenar o fluxo de resgate/aprovação/notificação.
+  </Accordion>
+
+  <Accordion title="Tem como o admin ver quem resgatou antes?">
+    Sim, na aba Resgates com filtro por status "Entregue". Mostra histórico de quem recebeu quais itens. Analytics agregada (item mais resgatado, top resgatadores) está em desenvolvimento.
+  </Accordion>
+
+  <Accordion title="Posso oferecer recompensas que vão alem do saldo de pontos (ex: promoção)?">
+    Promoções e cupons não estão implementados. Cada recompensa tem um preço único. O que você pode fazer: criar temporariamente uma versão 'promo' da recompensa com preço reduzido e janela de disponibilidade curta.
+  </Accordion>
+
+  <Accordion title="O que acontece se eu editar o preço de uma recompensa enquanto alguém estava decidindo?">
+    Se o colaborador abriu o detalhe mas não resgatou ainda, vai ver o preço novo quando tentar resgatar. Se já resgatou, ficou com o preço antigo (resgate imutável). Por isso evite mudanças bruscas de preço — comunique se for preciso.
+  </Accordion>
+
+  <Accordion title="Dá pra exportar relatório dos resgates pra fechamento de RH?">
+    Hoje via suporte. Export CSV direto do painel está no roadmap. O CSV traz: colaborador, item, custo em pontos, status, datas, responsável pela entrega — útil pro fechamento mensal.
+  </Accordion>
+
+  <Accordion title="Posso ter recompensa que precisa de aprovação prévia do gestor do colaborador?">
+    Workflow de aprovação multi-nível (ex: "gestor do colaborador aprova antes do admin") não existe hoje. Se precisa, o caminho manual é: não designe responsável; tenha instrução no item explicando que precisa pedir no chat do gestor antes.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    Como colaboradores vêem saldo e histórico de resgates
+  </Card>
+  <Card title="Gamificação" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    De onde vêm os pontos que são gastos no Marketplace
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Oferecer itens do Marketplace como prêmios de campanha
+  </Card>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    Saldo e histórico pessoais de pontos
+  </Card>
+</CardGroup>

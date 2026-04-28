@@ -1,0 +1,304 @@
+---
+title: "Usuários"
+description: "Gestão de colaboradores, administradores, grupos e papéis dentro do ambiente"
+---
+
+A área de Usuários é onde os administradores cadastram, editam e organizam **quem tem acesso ao ambiente**. Fica dentro do Painel de Gestão, na seção **Pessoas**, e se divide em duas visões complementares:
+
+- **Usuários** — o **diretório completo** de colaboradores do ambiente (todas as pessoas cadastradas, com acesso ou sem)
+- **Membros** — apenas quem tem **papel administrativo** (proprietário, administrador, moderador) com permissões especiais
+
+<Note>
+  Apenas **Proprietários** e **Administradores** do ambiente acessam a gestão de usuários. Moderadores veem a lista mas não podem promover/remover acessos. Colaboradores comuns não veem esta área.
+</Note>
+
+## Como acessar
+
+No computador, abra o **Painel de Gestão** e navegue até a seção **Pessoas** no menu lateral. Você vai encontrar duas opções:
+
+- **Usuários** — diretório de colaboradores
+- **Membros** — administradores e moderadores
+
+## Visão Usuários — diretório de colaboradores
+
+Lista com todos os colaboradores cadastrados no ambiente, independente de terem ou não logado no app.
+
+### Tabela
+
+Cada linha mostra:
+
+- **Nome** com avatar e selo (verificado em azul / institucional em ouro)
+- **Contato**: email, telefone ou matrícula (pelo menos um dos três)
+- **Departamento, Cargo, Localização** e **Grupo**
+- **Status**: ativo, inativo, pendente ou removido
+- **Origem**: como a pessoa entrou no ambiente (convite do admin, importação CSV, auto-cadastro)
+
+### Filtros e busca
+
+- **Busca por texto**: digite nome, email ou matrícula; filtro em tempo real
+- **Filtro por status**: ativos, inativos, pendentes ou removidos
+- **Filtro por grupo**: veja apenas pessoas de um grupo específico
+
+### Adicionar um usuário
+
+<AccordionGroup>
+  <Accordion title="Cadastrar individual pela busca" icon="user-plus">
+    Abra **Adicionar usuário** → busque por nome ou email. Se a pessoa já existe em outro ambiente, você pode trazê-la direto. Se não existe, preencha os dados manualmente.
+  </Accordion>
+
+  <Accordion title="Cadastrar individual manual" icon="keyboard">
+    No modal de adicionar usuário, preencha:
+    - **Nome** (obrigatório)
+    - **Email, telefone ou matrícula** (pelo menos um — serve como identificador único)
+    - **Departamento, cargo, localização** (opcionais)
+    - **Data de admissão** (opcional)
+    - **Grupo** (opcional)
+    - **Foto de perfil** (opcional — se não enviar, as iniciais viram o avatar)
+    - **Campos personalizados** do seu ambiente, se houver
+
+    O colaborador recebe um convite por email ou sms pra criar senha e começar a usar o app.
+  </Accordion>
+
+  <Accordion title="Importação em massa via CSV" icon="file-csv">
+    Ideal para cadastrar dezenas ou centenas de pessoas de uma vez.
+
+    **Como funciona:**
+    1. Clique em **Importar CSV**
+    2. Envie um arquivo com colunas: Nome, Email, Telefone, Matrícula, Departamento, Cargo, Localização, Data de Admissão, Grupo
+    3. O sistema **detecta automaticamente** as colunas em português (aceita variações: "Matrícula" ou "ID Funcionário", "Cargo" ou "Posição", etc.)
+    4. Colunas não reconhecidas podem ser mapeadas manualmente
+    5. O sistema **alerta duplicatas** (email, telefone ou matrícula já cadastrados no ambiente)
+    6. Confirme e importe
+
+    Cada pessoa importada entra no diretório como **pendente** até logar no app pela primeira vez.
+  </Accordion>
+</AccordionGroup>
+
+### Editar um usuário
+
+Clique no ícone de editar na linha da pessoa. Você pode alterar:
+
+- Nome, email, telefone, matrícula
+- Departamento, cargo, localização, data de admissão
+- Foto de perfil
+- Selo (nenhum, verificado, institucional)
+- Grupo
+- Campos personalizados
+- Tema preferido
+- Nome de usuário
+
+<Warning>
+  Alterar email ou matrícula de alguém que já logou pode desconectar o usuário e exigir novo vínculo de conta. Use com cuidado.
+</Warning>
+
+### Remover um usuário
+
+A remoção é **soft delete**: a pessoa vira status "removido" e perde acesso ao ambiente, mas os dados continuam preservados (conteúdo publicado, comentários, curtidas). Você pode **reativar** a qualquer momento.
+
+- Conteúdo publicado (posts, stories, reels, comentários) **permanece visível** no ambiente
+- Vínculos como curtidas e salvamentos **continuam intactos**
+- Em listas de membros ou buscas, a pessoa deixa de aparecer
+- Nenhuma notificação é enviada ao colaborador removido
+
+### Reativar um usuário
+
+Com o filtro "Removidos" selecionado, clique no ícone de restaurar. O status volta pra "ativo" e o acesso é restabelecido imediatamente.
+
+## Visão Membros — administradores e moderadores
+
+Lista exclusiva das pessoas com **poder administrativo** no ambiente. Inclui proprietários, administradores e moderadores.
+
+### Painel de estatísticas
+
+No topo, contadores rápidos:
+
+- **Total de membros**: quantos têm algum papel administrativo
+- **Proprietários**: dono(s) do ambiente
+- **Admin + Proprietário**: quem pode gerenciar configurações globais
+- **Moderadores**: quem apenas modera conteúdo
+
+### Tabela
+
+Para cada membro:
+
+- **Avatar, nome e usuário** + selo de verificação
+- **Email**
+- **Cargo** (com fallback para o papel se não houver cargo cadastrado)
+- **Localização**
+- **Função**: Proprietário, Administrador ou Moderador (badge colorido)
+- **Status**: ativo ou inativo
+
+### Filtros
+
+- **Busca**: nome, usuário ou email
+- **Função**: todos, proprietário, administrador ou moderador
+
+### Ações por membro
+
+<AccordionGroup>
+  <Accordion title="Trocar função" icon="user-gear">
+    Alterne alguém entre **Administrador** e **Moderador**. A função **Proprietário** não pode ser alterada por aqui — ela é preservada pra proteger o dono do ambiente.
+  </Accordion>
+
+  <Accordion title="Definir selo de verificação" icon="badge-check">
+    Aplique um dos 3 selos ao membro:
+    - **Nenhum**: colaborador comum
+    - **Verificado** (azul): reconhecido como colaborador relevante — seus posts ganham peso 2x no algoritmo do Feed
+    - **Institucional** (ouro): conta institucional da empresa — ganha posições garantidas no Feed, desbloqueia botão de CTA em posts e stories, e tem peso 3x no algoritmo
+
+    O selo é **independente** do papel administrativo. Você pode ter um Admin com selo institucional ou um membro comum com selo verificado.
+  </Accordion>
+
+  <Accordion title="Remover acesso administrativo" icon="user-minus">
+    Retira o papel de admin/moderador da pessoa. Ela continua como colaborador comum no ambiente — o cadastro no diretório não é removido.
+
+    Para remover completamente, vá à visão **Usuários** e use **Remover**.
+  </Accordion>
+</AccordionGroup>
+
+### Adicionar um membro
+
+Clique em **Adicionar membro**. O fluxo:
+
+1. Busque por pessoa já cadastrada (mostra até 8 resultados)
+2. Ou alterne para modo manual e digite email + nome
+3. Escolha o papel: **Administrador** ou **Moderador**
+4. Confirme
+
+Se a pessoa já tem conta ativa → o papel é aplicado na hora. Se é um email novo → a pessoa recebe convite e, no primeiro login, ganha o papel automaticamente.
+
+## Papéis do sistema
+
+O Loop tem uma hierarquia de 4 papéis:
+
+| Papel | O que faz |
+|---|---|
+| **Proprietário** | Controle total. Pode tudo, inclusive promover/demitir admins, apagar o ambiente e transferir propriedade |
+| **Administrador** | Acessa o Painel de Gestão, gerencia usuários, configurações, moderação e permissões. Não pode demitir outro admin sem ser proprietário |
+| **Moderador** | Acesso às áreas de Moderação e Denúncias. Pode dispensar/excluir conteúdo mas não gerencia usuários |
+| **Colaborador** | Usuário comum do app. Publica, curte, comenta, interage. Sem acesso ao Painel de Gestão |
+
+<Note>
+  **Proteção do proprietário**: você não consegue rebaixar o último proprietário do ambiente. Para transferir a propriedade, promova outra pessoa a proprietário primeiro e depois ajuste seu próprio papel.
+</Note>
+
+## Selos de verificação (verified types)
+
+Paralelo ao papel administrativo, cada usuário tem um **selo de verificação** que afeta como o conteúdo dele é tratado no app:
+
+| Selo | Efeitos |
+|---|---|
+| **Nenhum** | Padrão. Peso 1x no algoritmo do Feed |
+| **Verificado** (badge azul) | Peso **2x** no algoritmo do Feed. Conteúdo aparece mais vezes e para mais pessoas |
+| **Institucional** (badge ouro) | Peso **3x** no algoritmo + **posições garantidas** (2ª e 5ª de cada sequência de 5 posts). Desbloqueia **CTA nos posts e stories** (botão com link). Destaque nas primeiras 48h após publicar |
+
+## Grupos
+
+Grupos são **coleções livres de colaboradores**, diferentes de departamentos. Use para juntar pessoas que trabalham num projeto específico, participam de um comitê ou se encaixam em uma audiência segmentada.
+
+- **Criar**: no Painel de Gestão, abra **Grupos** dentro de Pessoas. Dê nome, escolha cor e descrição
+- **Adicionar pessoas**: edite cada colaborador na visão Usuários e atribua o grupo, ou faça import CSV com a coluna Grupo preenchida
+- **Usar**: grupos aparecem como filtro em muitas áreas (segmentar audiência de posts, restringir recursos em Moderação, relatórios, etc)
+
+**Grupos vs Departamentos:**
+
+- **Departamento** é um campo livre (string) atribuído a cada pessoa. Use para a estrutura organizacional oficial: TI, RH, Marketing, etc.
+- **Grupo** é uma entidade nomeada com cor e descrição. Use para coleções transversais: "Comitê de Diversidade", "Projeto Alpha", "Líderes 2026"
+
+Uma pessoa pode estar em **vários departamentos e grupos ao mesmo tempo**.
+
+## Campos personalizados
+
+Além dos campos padrão (nome, email, departamento, etc.), você pode criar **campos personalizados** específicos da sua empresa.
+
+**Tipos disponíveis:**
+- **Texto**: qualquer string livre
+- **Número**: valores numéricos
+- **Data**: seletor de data
+- **Seleção**: múltiplas opções pré-definidas (tipo dropdown)
+
+**Como criar**: Painel de Gestão → **Campos Personalizados**. Defina nome, tipo e se é obrigatório.
+
+Depois de criado, o campo aparece no formulário de adicionar/editar usuário. Pode ser preenchido manualmente ou via import CSV (usando o nome do campo como cabeçalho da coluna).
+
+## Ambientes múltiplos
+
+Um mesmo usuário (mesmo email) **pode pertencer a mais de um ambiente Loop** ao mesmo tempo.
+
+Exemplos de uso:
+- Consultor que atende duas empresas e tem conta em ambas
+- Executivo que pertence à matriz e também a uma subsidiária
+- Parceiro externo com acesso a um ambiente corporativo + o próprio ambiente da empresa dele
+
+Cada ambiente mantém **papel, grupo, departamento e conteúdo independentes** para aquele usuário. Ao fazer login, o usuário escolhe qual ambiente quer acessar.
+
+## Regras e limites
+
+- **Identificação única**: cada usuário precisa de pelo menos um dos três: email, telefone ou matrícula
+- **Unicidade por ambiente**: email, telefone e matrícula não se repetem dentro do mesmo ambiente
+- **Remoção soft**: nunca há exclusão definitiva via UI — apenas desativação e reativação
+- **Conteúdo preservado**: remoção de usuário não apaga seu conteúdo publicado
+- **Proprietário protegido**: o último proprietário não pode ser rebaixado
+- **Papéis e selos são independentes**: um Admin pode não ter selo institucional; um colaborador comum pode ter selo verificado
+- **Isolamento por ambiente**: admins só veem usuários do próprio ambiente; Super Admins do Loop têm acesso técnico em casos de suporte
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Qual a diferença entre Usuários e Membros?">
+    **Usuários** é o diretório completo — todo colaborador que existe no ambiente. **Membros** é uma sub-visão apenas com quem tem papel administrativo (proprietário, admin ou moderador). Todo membro é também um usuário, mas nem todo usuário é membro.
+  </Accordion>
+
+  <Accordion title="Por que não consigo excluir permanentemente um usuário?">
+    Para preservar o histórico do ambiente. Posts, comentários e interações de um usuário removido continuam fazendo sentido no contexto — apagar tudo retroativamente quebraria conversas e threads. Se precisa apagar definitivamente dados por conformidade (LGPD), fale com o suporte do Loop.
+  </Accordion>
+
+  <Accordion title="O que acontece quando troco a função de Admin para Moderador?">
+    A pessoa perde acesso imediato às áreas de gestão de usuários, configurações e integrações. Mantém acesso à Moderação e Denúncias. Conteúdo publicado pela pessoa permanece intacto.
+  </Accordion>
+
+  <Accordion title="Por que importar via CSV é melhor que adicionar um por um?">
+    Velocidade e consistência. Para 20+ pessoas o CSV economiza horas e garante que todos ficam com o mesmo formato de campos preenchidos. Também facilita atualizações em massa (ex: mudar todo mundo de TI para uma nova unidade).
+  </Accordion>
+
+  <Accordion title="Posso importar CSV só para atualizar pessoas já cadastradas?">
+    Atualmente não — o import é só para criação. Para atualizar em massa, o caminho é editar individualmente ou entrar em contato com o suporte para auxílio em migrações maiores.
+  </Accordion>
+
+  <Accordion title="Dei selo 'verificado' a alguém, mas não vejo o badge no perfil. Por quê?">
+    O badge é atualizado em segundo plano. Se não aparecer em alguns minutos, confirme se a alteração foi salva na visão Membros e peça a pessoa recarregar o app.
+  </Accordion>
+
+  <Accordion title="O colaborador recebe notificação quando é promovido a Admin?">
+    Hoje não. A promoção é silenciosa — é boa prática avisar a pessoa por canais externos (chat do Loop, email, reunião) antes ou depois de promover.
+  </Accordion>
+
+  <Accordion title="Posso adicionar uma pessoa externa (sem email da empresa)?">
+    Sim. Qualquer email válido funciona — o Loop não exige que seja do domínio corporativo. Útil para consultores, parceiros e contratados que precisam participar do ambiente.
+  </Accordion>
+
+  <Accordion title="Como reverto uma remoção acidental?">
+    Na visão Usuários, troque o filtro de status para "Removidos", encontre a pessoa e clique em restaurar. O acesso volta na hora sem necessidade de novo convite.
+  </Accordion>
+
+  <Accordion title="Existe limite de quantos usuários posso ter no ambiente?">
+    Depende do seu plano. Em geral, os planos definem uma faixa de colaboradores. Consulte seu contrato ou fale com o suporte — ultrapassar o limite pode exigir upgrade.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Permissões" icon="lock" href="/pt-br/plataforma/permissoes">
+    O que cada papel (proprietário, admin, moderador) pode fazer em cada recurso
+  </Card>
+  <Card title="Moderação" icon="shield-halved" href="/pt-br/plataforma/moderacao">
+    Controle de conteúdo e filtros para proteger o ambiente
+  </Card>
+  <Card title="Integrações" icon="plug" href="/pt-br/plataforma/integracoes">
+    Sincronizar usuários com seu stack de RH (BambooHR, SAP, etc)
+  </Card>
+  <Card title="Segurança" icon="shield" href="/pt-br/plataforma/seguranca">
+    Padrões de proteção de dados e autenticação
+  </Card>
+</CardGroup>

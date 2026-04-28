@@ -1,6 +1,205 @@
 ---
 title: "Reconhecimento"
-description: "Ciclo onde reconhecimento gera engajamento — e engajamento gera mais reconhecimento"
+description: "Reconhecer colegas publicamente cria um ciclo onde cultura gera engajamento, e engajamento gera mais cultura"
 ---
 
-Em construção.
+O Reconhecimento do Loop é um **sistema estruturado de celebrar comportamentos** que refletem os valores da empresa. Colaboradores reconhecem uns aos outros publicamente, atrelados a **pilares** (categorias de valor) e **tipos** (comportamentos específicos), gerando pontos para quem dá e quem recebe o reconhecimento.
+
+É um dos principais motores culturais do Loop — e ao mesmo tempo alimenta o sistema de Gamificação e Recompensas.
+
+## Como o reconhecimento funciona hoje
+
+O reconhecimento no Loop é feito **via sticker em Story**. Ao publicar um story, você adiciona um sticker especial que:
+
+- Seleciona **um colega** do ambiente como recebedor
+- Atribui **um tipo de reconhecimento** (atrelado a um pilar)
+- Inclui uma **mensagem opcional** (até 200 caracteres)
+
+Ao publicar, o story fica visível como qualquer outro no Feed de Stories, **mas com dinâmicas adicionais**:
+
+- Pontos são automaticamente atribuídos a quem deu e quem recebeu o reconhecimento
+- O story é **adicionado automaticamente** a um destaque permanente chamado "Reconhecimentos" no perfil de quem foi reconhecido
+- Os pontos alimentam campanhas de gamificação ativas no ambiente
+
+<Note>
+  Hoje o reconhecimento acontece **apenas através de stories**. Formas alternativas (reconhecimento em posts, em DMs, ou formulário dedicado) estão em estudo mas não implementadas.
+</Note>
+
+## Estrutura do sistema
+
+O reconhecimento é organizado em três camadas:
+
+<CardGroup cols={3}>
+  <Card title="Pilares" icon="layer-group">
+    Grandes categorias de valor: Cultura, Colaboração, Inovação, Metas, Excelência, etc. 9 pilares pré-definidos.
+  </Card>
+  <Card title="Tipos" icon="award">
+    Comportamentos específicos dentro de cada pilar ("Inovação", "Sangue Laranja", "Entrega Excepcional"). Configurados pelo admin.
+  </Card>
+  <Card title="Reconhecimentos" icon="handshake">
+    Eventos individuais: João reconheceu Maria com o tipo X, atrelado ao pilar Y, com pontos Z. Fica no histórico.
+  </Card>
+</CardGroup>
+
+## Dois pontos de entrada
+
+### Para colaboradores
+
+Qualquer colaborador pode reconhecer um colega dentro do app. O caminho é:
+
+1. Criar um story normalmente pela câmera
+2. Adicionar o **sticker de reconhecimento** na barra lateral de stickers
+3. Escolher a pessoa + tipo + mensagem
+4. Publicar
+
+Detalhes completos em [Reconhecimento via Stories](/pt-br/reconhecimento/via-stories).
+
+### Para administradores
+
+Toda a configuração do sistema de reconhecimento fica no **Painel de Gestão** → **Reconhecimento**. Lá você define:
+
+- Quais **pilares** estão ativos no seu ambiente
+- Quais **tipos de reconhecimento** existem em cada pilar
+- Quantos **pontos** cada tipo gera para quem dá e para quem recebe
+- **Quem pode dar** cada tipo (todos, apenas gestores, grupos específicos)
+
+Acesso exclusivo a **Proprietários** e **Administradores** do ambiente.
+
+## O ciclo virtuoso
+
+O nome "Reconhecimento" no marketing do Loop vem com a promessa: *"Crie um ciclo onde reconhecimento gera engajamento — e engajamento gera mais reconhecimento."*
+
+O ciclo é real e acontece assim:
+
+1. **Alguém reconhece**: recebe pontos (como incentivo para o comportamento de dar reconhecimento)
+2. **Alguém é reconhecido**: recebe pontos (como reforço do comportamento celebrado)
+3. **O reconhecimento fica público**: aparece no Feed de Stories, vira destaque permanente no perfil
+4. **Os pontos viram moeda social**: alimentam a Gamificação e liberam recompensas
+
+Por isso o sistema é **estruturado por pilares** — não é um "like melhorado". Os pilares conectam cada reconhecimento individual aos valores da empresa, criando narrativa e estatística cultural ao longo do tempo.
+
+## Componentes do sistema
+
+As próximas páginas aprofundam cada componente:
+
+<CardGroup cols={2}>
+  <Card title="Via Stories" icon="bolt" href="/pt-br/reconhecimento/via-stories">
+    O fluxo completo de dar reconhecimento usando o sticker em um story
+  </Card>
+  <Card title="Destaques no Perfil" icon="medal" href="/pt-br/reconhecimento/destaques-no-perfil">
+    Como reconhecimentos viram destaques permanentes no perfil de quem recebeu
+  </Card>
+  <Card title="Pilares e Tipos" icon="layer-group" href="/pt-br/reconhecimento/pilares-e-tipos">
+    Configuração admin: wizard de criação, 9 pilares pré-definidos, personalização de tipos
+  </Card>
+  <Card title="Permissões" icon="lock" href="/pt-br/reconhecimento/permissoes">
+    Controle de quem pode dar e receber reconhecimento, por tipo
+  </Card>
+  <Card title="Gamificado" icon="trophy" href="/pt-br/reconhecimento/gamificado">
+    Pontos para giver e receiver, integração com Gamificação e campanhas
+  </Card>
+</CardGroup>
+
+## Quem pode usar
+
+| Ação | Colaborador | Verificado | Institucional | Admin |
+|---|---|---|---|---|
+| Dar reconhecimento | ✓ | ✓ | ✓ | ✓ |
+| Receber reconhecimento | ✓ | ✓ | ✓ | ✓ |
+| Ver reconhecimentos públicos | ✓ | ✓ | ✓ | ✓ |
+| Criar/editar tipos de reconhecimento | ✗ | ✗ | ✗ | ✓ |
+| Configurar pontos por tipo | ✗ | ✗ | ✗ | ✓ |
+| Definir quem pode dar cada tipo | ✗ | ✗ | ✗ | ✓ |
+| Desativar um tipo | ✗ | ✗ | ✗ | ✓ |
+
+<Note>
+  Por padrão, o reconhecimento **não é auto-filtrado** — você pode reconhecer qualquer pessoa do ambiente, incluindo seu próprio gestor ou alguém da diretoria. Admins podem configurar restrições por tipo de reconhecimento (veja [Permissões](/pt-br/reconhecimento/permissoes)).
+</Note>
+
+## Regras e limites
+
+- **Pilares são pré-definidos**: o Loop traz 9 pilares base agrupados em 4 categorias (Cultura, Resultados, Desenvolvimento, Personalizado). Não é possível criar pilares totalmente novos, mas o pilar "Personalizado" permite descrições livres
+- **Tipos são ilimitados**: você pode criar quantos tipos quiser dentro de cada pilar
+- **Pontos são por tipo**: cada tipo tem seu próprio valor de pontos para o giver e para o receiver
+- **Mensagem opcional**: até 200 caracteres por reconhecimento
+- **Destaque automático**: todo reconhecimento recebido vira um item no destaque "Reconhecimentos" do perfil do recebedor
+- **Reconhecimentos são públicos**: ficam visíveis pra todo o ambiente. Não há modalidade privada
+- **Histórico imutável**: uma vez dado, um reconhecimento não pode ser editado ou removido pelo colaborador (apenas admins apagam tipos, não registros individuais)
+- **Isolamento por ambiente**: pilares, tipos e registros são escopados ao tenant — outros ambientes não veem nem compartilham configurações
+
+## Integração com outras áreas do Loop
+
+<AccordionGroup>
+  <Accordion title="Gamificação" icon="trophy">
+    Cada tipo de reconhecimento pode ser configurado como **fonte de pontos** em campanhas de gamificação. Os pontos ganhos (tanto pelo giver quanto pelo receiver) contam no ranking, progresso e conquistas.
+
+    Veja mais em [Gamificação > Visão Geral](/pt-br/gamificacao/visao-geral).
+  </Accordion>
+
+  <Accordion title="Recompensas" icon="gift">
+    Os pontos de reconhecimento **não convertem diretamente** na Carteira de recompensas — são sistemas paralelos. Mas ambos estão conectados via Gamificação: ao atingir metas em campanhas, você pode ganhar pontos resgatáveis.
+
+    Veja mais em [Recompensas > Carteira](/pt-br/recompensas/carteira).
+  </Accordion>
+
+  <Accordion title="Perfil do usuário" icon="user">
+    Todo reconhecimento recebido é automaticamente arquivado no destaque "Reconhecimentos" do perfil. Isso cria um portfólio social de conquistas visível para todo o ambiente.
+
+    Veja [Destaques no Perfil](/pt-br/reconhecimento/destaques-no-perfil).
+  </Accordion>
+
+  <Accordion title="Stories" icon="bolt">
+    O reconhecimento é entregue como **sticker sobre um story** — herda todas as propriedades de visualização, interação, encaminhamento e TTL de 24h dos stories comuns. A diferença é que o conteúdo fica arquivado no destaque, então não some depois das 24h.
+
+    Veja [Stories](/pt-br/social/stories).
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Posso reconhecer alguém sem ser via story?">
+    Hoje não. O único canal é o sticker de reconhecimento dentro do fluxo de publicação de Story. Isso está em estudo, mas não há data para outras formas (post, DM, formulário dedicado).
+  </Accordion>
+
+  <Accordion title="Posso reconhecer a mim mesmo?">
+    Tecnicamente sim — o sistema não impede. Mas não é recomendado e pode ser desestimulado com políticas do seu ambiente. Admins estão avaliando bloqueio automático de auto-reconhecimento numa próxima versão.
+  </Accordion>
+
+  <Accordion title="Quanto tempo dura um reconhecimento?">
+    O **story** em si dura 24 horas no Feed de Stories, como qualquer outro. Mas o **reconhecimento** é imortal: fica arquivado pra sempre no destaque "Reconhecimentos" do perfil de quem recebeu, e também no histórico de quem deu.
+  </Accordion>
+
+  <Accordion title="Posso saber quantos reconhecimentos já dei ou recebi?">
+    Sim — no seu perfil, o destaque "Reconhecimentos" mostra tudo que você recebeu. Para ver o que você **deu**, ainda não temos uma visão consolidada pronta — está no roadmap. Por enquanto, é possível ver no seu histórico pessoal de Stories (arquivo).
+  </Accordion>
+
+  <Accordion title="Quem pode configurar os tipos de reconhecimento?">
+    Apenas Proprietários e Administradores do ambiente. Moderadores e colaboradores comuns não têm acesso à configuração. Veja [Pilares e Tipos](/pt-br/reconhecimento/pilares-e-tipos).
+  </Accordion>
+
+  <Accordion title="Posso criar meu próprio pilar do zero?">
+    Os 9 pilares base são fixos no sistema, mas existe um pilar **"Personalizado"** onde você pode criar tipos com descrição totalmente livre. Customização maior de pilares (criar categorias novas, redefinir cores/ícones) está em planejamento.
+  </Accordion>
+
+  <Accordion title="Onde os pontos vão parar?">
+    Pontos gerados por reconhecimentos contam em **campanhas de Gamificação** ativas no ambiente. Eles não viram saldo direto na Carteira de Recompensas — o caminho é: reconhecimento → pontos → progresso em campanha → prêmio da campanha (que pode ser crédito na Carteira).
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Gamificação" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    Como pontos de reconhecimento alimentam campanhas e rankings
+  </Card>
+  <Card title="Recompensas" icon="gift" href="/pt-br/recompensas/visao-geral">
+    Marketplace, Carteira e Loop Card
+  </Card>
+  <Card title="Stories" icon="bolt" href="/pt-br/social/stories">
+    O canal onde o reconhecimento acontece
+  </Card>
+  <Card title="Usuários" icon="users" href="/pt-br/plataforma/usuarios">
+    Como configurar pessoas e grupos que aparecem nos filtros de permissão
+  </Card>
+</CardGroup>

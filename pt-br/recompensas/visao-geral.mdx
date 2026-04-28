@@ -1,6 +1,190 @@
 ---
 title: "Recompensas"
-description: "Pontos que viram recompensas reais dentro do app"
+description: "Pontos que viram recompensas reais dentro do app — Marketplace de itens resgatáveis, Carteira pessoal e o Loop Card"
 ---
 
-Em construção.
+**Recompensas** é onde os pontos acumulados pelos colaboradores — via engajamento social, reconhecimento, campanhas de gamificação e conclusão de trilhas — **viram algo tangível**. Pode ser um voucher de iFood, um dia de folga extra, um kit da empresa, uma experiência ou benefício exclusivo.
+
+Sem algo resgatável no final, a gamificação fica só um ranking. Com Recompensas, o ciclo se fecha: **comportamento → pontos → prêmio real** — e isso muda a relação do colaborador com o app.
+
+## Os 2 componentes
+
+<CardGroup cols={2}>
+  <Card title="Marketplace" icon="store" href="/pt-br/recompensas/marketplace">
+    Catálogo das recompensas disponíveis no ambiente, com imagens, descrição, custo em pontos e regras de disponibilidade. Administrado inteiramente pela empresa.
+  </Card>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    A carteira pessoal do colaborador: saldo atual, histórico de ganho e gasto, progresso diário e gráfico de atividade.
+  </Card>
+</CardGroup>
+
+## Como o sistema funciona
+
+### Para o colaborador
+
+1. **Acumula pontos** pelo uso natural do app — curtir, comentar, publicar, reconhecer, completar trilhas, ganhar campanhas
+2. **Vê o saldo** em tempo real na sua Carteira
+3. **Navega pelo Marketplace** e escolhe o que quer resgatar
+4. **Confirma o resgate** — pontos são debitados na hora
+5. **Recebe a recompensa** — via mensagem no chat com o responsável pela entrega na empresa
+
+### Para o admin
+
+1. **Cadastra as recompensas** no Marketplace com imagens, custo em pontos e regras
+2. **Define estoque** (limitado ou ilimitado) e janela de disponibilidade
+3. **Escolhe o responsável pela entrega** pra cada recompensa
+4. **Acompanha os pedidos de resgate** na fila de Resgates
+5. **Aprova → prepara → entrega** cada resgate, ou cancela se necessário (pontos voltam pro colaborador)
+
+## Por que recompensas importam
+
+<AccordionGroup>
+  <Accordion title="Fecham o ciclo da gamificação" icon="arrows-rotate">
+    Gamificação sem prêmio real vira só ranking. Pontos que valem algo mudam o jogo: alguém curte um post não "pelo like", mas porque aquilo é um passo em direção a um voucher real.
+  </Accordion>
+
+  <Accordion title="Tangibilizam o orçamento de RH" icon="hand-holding-dollar">
+    Em vez de alocar verbas em presentes massivos (um kit de natal igual pra todos), a empresa pode **concentrar orçamento em quem mais engaja**. Colaborador escolhe o que quer, empresa sabe exatamente quanto custou pra quem.
+  </Accordion>
+
+  <Accordion title="Criam senso de progresso" icon="chart-line">
+    Mesmo pra quem não está perto de resgatar, ver o saldo crescer tem impacto psicológico positivo. "Já tenho X pontos, só faltam Y" é uma motivação real.
+  </Accordion>
+
+  <Accordion title="Permitem catálogo personalizado" icon="sparkles">
+    O que faz sentido numa empresa é diferente do que faz sentido em outra. Um call center pode oferecer folgas e vouchers; uma consultoria pode oferecer livros e cursos; uma fábrica pode oferecer equipamentos e experiências. Sua empresa define.
+  </Accordion>
+</AccordionGroup>
+
+## Como acessar
+
+### Para colaboradores
+
+- **Mobile**: aba **Recompensas** na barra inferior
+- **Web**: seção Recompensas no menu lateral
+
+Ambos abrem diretamente na **Carteira**, com acesso rápido ao Marketplace, Histórico, Ranking e Campanhas.
+
+### Para administradores
+
+- Painel de Gestão → **Recompensas**
+
+<Note>
+  Apenas **Proprietários** e **Administradores** gerenciam o Marketplace e aprovam resgates. Moderadores e colaboradores não têm acesso ao painel administrativo — mas **todos participam** como consumidores do sistema (acumulam pontos e resgatam).
+</Note>
+
+## Fluxo do ponto ao prêmio
+
+```
+Ação no app (curtir/publicar/reconhecer/concluir trilha)
+     ↓
+Ponto creditado automaticamente na Carteira
+     ↓
+Colaborador navega Marketplace, escolhe recompensa
+     ↓
+Confirma resgate → pontos são debitados na hora
+     ↓
+Pedido entra como "pendente" na fila de admins
+     ↓
+Admin aprova → prepara → entrega (ou cancela)
+     ↓
+Colaborador recebe mensagem de cada etapa
+     ↓
+Recompensa em mãos, pontos registrados no histórico
+```
+
+## Integração com outras áreas do Loop
+
+<CardGroup cols={2}>
+  <Card title="Gamificação" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    Pontos vêm das ações pontuáveis configuradas no Modelo de Gamificação ativo
+  </Card>
+  <Card title="Reconhecimento" icon="handshake" href="/pt-br/reconhecimento/gamificado">
+    Reconhecer e ser reconhecido gera pontos que vão pra Carteira
+  </Card>
+  <Card title="Desenvolvimento" icon="graduation-cap" href="/pt-br/desenvolvimento/aprendizado-gamificado">
+    Começar/concluir trilhas gera pontos que alimentam resgates futuros
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Prêmios de campanha podem ser itens do Marketplace ou crédito direto na Carteira
+  </Card>
+</CardGroup>
+
+## Quem pode usar
+
+| Ação | Colaborador | Admin |
+|---|---|---|
+| Ver próprio saldo e histórico | ✓ | ✓ |
+| Navegar o Marketplace | ✓ | ✓ |
+| Resgatar recompensas | ✓ | ✓ |
+| Ver Ranking | ✓ | ✓ |
+| Criar/editar recompensas | ✗ | ✓ |
+| Definir categorias de recompensas | ✗ | ✓ |
+| Aprovar ou cancelar resgates | ✗ | ✓ |
+| Configurar responsáveis pela entrega | ✗ | ✓ |
+| Ver fila completa de resgates do ambiente | ✗ | ✓ |
+
+## Regras e limites gerais
+
+- **Moeda única do ambiente**: um único tipo de ponto/moeda por tenant. Admins escolhem o nome (Pontos, Moedas, XP) mas todos caem no mesmo saldo
+- **Pontos não expiram**: uma vez ganhos, ficam na Carteira indefinidamente
+- **Saldo nunca fica negativo**: sistema bloqueia resgates que não cabem no saldo disponível
+- **Resgate é imediato no débito**: ao confirmar, pontos saem na hora (não é reserva)
+- **Cancelamento devolve pontos**: se admin cancela um resgate, os pontos voltam pro saldo do colaborador automaticamente
+- **Estoque volta ao cancelar**: se o item era de quantidade limitada, o estoque também é restaurado
+- **Isolamento por ambiente**: cada ambiente tem seu próprio Marketplace, Carteira e regras. Pontos não atravessam ambientes
+- **Transferência entre pessoas**: não é possível — Carteira é pessoal e intransferível
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Preciso ter o Loop Card configurado pra usar Recompensas?">
+    Não. Recompensas funcionam hoje inteiramente dentro do app — resgate, aprovação e entrega manual. O Loop Card é uma evolução futura pra benefícios que funcionam **fora do app** (em lojas, apps de entrega, etc), mas não é pré-requisito.
+  </Accordion>
+
+  <Accordion title="Preciso de integração com sistema externo pra entregar as recompensas?">
+    Não. A entrega hoje é **manual** — o admin designa um responsável (tipicamente RH ou comunicação interna), que recebe mensagem automática quando alguém resgata e se encarrega de entregar o item fisicamente ou por email. Não precisa integrar Amazon, e-commerce ou nada.
+  </Accordion>
+
+  <Accordion title="Como defino o preço em pontos de uma recompensa?">
+    Admin define manualmente o custo de cada item ao cadastrar. Não há algoritmo automático. Recomendação: calibrar com base em quanto um colaborador médio ganha por mês de pontos e qual a margem que o orçamento da empresa suporta. Veja [Marketplace](/pt-br/recompensas/marketplace) pra exemplos.
+  </Accordion>
+
+  <Accordion title="Colaborador pode resgatar múltiplas recompensas seguidas?">
+    Sim, se tiver saldo. Cada resgate é processado independentemente. Não há cooldown entre resgates.
+  </Accordion>
+
+  <Accordion title="Recompensas limitadas em estoque esgotam?">
+    Sim. Se você cadastra "10 unidades", o estoque decrementa a cada resgate. Quando chega a 0, os colaboradores veem "Esgotado" e não conseguem mais resgatar. Cancelamentos restauram o estoque.
+  </Accordion>
+
+  <Accordion title="Posso oferecer recompensas diferentes pra departamentos diferentes?">
+    Sim. Cada recompensa tem uma regra de elegibilidade: "todos", "grupos específicos" ou "níveis específicos". Você restringe quais colaboradores veem e podem resgatar aquele item.
+  </Accordion>
+
+  <Accordion title="O que acontece se o colaborador sair da empresa com pontos no saldo?">
+    Quando o colaborador é removido, os pontos do saldo são **perdidos**. Resgates pendentes (já iniciados) também são cancelados. Se houver política de "compensação no desligamento", precisa ser via decisão manual — sistema não automatiza.
+  </Accordion>
+
+  <Accordion title="Posso pausar o Marketplace temporariamente?">
+    Sim, desativando cada item individualmente (toggle de ativo/inativo). Uma opção "pausar tudo" está no roadmap. Enquanto isso, pode desativar em lote manualmente.
+  </Accordion>
+
+  <Accordion title="Os pontos se convertem em reais ou outra moeda?">
+    Internamente no sistema, sim — você pode definir um valor de conversão (ex: 100 pts = R$ 1). Mas essa conversão é usada apenas como **referência** pra calibrar custos de recompensas. O colaborador não vê "isso vale tanto em reais" — ele vê o custo em pontos.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Marketplace" icon="store" href="/pt-br/recompensas/marketplace">
+    Como admins criam e gerenciam o catálogo
+  </Card>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    Como colaboradores veem saldo, histórico e progresso
+  </Card>
+  <Card title="Gamificação" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    De onde os pontos vêm antes de virarem recompensa
+  </Card>
+</CardGroup>

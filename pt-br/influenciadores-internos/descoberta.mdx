@@ -1,6 +1,242 @@
 ---
 title: "Descoberta"
-description: "Encontre os influenciadores naturais da empresa"
+description: "Como encontrar e filtrar influenciadores no painel — ranking, filtros tradicionais e busca inteligente por linguagem natural"
 ---
 
-Em construção.
+A aba **Descoberta** é o ponto de entrada do painel de Influenciadores Internos. Ela mostra a lista completa dos colaboradores do seu ambiente, ranqueada por **score de influência**, com filtros poderosos e uma busca inteligente que entende perguntas em linguagem natural.
+
+Esta página cobre como usar cada recurso de descoberta.
+
+## Visão geral da tela
+
+Ao abrir o painel, você vê:
+
+- **Barra superior**: contador total de influenciadores classificados, botão de **Atualizar scores**, busca inteligente
+- **Sidebar esquerda (colapsa no mobile)**: filtros por departamento, localização, tipo de conteúdo e tipo de influenciador
+- **Tabela principal (ou grid de cards no mobile)**: cada linha é um colaborador com suas métricas principais
+- **Clique em qualquer linha/card**: abre o detalhe completo do influenciador em uma gaveta lateral
+
+## Colunas da tabela
+
+<AccordionGroup>
+  <Accordion title="Nome e foto" icon="user">
+    Avatar, nome completo e cargo do colaborador. Selos de verificado ou institucional aparecem ao lado do nome.
+  </Accordion>
+
+  <Accordion title="Departamento e localização" icon="location-dot">
+    Área da empresa e unidade/cidade. Vem direto da Gestão de Usuários.
+  </Accordion>
+
+  <Accordion title="Temas principais" icon="tags">
+    Até 5 temas (hashtags ou assuntos) extraídos dos conteúdos mais recentes do colaborador. Mostra sobre o que ela costuma publicar.
+  </Accordion>
+
+  <Accordion title="Tipo de influenciador" icon="badge-check">
+    Selo colorido com ícone do tipo (Autoridade, Especialista, Conector, Criador) — ou vazio se ainda não atingiu o piso de classificação.
+
+    Cada tipo tem seu ícone e cor distintos. Veja [Perfis](/pt-br/influenciadores-internos/perfis).
+  </Accordion>
+
+  <Accordion title="Formato predominante" icon="rectangle-list">
+    Entre posts, reels e stories, qual a pessoa mais publica. Indica onde você deveria convidá-la a atuar em uma campanha.
+  </Accordion>
+
+  <Accordion title="Conteúdo total" icon="layer-group">
+    Quantos posts + reels + stories a pessoa publicou até agora.
+  </Accordion>
+
+  <Accordion title="Alcance (impressões)" icon="eye">
+    Total de vezes que os conteúdos dela apareceram em telas de colegas. Medida de exposição bruta.
+  </Accordion>
+
+  <Accordion title="Engajamento" icon="heart">
+    Porcentagem de impressões que viraram curtidas ou comentários. Medida de qualidade, não volume.
+  </Accordion>
+
+  <Accordion title="Seguidores" icon="users">
+    Quantas pessoas do ambiente seguem a conta. Mesmo que não contenha muito significado no começo (as pessoas estão aprendendo a seguir), cresce em maturidade.
+  </Accordion>
+
+  <Accordion title="Score" icon="gauge">
+    O número de 0 a 100. Calculado a partir das 5 dimensões explicadas em [Métricas de Influência](/pt-br/influenciadores-internos/metricas-de-influencia).
+
+    Visualmente é um badge colorido:
+    - **Verde (80-100)**: altíssima influência
+    - **Azul (60-79)**: influência forte
+    - **Amarelo (40-59)**: influência média
+    - **Laranja (20-39)**: influência em construção
+    - **Cinza (&lt;20)**: baixo sinal ainda
+  </Accordion>
+</AccordionGroup>
+
+## Filtros
+
+A sidebar esquerda permite afinar a lista. Todos os filtros combinam — aplicando vários ao mesmo tempo, o resultado mostra apenas quem bate com **todos** os critérios.
+
+<CardGroup cols={2}>
+  <Card title="Por departamento" icon="building">
+    Ex: só influenciadores da área Comercial, ou só de Tecnologia. Útil pra campanhas focadas em uma área específica.
+  </Card>
+  <Card title="Por localização" icon="location-dot">
+    Ex: só São Paulo, só Rio. Útil pra eventos presenciais regionais ou comunicações locais.
+  </Card>
+  <Card title="Por tipo de conteúdo" icon="rectangle-list">
+    Ex: só quem publica reels. Se sua campanha precisa de vídeo, filtrar por reels evita convidar quem só escreve posts.
+  </Card>
+  <Card title="Por tipo de influenciador" icon="layer-group">
+    Ex: só autoridades. Útil pra cascatar um anúncio estratégico usando somente líderes formais.
+  </Card>
+</CardGroup>
+
+## Ordenação
+
+A tabela ordena por **score (maior → menor)** por padrão. Você pode trocar a ordem clicando em qualquer coluna:
+
+- **Score** (padrão)
+- **Seguidores** (para ver quem tem a maior rede)
+- **Engajamento** (para ver quem tem o maior índice de interação por impressão)
+- **Impressões** (para ver quem atinge mais pessoas em volume bruto)
+
+Cada métrica conta uma história diferente. Score é a visão composta; as outras ordenações ajudam em situações específicas.
+
+## Busca tradicional
+
+No topo do painel existe uma busca por texto livre que filtra em tempo real por:
+
+- Nome do colaborador
+- Cargo
+- Departamento
+
+Útil quando você já sabe o nome da pessoa ou quer achar rapidamente alguém de uma área específica.
+
+## Busca inteligente (IA)
+
+Ao lado da busca tradicional, a **busca inteligente** aceita perguntas em linguagem natural e retorna uma lista ranqueada de influenciadores que melhor respondem à sua pergunta — com **explicação** do porquê de cada um.
+
+### Exemplos de perguntas
+
+<AccordionGroup>
+  <Accordion title="'Preciso de alguém em São Paulo que publique reels sobre inovação'" icon="lightbulb">
+    A busca combina filtro de localização + tipo de conteúdo + análise de temas. Retorna os top influenciadores que batem essa combinação.
+  </Accordion>
+
+  <Accordion title="'Quem tem mais alcance no time de Vendas?'" icon="chart-line">
+    Filtra por departamento Comercial e ordena pelo total de impressões. Útil pra mobilizar um time específico pra um anúncio.
+  </Accordion>
+
+  <Accordion title="'Quais conectores podem espalhar uma mensagem entre áreas?'" icon="network-wired">
+    Filtra pelo tipo Conector e prioriza quem tem alta diversidade de engajamento entre diferentes áreas.
+  </Accordion>
+
+  <Accordion title="'Influenciadores que publicam com consistência e engajamento alto'" icon="repeat">
+    Prioriza quem posta regularmente nas últimas semanas e tem engajamento acima da média.
+  </Accordion>
+
+  <Accordion title="'Especialistas de tecnologia que também sabem falar com outras áreas'" icon="graduation-cap">
+    Combina tipo Especialista, área TI e sinal de comentários/engajamento vindos de outras áreas.
+  </Accordion>
+</AccordionGroup>
+
+### Como interpretar o resultado
+
+A busca inteligente retorna **no máximo 20 influenciadores** ordenados do mais relevante ao menos, cada um com uma explicação curta de por que foi escolhido. Essa explicação aparece ao lado do nome na lista de resultados e ajuda você a entender o raciocínio da IA antes de agir.
+
+<Note>
+  A busca inteligente consome créditos de IA do seu ambiente. Use quando precisa de resultados contextuais — para filtros simples, os filtros tradicionais da sidebar são mais eficientes.
+</Note>
+
+## Abrir detalhe de um influenciador
+
+Clique em qualquer linha da tabela (ou card, no mobile) pra abrir a **gaveta de detalhe** daquela pessoa. Lá você vê:
+
+- Cards com métricas principais (seguidores, impressões, engajamento, conteúdo total)
+- Distribuição do conteúdo (% de posts, reels, stories)
+- **Radar chart** das 4 dimensões do tipo (Autoridade, Especialista, Conector, Criador)
+- **Gráfico de evolução** do score ao longo das últimas atualizações
+- Lista dos 8 conteúdos mais recentes com métricas individuais
+- Temas (hashtags) mais frequentes
+- Botão para **recalcular o score desta pessoa isoladamente** (sem refazer todo o ambiente)
+
+## Atualizar scores do ambiente
+
+O botão **Atualizar scores** no topo do painel dispara a recomputação de todos os colaboradores do ambiente:
+
+- Processa em alguns segundos (para ambientes com até ~5.000 colaboradores)
+- Mostra um toast ao terminar com quantas pessoas foram atualizadas
+- Adiciona uma nova snapshot no histórico de cada pessoa
+
+Use quando:
+
+- Você acabou de terminar uma grande campanha e quer ver o novo ranking
+- Saiu uma ação grande de conteúdo e você quer ver o impacto
+- Toda segunda-feira, como rotina (até a recomputação automática ser lançada)
+
+<Warning>
+  Atualizar scores é uma operação pesada em ambientes muito grandes (>10.000 colaboradores). Evite rodar várias vezes seguidas — o resultado não muda tanto entre minutos.
+</Warning>
+
+## Dicas práticas
+
+<AccordionGroup>
+  <Accordion title="Comece pelo top 20" icon="ranking-star">
+    No primeiro uso, olhe os top 20 por score geral. Essas são as pessoas que estão naturalmente liderando a conversa no seu ambiente. Conhecê-las pelo nome é o primeiro passo pra ativar qualquer iniciativa.
+  </Accordion>
+
+  <Accordion title="Cruze com a estrutura formal" icon="sitemap">
+    Compare o top 20 por influência com o seu C-level. Se tem pouco overlap, é sinal saudável — influência informal existe, a empresa tem "formadores de opinião" fora do organograma. Se tem overlap total, talvez a empresa ainda esteja muito hierárquica nas conversas.
+  </Accordion>
+
+  <Accordion title="Ranqueie por engajamento, não só score" icon="heart">
+    Score composto favorece quem tem muito conteúdo. Se você quer **qualidade de interação** (ex: para endorsement de um produto), ordene por **engajamento** — quem converte impressão em reação.
+  </Accordion>
+
+  <Accordion title="Segmente antes de agir" icon="filter">
+    Filtrar por departamento + tipo antes de uma campanha evita mandar o mesmo briefing pra 200 pessoas. Foca nos 10-15 mais relevantes pra aquele contexto específico.
+  </Accordion>
+
+  <Accordion title="Use a busca inteligente pra perguntas estratégicas" icon="lightbulb">
+    Perguntas tipo "quem poderia endossar essa iniciativa sem parecer corporativo?" — a IA combina sinais que seriam difíceis de configurar manualmente nos filtros.
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Por que alguns colaboradores não aparecem na lista?">
+    A lista mostra todos os colaboradores **ativos** que têm algum conteúdo publicado. Quem nunca publicou no ambiente não tem score gerado e fica fora — sem histórico de atividade, não dá pra avaliar influência. Também são excluídas contas de IA/bots.
+  </Accordion>
+
+  <Accordion title="Qual a diferença entre 'influenciador' e 'colaborador que publica muito'?">
+    Publicar muito alimenta a dimensão de Criador, que é só uma das 4. Influência verdadeira aparece quando o conteúdo também tem **impressões** (chega nas telas) e **engajamento** (mobiliza interação). O score composto balanceia essas dimensões pra evitar confundir volume com influência real.
+  </Accordion>
+
+  <Accordion title="Dá para exportar a lista para Excel ou CSV?">
+    O export direto pelo painel está em desenvolvimento. Enquanto isso, pode solicitar via suporte — a gente gera um CSV com os dados do seu ambiente.
+  </Accordion>
+
+  <Accordion title="O ranking reflete atividade de quanto tempo atrás?">
+    Impressões e engajamento acumulam desde o início do ambiente. Consistência só olha as últimas 4 semanas (se a pessoa anda ativa ou sumiu). Então um influenciador que foi forte anos atrás mas parou pode continuar com score alto no acumulado, mas baixa consistência.
+  </Accordion>
+
+  <Accordion title="Admin também aparece como influenciador?">
+    Sim. Papel administrativo no Loop não muda a análise de influência. Se um admin publica muito e tem alto engajamento, aparece no ranking normalmente. Exceto contas marcadas como assistentes de IA, que ficam fora.
+  </Accordion>
+
+  <Accordion title="Posso comparar a evolução de dois influenciadores?">
+    Hoje você vê a evolução individual pela gaveta de detalhe de cada um. Comparação lado-a-lado no painel está no roadmap. Enquanto isso, o caminho é abrir duas janelas do painel ou exportar os dados.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Perfis" icon="layer-group" href="/pt-br/influenciadores-internos/perfis">
+    Entenda os 4 tipos em profundidade e quando usar cada um
+  </Card>
+  <Card title="Métricas de Influência" icon="chart-line" href="/pt-br/influenciadores-internos/metricas-de-influencia">
+    As 5 dimensões que compõem o score
+  </Card>
+  <Card title="Usuários" icon="users" href="/pt-br/plataforma/usuarios">
+    Configurar departamentos e localizações que alimentam os filtros
+  </Card>
+</CardGroup>

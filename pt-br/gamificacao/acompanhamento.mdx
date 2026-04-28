@@ -1,6 +1,258 @@
 ---
 title: "Acompanhamento"
-description: "Dashboard, métricas e histórico completo"
+description: "Dashboard, histórico, rankings e métricas — como colaboradores e admins acompanham a gamificação do ambiente"
 ---
 
-Em construção.
+O **Acompanhamento** é o conjunto de ferramentas de visualização que permite, tanto pro colaborador quanto pro admin, **entender o que está acontecendo** na gamificação: quem ganhou pontos, por quais ações, em quais campanhas, como está o ranking.
+
+Separamos abaixo o que cada perfil vê.
+
+## Para colaboradores
+
+### Aba Recompensas — visão pessoal
+
+Toda a gamificação do Loop é acessada pela aba **Recompensas** na barra inferior do app mobile (ou seção equivalente no web). Lá você encontra:
+
+<CardGroup cols={2}>
+  <Card title="Saldo" icon="coins">
+    Total de pontos atuais — a moeda resgatável. Atualiza em tempo real conforme você ganha ou gasta.
+  </Card>
+  <Card title="Lifetime" icon="infinity">
+    Total acumulado desde que você começou — histórico completo, independente do saldo atual.
+  </Card>
+  <Card title="Ranking" icon="ranking-star">
+    Sua posição no ranking geral + número total de participantes.
+  </Card>
+  <Card title="Campanhas ativas" icon="bullseye">
+    Lista das campanhas e desafios em que você está participando.
+  </Card>
+</CardGroup>
+
+### Histórico de pontos
+
+Dentro da aba Recompensas, a seção **Histórico** mostra a lista completa dos pontos que você já ganhou:
+
+- **Data e hora** de cada ganho
+- **Ação** ("Curtiu um post", "Publicou um reel", "Reconheceu colega")
+- **Valor** em pontos
+- **Referência** ao conteúdo específico (clique pra abrir o post/reel/story relacionado)
+- **Origem** (contínuo, campanha X, desafio Y)
+
+Você pode filtrar por:
+- Período (últimos 7 dias, 30 dias, customizado)
+- Tipo de ação (só publicações, só reconhecimentos, etc)
+- Origem (só contínuo, só uma campanha específica)
+
+**Gráfico de evolução** mostra como seu saldo cresceu ao longo do tempo — com marcadores pra campanhas concluídas, temporadas de desafio, momentos de premiação.
+
+### Ranking
+
+A seção **Ranking** traz o leaderboard do ambiente:
+
+- **Top N geral** em pontos lifetime (lista com foto, nome, posição, saldo)
+- **Ranking por campanha** — se há campanhas ativas, cada uma tem seu próprio ranking
+- **Ranking por desafio** — temporada ativa de cada desafio recorrente
+- **Sua posição em destaque** — mesmo se você não está no top, o seu card aparece separadamente
+
+<Note>
+  Visibilidade do ranking é **opcional**. O admin pode desligar a opção "Mostrar regras aos colaboradores" no modelo ativo — eles continuam ganhando pontos mas não veem ranking completo. Mantém o engajamento sem gerar competição pública.
+</Note>
+
+### Minhas Campanhas
+
+Lista de campanhas ativas em que você está participando. Cada card mostra:
+
+- Banner da campanha
+- Dias restantes (contador regressivo)
+- Pontos que você ganhou hoje nela
+- Progresso em relação à meta (se for campanha de meta)
+- Posição no ranking da campanha
+- Distância pro top 10 (ou pro próximo prêmio)
+
+Tocar abre a **Página da Campanha**, com descrição, regras, leaderboard completo e histórico das suas ações dentro dela.
+
+### Badges conquistadas
+
+Se o ambiente tem badges ativas, suas conquistas aparecem numa grade no perfil:
+
+- Badge conquistada: ícone colorido, data de conquista, descrição
+- Badge a caminho: ícone cinza com progresso ("Você está em 6/10 dias de streak")
+- Badge não disponível: oculta ou em lista fechada
+
+## Para administradores
+
+### Painel geral
+
+Painel de Gestão → **Gamificação** → aba principal. O que você vê (varia com o tempo conforme o dashboard admin evolui):
+
+- **Modelos ativos** — quantos e de que tipo (contínuo, campanhas, desafios)
+- **Participantes engajados** — quantos colaboradores ganharam pontos na última semana/mês
+- **Pontos distribuídos** — volume total gerado no período
+- **Top ações** — quais ações estão sendo mais pontuadas
+- **Top colaboradores** — quem mais pontuou
+
+### Por campanha e desafio
+
+Cada campanha ou desafio tem seu próprio painel dentro do painel de Gamificação:
+
+#### Leaderboard em tempo real
+
+- **Top 20** por pontos, com posição, avatar, nome, saldo
+- **Busca** por nome ou ID pra ver posição específica
+- **Filtros** por grupo/departamento (ex: "top da campanha no time de Comercial")
+- **Evolução** — comparativo das posições no dia anterior (subiu/desceu/manteve)
+
+#### Atividade por ação
+
+Breakdown de **quais ações** estão gerando os pontos dessa campanha:
+
+- % dos pontos vindos de publicações
+- % dos pontos vindos de curtidas
+- % vindos de reconhecimentos
+- % de scores externos (se fonte é mixed/external)
+
+Útil pra validar se a campanha está incentivando o comportamento certo. Se você quer engajamento e 80% dos pontos vêm só de curtidas, talvez precise reajustar valores.
+
+#### Distribuição de prêmios
+
+Ao final da campanha (ou em cada temporada de desafio):
+
+- **Lista de vencedores** por faixa de prêmio
+- **Botão Distribuir** — dispara a atribuição de pontos resgatáveis ou itens do Marketplace
+- **Status de entrega** — já distribuído, pendente, erro
+- **Histórico de distribuições** — quem recebeu o que e quando
+
+### Por colaborador
+
+Busque um colaborador específico e veja:
+
+- Todo o histórico de pontos ganhos (filtrável por período e ação)
+- Participação em campanhas/desafios ativos e anteriores
+- Badges conquistadas
+- Pontos totais lifetime
+- Padrões suspeitos (se aplicável — detecção em desenvolvimento)
+
+Útil para investigar casos de farming ou pra oferecer reconhecimento pontual a quem tá com engajamento abaixo.
+
+### Scores externos
+
+Para campanhas com fonte de pontos **externa** ou **mista**, admin tem painel pra:
+
+- **Subir scores via CSV** — tabela com `employee_id, valor_do_score, descrição`
+- **Adicionar scores individualmente** — atribuição manual
+- **Histórico de scores** — quem foi atribuído, quando, por quem
+
+## Leaderboard — como o ranking é calculado
+
+O ranking (geral e por campanha) é calculado em tempo real a cada consulta, agregando:
+
+1. Todas as **transações de pontos** do usuário no período relevante (lifetime, ou dentro da campanha, ou dentro da temporada)
+2. Mais os **scores externos** (se a campanha usa fonte externa ou mista)
+3. Ordenados do maior pro menor
+4. `ROW_NUMBER()` atribui a posição
+
+Consequências:
+- **Atualização imediata** — alguém ganha pontos agora → aparece no novo ranking na próxima carga
+- **Consumo**: queries de ranking consomem processamento. Em ambientes muito grandes (10k+ colaboradores), pode ficar lento
+- **Empates**: resolvidos por data (quem atingiu a pontuação antes aparece mais acima)
+
+<Note>
+  Para ambientes muito grandes com leaderboards pesados, um **cache de ranking** está em desenvolvimento (atualização a cada X minutos em vez de por consulta). Hoje é em tempo real.
+</Note>
+
+## Exportar dados
+
+Para relatórios externos ou análises profundas:
+
+- **Export CSV de pontos**: lista todas as transações no período com colaborador, ação, valor, data
+- **Export de campanha**: leaderboard final + histórico por participante
+- **Export por colaborador**: todo o histórico daquela pessoa
+
+## Métricas úteis pra admins
+
+<AccordionGroup>
+  <Accordion title="Taxa de ativação" icon="plug">
+    Quantos colaboradores ganharam **pelo menos um ponto** nos últimos 7 dias? Baixo = problema de adoção ou de valor das ações.
+  </Accordion>
+
+  <Accordion title="Ações por colaborador por dia" icon="repeat">
+    Média de pontos ganhos/colaborador ativo. Mostra intensidade do engajamento.
+  </Accordion>
+
+  <Accordion title="Distribuição das fontes" icon="chart-pie">
+    Quanto dos pontos vem de cada ação? Posts? Curtidas? Reconhecimentos? Idealmente balanceado — se 90% vem de curtidas, tá leve demais.
+  </Accordion>
+
+  <Accordion title="Concentração (Gini)" icon="scale-balanced">
+    Quantos % dos pontos estão com os top 10%? Gamificação saudável distribui mais. Se é muito concentrado, alguns power users dominam e o resto desiste.
+  </Accordion>
+
+  <Accordion title="Retenção pós-campanha" icon="hourglass">
+    Depois que uma campanha acaba, engajamento dos participantes cai para o nível pré-campanha? Ou se mantém? Bom sinal quando se mantém.
+  </Accordion>
+
+  <Accordion title="Custo por ponto distribuído" icon="dollar-sign">
+    Se a gamificação virá prêmio em dinheiro no Marketplace: pontos distribuídos × valor_conversão = custo efetivo da gamificação por período. Calibre conforme budget.
+  </Accordion>
+</AccordionGroup>
+
+## Regras e limites
+
+- **Histórico é permanente**: pontos e transações nunca são apagados. Exportáveis sob demanda
+- **Tempo real**: ranking atualiza a cada query. Sem delay artificial
+- **Fuso do tenant**: reset diário (para max_daily) e início de temporadas seguem o fuso configurado no ambiente
+- **Paginação**: leaderboards carregam top 100 por padrão; páginas seguintes sob demanda
+- **Privacidade**: colaboradores veem apenas seu próprio histórico; admins veem o do ambiente inteiro
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Onde o colaborador vê o saldo?">
+    Aba **Recompensas** (mobile) ou seção equivalente (web). Abre na visão do saldo + campanhas ativas logo de cara.
+  </Accordion>
+
+  <Accordion title="Como escondo o ranking dos colaboradores?">
+    No painel do modelo ativo, desligue a opção "Mostrar regras aos colaboradores". Eles continuam ganhando pontos normalmente, só não veem a tabela pública de ranking.
+  </Accordion>
+
+  <Accordion title="Posso exportar todos os dados de uma campanha específica?">
+    Sim, via suporte (enquanto o export direto pelo painel não estiver pronto). Você recebe CSV com leaderboard final, histórico de ações por participante e distribuição de prêmios.
+  </Accordion>
+
+  <Accordion title="O colaborador vê a posição dos colegas por nome?">
+    Sim, a menos que o admin configure o ranking como privado. Essa é a dinâmica social — rankings são abertos. Se você quer discretamente, desligue o ranking público e use apenas para backend.
+  </Accordion>
+
+  <Accordion title="Como detectar farming ou padrões suspeitos?">
+    Hoje é manual — admins monitoram padrões no histórico (ex: alguém que ganha 500 pts só em curtir em 1 hora). Os limites diários por ação protegem contra excessos. Detecção automatizada e alertas estão em desenvolvimento.
+  </Accordion>
+
+  <Accordion title="Dá pra segmentar ranking por departamento?">
+    Sim, no painel admin você filtra o leaderboard por grupo/departamento. Pros colaboradores, a visão padrão é o ranking geral — rankings segmentados pros users precisam ser habilitados caso a caso.
+  </Accordion>
+
+  <Accordion title="Como ver evolução ao longo do tempo?">
+    Na página do colaborador (admin) e na aba Recompensas (colaborador), o **gráfico de evolução** mostra o saldo ao longo dos últimos 30/60/90 dias. Útil pra identificar trends individuais ou do ambiente.
+  </Accordion>
+
+  <Accordion title="Posso comparar duas campanhas?">
+    Hoje não diretamente na UI. Solução atual: exportar os dados das duas e comparar externamente (ou pedir ao suporte).
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Visão Geral" icon="layer-group" href="/pt-br/gamificacao/visao-geral">
+    Como a gamificação do Loop funciona no todo
+  </Card>
+  <Card title="Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Ações que geram os pontos do dia a dia
+  </Card>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Campanhas pontuais com meta e prêmio
+  </Card>
+  <Card title="Desafios" icon="trophy" href="/pt-br/gamificacao/desafios">
+    Temporadas recorrentes com reset automático
+  </Card>
+</CardGroup>

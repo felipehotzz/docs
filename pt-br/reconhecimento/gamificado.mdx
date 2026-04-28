@@ -1,6 +1,207 @@
 ---
 title: "Gamificado"
-description: "Quem reconhece e quem é reconhecido ganham"
+description: "Como reconhecimento gera pontos para quem dá e quem recebe, alimentando campanhas e rankings"
 ---
 
-Em construção.
+Reconhecer no Loop **não é gratuito** (no bom sentido): toda vez que alguém é reconhecido, **os dois ganham pontos** — o que recebeu e o que deu. Esse é o motor gamificado do sistema, desenhado pra reforçar os dois comportamentos (dar E receber) como hábito cultural.
+
+Esta página explica o fluxo de pontos e como ele conecta reconhecimento a Gamificação e Recompensas.
+
+## A lógica dos dois lados
+
+Em plataformas tradicionais, quem ganha valor é só quem **recebe** o reconhecimento. O Loop inverte: **quem dá também ganha**.
+
+**Por que?**
+- Dar reconhecimento é um **comportamento valioso** — a empresa quer reforçar
+- Sem incentivo pra dar, o sistema morre: ninguém reconhece, ninguém recebe
+- Com incentivo nos dois lados, o ciclo virtuoso se sustenta
+
+Esse insight é central pra filosofia do produto e está no próprio slogan: *"Crie um ciclo onde reconhecimento gera engajamento — e engajamento gera mais reconhecimento."*
+
+<Note>
+  O design não é acidente — é deliberado. Em cenários observados, sistemas que só premiam o recebedor viram cemitérios em 3-6 meses. Incentivar o giver mantém o ciclo rodando.
+</Note>
+
+## Como os pontos funcionam
+
+Cada **tipo de reconhecimento** (ex: "Colaboração", "Inovação") tem dois valores de pontos configurados pelo admin:
+
+- **Pontos ao receber (receiver)**: geralmente maiores (15-50 pts)
+- **Pontos ao dar (giver)**: geralmente menores (5-10 pts)
+
+Essa assimetria importa: **receber** vale mais em pontos, mas **dar** é mais frequente — no saldo, quem dá muitos reconhecimentos também acumula bastante.
+
+### Exemplo numérico
+
+| Tipo | Pontos Receiver | Pontos Giver |
+|---|---|---|
+| Colaboração | 20 | 5 |
+| Inovação | 25 | 5 |
+| Excelência | 30 | 5 |
+| Cultura | 15 | 5 |
+| Crescimento | 20 | 5 |
+
+**Cenário**: Maria recebe 3 reconhecimentos (Colaboração + Inovação + Excelência) e dá 10 (variados).
+
+- Pontos recebidos: 20 + 25 + 30 = **75 pts**
+- Pontos por dar: 10 × 5 = **50 pts**
+- **Total da Maria**: 125 pts no mês
+
+Quem **só recebe** costuma ficar atrás de quem **dá + recebe** equilibradamente — por design.
+
+## Quando os pontos são creditados
+
+O crédito é **automático e instantâneo** ao publicar o story com o sticker de reconhecimento.
+
+- O giver ganha os pontos do campo `pontos ao dar` daquele tipo
+- O receiver ganha os pontos do campo `pontos ao receber` daquele tipo
+- O crédito é aplicado a **qualquer campanha de gamificação ativa** no ambiente
+- Não há delay nem aprovação — é imediato
+
+Se o story for **excluído** depois:
+
+- O registro de reconhecimento **permanece** no histórico
+- Os pontos já creditados **não são revertidos**
+- O story some do Feed mas a pontuação dele na campanha continua
+
+## Configuração dos pontos
+
+Os pontos não são configurados no cadastro do tipo — são configurados no **Modelo de Gamificação** ativo no ambiente.
+
+### Caminho
+
+1. Painel de Gestão → **Gamificação**
+2. Abra o **Modelo de Gamificação** atual (ou crie um novo)
+3. Role até a seção **Reconhecimento**
+4. Para cada tipo cadastrado no ambiente, ajuste:
+   - **Toggle ON/OFF**: se o tipo gera pontos nesse modelo
+   - **Pontos ao receber**
+   - **Pontos ao dar**
+
+### Múltiplos modelos e campanhas
+
+Você pode ter **múltiplos modelos de gamificação** ao longo do ano — um por trimestre, por exemplo. Cada modelo tem sua própria calibragem de pontos.
+
+Isso permite estratégias como:
+
+- **Q1**: Foco em integração → "Colaboração" vale 30 pts ao receber (acima do normal)
+- **Q2**: Foco em inovação → "Inovação" vale 40 pts ao receber
+- **Q3**: Foco em resultados → "Metas" vale 50 pts ao receber
+
+Quando você troca o modelo ativo, as futuras pontuações passam a seguir os novos valores. **Reconhecimentos passados mantêm os pontos que ganharam no momento da publicação**.
+
+## Ranking e progresso
+
+Os pontos acumulados aparecem em:
+
+<CardGroup cols={2}>
+  <Card title="Ranking da campanha" icon="trophy">
+    Tabela ordenada com os top-N colaboradores por pontuação. Cada campanha tem seu ranking.
+  </Card>
+  <Card title="Progresso individual" icon="chart-line">
+    Gráfico pessoal de evolução: quantos pontos você tem, quanto falta pra próximo nível/conquista.
+  </Card>
+  <Card title="Leaderboard por grupo" icon="users">
+    Comparação entre grupos, departamentos ou unidades. Útil pra dinâmicas competitivas internas.
+  </Card>
+  <Card title="Histórico de reconhecimentos" icon="clock">
+    Linha do tempo detalhada: quais reconhecimentos deram/receberam quantos pontos.
+  </Card>
+</CardGroup>
+
+Veja detalhes em [Gamificação > Acompanhamento](/pt-br/gamificacao/acompanhamento).
+
+## Pontos de reconhecimento vs Recompensas
+
+Os pontos gerados por reconhecimento **não viram saldo direto na Carteira de Recompensas**. O fluxo é:
+
+```
+Reconhecimento → Pontos na campanha de Gamificação → (ao atingir meta da campanha) → Prêmio da campanha
+```
+
+O **prêmio** da campanha pode ser:
+
+- Pontos resgatáveis na **Carteira** (aí sim, viram moeda resgatável no Marketplace)
+- Produto/experiência definida pela campanha
+- Reconhecimento público adicional (título, badge)
+
+Essa separação é intencional: pontos de campanha e pontos de carteira são **moedas diferentes**, com objetivos diferentes. Evita que "reconhecer um colega" seja lido como "transferir dinheiro", o que corromperia a lógica cultural.
+
+Veja mais em [Recompensas > Carteira](/pt-br/recompensas/carteira).
+
+## Regras, limites e consequências
+
+<AccordionGroup>
+  <Accordion title="Pontos fixos no momento da publicação" icon="lock">
+    Quando você publica um reconhecimento, os pontos são determinados pelo modelo de gamificação **ativo naquele exato momento**. Alterações futuras no modelo não afetam reconhecimentos passados.
+  </Accordion>
+
+  <Accordion title="Pontos não expiram (dentro da campanha)" icon="infinity">
+    Dentro de uma campanha ativa, pontos acumulam sem expiração até o fim da campanha. Ao fim, o saldo é zerado pra próxima (a menos que a campanha específica tenha regra de arraste).
+  </Accordion>
+
+  <Accordion title="Exclusão não reverte pontos" icon="trash">
+    Se o story é excluído depois, os pontos já creditados ficam. Esta é uma decisão atual que pode mudar com implementação de anti-abuso.
+  </Accordion>
+
+  <Accordion title="Limite mensal em desenvolvimento" icon="gauge">
+    Admins podem configurar um limite de quantas vezes cada pessoa pode dar um tipo por mês, mas **a regra ainda não é enforcida**. Hoje não há limite prático — confie na cultura do time.
+  </Accordion>
+
+  <Accordion title="Dar pontos é linear, não progressivo" icon="equals">
+    Os pontos por ato de reconhecimento são **sempre os mesmos** (definidos no modelo). Não há bônus por "reconhecer várias pessoas seguidas", "primeiro reconhecimento do mês", etc. Simplicidade do modelo é proposital.
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Posso ver quantos pontos eu ganhei só por reconhecer?">
+    Sim — na seção de Gamificação, seu histórico detalha cada ponto com origem: "X pts por reconhecer fulano com tipo Y". Assim você vê quanto veio de dar vs. de receber.
+  </Accordion>
+
+  <Accordion title="Os pontos de reconhecimento contam se não houver campanha ativa?">
+    Por padrão, pontos são calculados dentro do modelo de gamificação ativo. Se o ambiente **não tem nenhum modelo ativo**, os pontos são registrados mas não aparecem em ranking visível. Ainda assim, eles ficam no histórico caso uma campanha retroativa seja criada.
+  </Accordion>
+
+  <Accordion title="Como eu configuro pontos diferentes pra trimestres diferentes?">
+    Crie múltiplos **Modelos de Gamificação**, cada um com sua calibragem. Ative o modelo correspondente no início do trimestre. Quando trocar, novos reconhecimentos usam os novos valores automaticamente. Veja [Gamificação > Visão Geral](/pt-br/gamificacao/visao-geral).
+  </Accordion>
+
+  <Accordion title="É possível desligar pontos de reconhecimento sem desativar o tipo?">
+    Sim. No Modelo de Gamificação, toggle OFF o tipo específico (ou coloque 0 nos dois campos de pontos). O tipo continua disponível pra uso cultural (aparece no sticker, vai pro destaque), mas não gera pontos.
+
+    Útil pra **tipos experimentais** que você quer observar antes de gamificar.
+  </Accordion>
+
+  <Accordion title="Se eu der 50 reconhecimentos no mesmo dia, ganho 50 × pontos_giver?">
+    Sim (enquanto o limite mensal não for enforcido). Mas cuidado: esse padrão é facilmente identificável como farming e admins podem intervir. Qualidade > quantidade no reconhecimento.
+  </Accordion>
+
+  <Accordion title="Moderadores ganham pontos quando dão reconhecimento?">
+    Sim, igual a qualquer colaborador. O papel administrativo (moderador, admin, proprietário) não altera o sistema de pontos — é só poder adicional sobre configuração. Ao dar um reconhecimento, qualquer pessoa ganha os pontos do campo giver.
+  </Accordion>
+
+  <Accordion title="Reconhecimentos recebidos de fora da minha área contam igual?">
+    Sim. Os pontos são determinados pelo **tipo de reconhecimento**, não por quem deu. Um "Colaboração" vale os mesmos X pontos independente de quem te reconheceu.
+
+    Algumas empresas optam por dar peso diferente a reconhecimentos inter-área vs intra-área — essa granularidade está no roadmap mas não existe hoje.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Pilares e Tipos" icon="layer-group" href="/pt-br/reconhecimento/pilares-e-tipos">
+    Configuração base dos tipos que recebem pontos
+  </Card>
+  <Card title="Gamificação — Visão Geral" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    Modelo geral de gamificação e campanhas
+  </Card>
+  <Card title="Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Ranking, histórico e dashboards dos pontos
+  </Card>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    Saldo resgatável no Marketplace de Recompensas
+  </Card>
+</CardGroup>

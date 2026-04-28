@@ -1,6 +1,267 @@
 ---
 title: "Desafios"
-description: "Temporadas recorrentes com reset automático"
+description: "Temporadas recorrentes com reset automático — crie rituais gamificados que renovam sozinhos (semanal, mensal, trimestral)"
 ---
 
-Em construção.
+**Desafios** (*recurring challenges*) são modelos de gamificação que **ciclam automaticamente**. Você define a cadência (semanal, quinzenal, mensal, trimestral), o placar zera quando a temporada termina e o sistema **cria a próxima temporada sozinho**, mantendo o ritual rodando sem esforço do admin.
+
+É a mecânica ideal pra criar **hábitos recorrentes**: "Top da Semana", "Campeão do Mês", "Trimestral da Cultura".
+
+## Desafios vs Campanhas
+
+Muita gente confunde as duas mecânicas. A diferença é:
+
+| Atributo | Campanha | Desafio |
+|---|---|---|
+| Duração | Definida, acaba | Cíclica, renova sozinha |
+| Reset | Não (acaba e fica) | Sim, ao fim de cada ciclo |
+| Usos típicos | Iniciativas pontuais | Rituais recorrentes |
+| Configuração | Cria uma por vez | Cria uma, roda pra sempre |
+| Prêmios | Uma vez ao final | Por temporada, várias vezes |
+
+**Escolha Desafio quando** você quer mobilização contínua com "vencedores a cada X tempo" — ex: "quem for o top 3 em engajamento desta semana ganha voucher". Toda semana, um novo top 3.
+
+**Escolha Campanha quando** é uma iniciativa única com começo e fim claros — ex: "na Semana da Inovação, top 10 ganham prêmio".
+
+## Ciclos disponíveis
+
+Ao criar um desafio, você escolhe o **ciclo**:
+
+<CardGroup cols={2}>
+  <Card title="Semanal" icon="calendar-week">
+    Nova temporada toda semana. Reset tipicamente na segunda-feira de madrugada.
+  </Card>
+  <Card title="Quinzenal" icon="calendar-days">
+    Ciclos de 14 dias. Útil para ritmo de sprint/quinzena em times ágeis.
+  </Card>
+  <Card title="Mensal" icon="calendar">
+    Clássico "campeão do mês". Reset no dia 1 de cada mês.
+  </Card>
+  <Card title="Trimestral" icon="calendar-range">
+    Ciclos de 3 meses. Alinhado com planejamento trimestral da empresa.
+  </Card>
+</CardGroup>
+
+Você também pode configurar o **dia de início da temporada**:
+
+- Semanal: segunda-feira (padrão) ou outro dia da semana
+- Mensal: dia 1 (padrão) ou outro dia do mês
+- Trimestral: primeiro dia do trimestre civil (Jan, Abr, Jul, Out)
+
+## Como um desafio funciona
+
+<Steps>
+  <Step title="Admin cria o desafio">
+    Define ciclo, duração do ciclo, regras de pontuação, prêmios por temporada, público-alvo.
+  </Step>
+  <Step title="Primeira temporada é criada">
+    Sistema cria a "Temporada 1" com a data de início definida. Status: **active**.
+  </Step>
+  <Step title="Colaboradores acumulam pontos">
+    Durante a temporada, cada ação pontuada (publicar, curtir, reconhecer) vai pro placar do desafio. Leaderboard atualiza em tempo real.
+  </Step>
+  <Step title="Temporada encerra automaticamente">
+    Ao chegar no fim do ciclo, status muda pra **ended**. Placar final é consolidado. Prêmios ficam disponíveis pra distribuição.
+  </Step>
+  <Step title="Prêmios são distribuídos">
+    Admin confirma e dispara a distribuição (ou o sistema distribui automaticamente se configurado como "immediate"). Vencedores recebem notificação.
+  </Step>
+  <Step title="Próxima temporada inicia">
+    Se `auto_renew = true` (padrão), o sistema cria automaticamente a **Temporada 2** com o mesmo formato. Placar zera. Ciclo recomeça.
+  </Step>
+</Steps>
+
+## Auto-renovação
+
+Uma opção de **auto-renovação** controla se o desafio se auto-recria:
+
+- **Ativado**: sistema cria automaticamente a próxima temporada ao fim da atual. Ciclo infinito até admin pausar.
+- **Desativado**: uma temporada termina e o desafio fica dormente. Admin precisa criar manualmente a próxima.
+
+O padrão é **ativado** — faz sentido para a maioria dos casos de uso. Desativar é útil quando você quer rodar apenas uma temporada (então considera usar Campanha em vez de Desafio).
+
+## Participação
+
+### Aberta vs fechada
+
+A opção **participação aberta** controla a inscrição:
+
+<AccordionGroup>
+  <Accordion title="Aberta (padrão)" icon="door-open">
+    Todos do público-alvo participam **automaticamente**. Não precisa se inscrever. Pontuação começa a contar assim que a temporada inicia.
+
+    **Vantagem**: adoção instantânea, colaborador nem precisa saber que o desafio existe pra começar a pontuar.
+
+    **Desvantagem**: a pessoa pode estar no ranking sem querer ou saber — transparência é essencial.
+  </Accordion>
+
+  <Accordion title="Fechada (opt-in)" icon="door-closed">
+    Colaborador precisa **tocar em "Participar"** na página do desafio pra pontuar. Sem opt-in, não conta no ranking.
+
+    **Vantagem**: só compete quem decidiu competir. Ranking reflete motivação real.
+
+    **Desvantagem**: barreira de entrada que pode reduzir adoção.
+  </Accordion>
+</AccordionGroup>
+
+## Prêmios por temporada
+
+Cada temporada tem seu próprio conjunto de prêmios e vencedores. Os prêmios são **recorrentes**: a cada ciclo, novos vencedores, nova distribuição.
+
+Como a estrutura de prêmios funciona:
+
+- **Mesma configuração em todas as temporadas**: admin configura uma vez (ex: top 3 ganham R$100 em pontos cada). Cada temporada aplica.
+- **Fundo de prêmios por temporada**: admin define o valor total. Se são 12 temporadas no ano, vale multiplicar — pode ser caro.
+- **Variações por temporada**: admin pode editar pontos entre temporadas (ex: temporadas especiais com prêmio maior).
+
+### Distribuição
+
+Mesmos 4 modelos de [Campanhas](/pt-br/gamificacao/campanhas#distribuição-de-prêmios):
+
+- **Todos que participam**: todo mundo na temporada ganha algo (pequeno)
+- **Todos que atingem meta**: quem bateu X pontos ganha
+- **Top N**: só os N primeiros ganham
+- **Por faixas**: prêmios diferentes por faixas de ranking
+
+### Tempo de distribuição
+
+- **Imediato**: prêmio cai na hora que critério é atingido (raro em desafios recorrentes)
+- **Ao final de cada temporada**: padrão — ranking consolida, prêmios distribuídos
+
+## Exemplos de desafios
+
+<AccordionGroup>
+  <Accordion title="Top da Semana — Engajamento" icon="trophy">
+    **Ciclo**: semanal, reset segunda-feira 00:00
+    **Público**: todos
+    **Ações pontuáveis**: publicar post (20 pts), publicar reel (40 pts), reconhecer colega (25 pts), curtir (3 pts)
+    **Prêmios**: top 3 da semana ganham voucher de café R$30
+    **Por que funciona**: reset semanal mantém ânimo, recompensa acessível, visibilidade do top 3 gera reconhecimento social
+  </Accordion>
+
+  <Accordion title="Campeão do Mês — Cultura" icon="medal">
+    **Ciclo**: mensal, reset dia 1
+    **Público**: todos
+    **Ações pontuáveis**: dar reconhecimento (30 pts), receber reconhecimento (50 pts), comentar em post de outra área (15 pts)
+    **Prêmios**: 1º lugar ganha 1000 pontos resgatáveis na Carteira; 2º-5º ganham 500
+    **Por que funciona**: foca em comportamento cultural (reconhecer), reset mensal evita monopolização por power users
+  </Accordion>
+
+  <Accordion title="Onboarding Squad — Trimestral" icon="seedling">
+    **Ciclo**: trimestral
+    **Público**: grupo "Squad de Boas-vindas" (mentores de novos contratados)
+    **Ações pontuáveis**: comentar em post de novo (30 pts), reconhecer novo contratado (50 pts), completar módulo de mentor (40 pts)
+    **Prêmios**: top 3 do trimestre ganham jantar com CEO
+    **Por que funciona**: ciclo longo permite consolidar relacionamentos; prêmio simbólico (não financeiro) eleva o status
+  </Accordion>
+
+  <Accordion title="Quinzena de Vendas" icon="handshake">
+    **Ciclo**: quinzenal (14 dias)
+    **Público**: grupo "Comercial"
+    **Pontuação**: externa (admin carrega scores do CRM a cada 3 dias)
+    **Prêmios**: top 5 cada quinzena ganham 500 pts na Carteira
+    **Por que funciona**: quinzena alinha com ciclos de fechamento; pontuação externa conecta métricas do CRM ao Loop
+  </Accordion>
+</AccordionGroup>
+
+## Como criar
+
+<Steps>
+  <Step title="Abra o painel de Gamificação">
+    Painel de Gestão → **Gamificação** → Criar Modelo
+  </Step>
+  <Step title="Escolha o tipo Recurring">
+    No wizard, selecione **Recurring (Desafio)**.
+  </Step>
+  <Step title="Configure ciclo">
+    Ciclo (semanal/quinzenal/mensal/trimestral), dia de início, duração da temporada.
+  </Step>
+  <Step title="Ative auto-renovação">
+    Por padrão sim. Desative apenas se quiser rodar uma única temporada.
+  </Step>
+  <Step title="Defina participação">
+    Aberta (padrão) ou fechada (opt-in).
+  </Step>
+  <Step title="Configure ações, pontuação e prêmios">
+    Igual a Campanhas — escolha ações pontuáveis, valores, tipo de distribuição e tipo de prêmios.
+  </Step>
+  <Step title="Ative o desafio">
+    A primeira temporada começa imediatamente (ou na data agendada). A partir daí é automático.
+  </Step>
+</Steps>
+
+## Gerenciando temporadas
+
+O painel de Gamificação mostra a lista de temporadas de cada desafio:
+
+- **Temporada ativa** (em andamento)
+- **Temporadas futuras** (ainda não começaram)
+- **Temporadas encerradas** (placar final + prêmios)
+
+Para cada temporada, admin pode:
+
+- Ver ranking completo
+- Confirmar/disparar distribuição de prêmios
+- Reabrir temporada (caso de erro — raro)
+- Anular (só se nenhum prêmio foi distribuído ainda)
+
+## Regras e limites
+
+- **Isolamento por temporada**: pontos só contam **dentro da temporada**. Pontos da temporada anterior não carregam — placar zera 100% ao iniciar nova temporada
+- **Prêmios permanentes**: prêmios distribuídos em temporadas anteriores **não são revertidos** nunca, mesmo se o desafio for desativado
+- **Pausar um desafio ativo**: desativar o modelo interrompe o acúmulo da temporada corrente. Reativar retoma do ponto em que parou (placar continua).
+- **Desativar auto-renovação mid-flight**: se você desativa a auto-renovação no meio de uma temporada, a atual termina normalmente e **não gera próxima**. Desafio fica dormente.
+- **Mudar configuração mid-flight**: pode editar prêmios, ações e pontos a qualquer momento. Edições afetam a partir do momento — história da temporada atual mantém seus valores.
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Se eu mudar o ciclo de semanal pra mensal, o que acontece?">
+    A temporada ativa é encerrada na próxima data de reset, os prêmios daquela temporada são distribuídos normalmente. A próxima temporada já é criada no novo ciclo (mensal). Sistema não "estica" temporada ativa — encerra e recria.
+  </Accordion>
+
+  <Accordion title="Posso pular uma temporada?">
+    Não diretamente. Se quer pular, desative a auto-renovação antes do encerramento da atual, deixe dormente, e reative quando quiser a próxima temporada.
+  </Accordion>
+
+  <Accordion title="Um colaborador pode aparecer no ranking de várias temporadas simultaneamente?">
+    Sim — se o desafio é recorrente, o colaborador pode estar no ranking da temporada atual (active) e no histórico de temporadas anteriores (ended). Cada temporada tem ranking independente.
+  </Accordion>
+
+  <Accordion title="Como mostrar histórico de temporadas aos colaboradores?">
+    A página do desafio no app mostra por padrão a temporada ativa. Há uma aba de **Histórico** onde o colaborador vê temporadas anteriores e rankings finais. Pode rastrear a própria evolução ao longo do tempo.
+  </Accordion>
+
+  <Accordion title="Preciso aprovar manualmente a criação de cada nova temporada?">
+    Não. Com `auto_renew = true`, o sistema cria automaticamente. Com ele desligado, admin precisa criar manualmente cada nova temporada.
+  </Accordion>
+
+  <Accordion title="Como lidar com colaboradores que entram no ambiente no meio de uma temporada?">
+    Entram no ranking da temporada atual a partir do momento que entram. Não retroagem pontos. Acumulam normalmente daí em diante.
+  </Accordion>
+
+  <Accordion title="Posso ter um desafio que roda apenas durante horário comercial?">
+    Hoje não — desafios são 24/7. Filtros por horário de evento (ex: só conta após 9h, antes das 18h) estão no roadmap.
+  </Accordion>
+
+  <Accordion title="Qual o overhead financeiro de rodar desafio recorrente vs campanha única?">
+    Considerável se os prêmios são tangíveis. Um "Top 3 da Semana com R$50 cada" = R$150 x 52 semanas = R$7.800/ano. Calibre prêmios pensando no ritmo anual, não só no ciclo individual.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Campanhas" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Iniciativas com início, fim e prêmio único
+  </Card>
+  <Card title="Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Pontuação base sempre ativa, sem prazo nem reset
+  </Card>
+  <Card title="Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Rankings ativos e históricos por temporada
+  </Card>
+  <Card title="Visão Geral" icon="layer-group" href="/pt-br/gamificacao/visao-geral">
+    Modelo geral da gamificação do Loop
+  </Card>
+</CardGroup>

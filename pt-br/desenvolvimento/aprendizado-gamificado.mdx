@@ -1,6 +1,240 @@
 ---
 title: "Aprendizado Gamificado"
-description: "Treinamento com mecânicas de jogo"
+description: "Cada ação de aprendizado gera pontos no sistema de gamificação — como funciona a conexão entre trilhas e Gamificação"
 ---
 
-Em construção.
+**Aprendizado não precisa ser forçado pra ser feito** — se as pessoas têm incentivo, curiosidade e ritmo, fazem naturalmente. A lógica gamificada do Loop aplica-se também a Desenvolvimento: **cada passo numa trilha gera pontos** no sistema de gamificação do ambiente, conectando aprendizado à mesma moeda que recompensa engajamento social e reconhecimento.
+
+## Como funciona
+
+Toda ação significativa dentro do fluxo de aprendizado gera pontos automaticamente para o colaborador. Não precisa botão "marcar como concluído" — o sistema observa e credita.
+
+As três ações principais são:
+
+<CardGroup cols={3}>
+  <Card title="Começar uma trilha" icon="play">
+    **Padrão**: 10 pontos
+
+    Creditado quando o colaborador se inscreve (manualmente) ou é inscrito automaticamente (via regra de onboarding) em uma trilha.
+  </Card>
+  <Card title="Concluir um item" icon="circle-check">
+    **Padrão**: 30 pontos
+
+    Creditado cada vez que o colaborador termina de assistir um reel dentro de uma trilha. Em uma trilha de 10 itens, geram até 300 pontos ao longo do caminho.
+  </Card>
+  <Card title="Concluir a trilha inteira" icon="trophy">
+    **Padrão**: 100 pontos
+
+    Creditado quando o último item é concluído. É um bônus de finalização, adicional aos pontos de cada item.
+  </Card>
+</CardGroup>
+
+### Outras ações (em desenvolvimento)
+
+Algumas ações estão definidas no sistema mas ainda não têm gatilho automático funcionando:
+
+- **Acertar um quiz**: 50 pontos (padrão) — aguarda implementação de quizzes nas trilhas
+- **Concluir antes do prazo**: pontos variáveis — aguarda implementação de prazo por trilha
+
+Quando essas funcionalidades forem lançadas, o sistema começa a creditar pontos automaticamente sem precisar de nova configuração — basta os valores estarem cadastrados no Modelo de Gamificação ativo.
+
+## Por que pontuar aprendizado
+
+A lógica vale pra três públicos ao mesmo tempo:
+
+<AccordionGroup>
+  <Accordion title="Pro colaborador" icon="user">
+    Aprender vira algo reforçado, não só "mais uma tarefa". Ver pontinhos caindo pelo caminho cria pequena satisfação por cada item concluído. A trilha deixa de ser "o e-learning chato" e vira **atividade com retorno imediato**.
+  </Accordion>
+
+  <Accordion title="Pra empresa" icon="building">
+    Criar incentivo estruturado pro engajamento em desenvolvimento aumenta taxa de conclusão. Se os pontos alimentam campanhas com prêmios, cria ciclo virtuoso — premiar quem desenvolve pessoas também estimula quem aprende e quem ensina.
+  </Accordion>
+
+  <Accordion title="Pra operação" icon="gears">
+    Unifica o sistema de incentivo de toda a plataforma. Não existe "sistema de pontos do Social" diferente de "sistema de pontos do Desenvolvimento" — é a mesma moeda. Simplifica pra admin e pro colaborador.
+  </Accordion>
+</AccordionGroup>
+
+## Como os pontos fluem no ambiente
+
+```
+Colaborador conclui item → sistema detecta → credita X pontos
+→ saldo do colaborador atualiza em tempo real
+→ pontos contam em campanhas ativas
+→ colaborador aparece mais alto no ranking
+→ (se campanha tem prêmio) ao atingir meta, ganha o prêmio
+```
+
+O fluxo é **invisível e automático**. O colaborador não precisa clicar em nada pra resgatar os pontos — eles entram direto no saldo visível na aba Recompensas.
+
+## Configurar os valores
+
+Os valores padrão (10/30/100) são recomendados, mas cada admin pode ajustar no **Modelo de Gamificação** ativo.
+
+### Caminho
+
+1. Painel de Gestão → **Gamificação**
+2. Abra o Modelo ativo (ou crie um se não houver)
+3. Aba **Ações**
+4. Procure a seção **Treinamento**:
+   - Começar trilha
+   - Concluir item
+   - Concluir trilha
+5. Para cada ação:
+   - Toggle **ON/OFF** (se gera pontos nesse modelo ou não)
+   - **Valor de pontos**
+   - **Limite diário** (opcional)
+6. Salve
+
+### Exemplos de calibragem
+
+<AccordionGroup>
+  <Accordion title="Padrão equilibrado (recomendado pra começar)" icon="gauge">
+    - Começar trilha: 10 pts
+    - Concluir item: 30 pts
+    - Concluir trilha: 100 pts
+
+    Em uma trilha de 8 itens: 10 (inscrição) + 8 × 30 (itens) + 100 (final) = **350 pontos totais**. Engajamento saudável sem inflar o saldo.
+  </Accordion>
+
+  <Accordion title="Onboarding crítico (reforço alto)" icon="fire">
+    - Começar trilha: 20 pts
+    - Concluir item: 50 pts
+    - Concluir trilha: 300 pts
+
+    Use apenas em campanha/modelo específico de onboarding. Sinaliza alta prioridade pra que novos colaboradores completem — e o ROI compensa.
+  </Accordion>
+
+  <Accordion title="Desenvolvimento contínuo (incentivo baixo)" icon="leaf">
+    - Começar trilha: 5 pts
+    - Concluir item: 10 pts
+    - Concluir trilha: 30 pts
+
+    Use em ambientes onde desenvolvimento já tem cultura forte. O ponto é simbólico, não motor principal.
+  </Accordion>
+
+  <Accordion title="Desligado (sem pontos)" icon="ban">
+    - Toggle OFF em todas as 3 ações
+
+    Use se quer manter a estrutura de trilhas sem conectar à gamificação. Alguns ambientes preferem rodar os dois sistemas em paralelo, sem cruzar moedas.
+  </Accordion>
+</AccordionGroup>
+
+## Pontos em campanhas
+
+Pontos de aprendizado valem normalmente em campanhas ativas de Gamificação. Use isso pra:
+
+<AccordionGroup>
+  <Accordion title="Campanha de aprendizado dedicada" icon="graduation-cap">
+    Crie uma campanha tipo "Mês do Desenvolvimento" com prêmio pra quem tiver mais pontos de aprendizado. Configure a campanha pra valorizar especialmente as 3 ações de trilhas (aumentando os valores só no período).
+  </Accordion>
+
+  <Accordion title="Desafio recorrente mensal" icon="repeat">
+    Crie um desafio mensal de "Top 3 em trilhas" — ciclos mensais com prêmio no top 3 de pontos ganhos exclusivamente em trilhas no mês.
+  </Accordion>
+
+  <Accordion title="Meta individual" icon="bullseye">
+    Crie uma campanha com meta: "Quem concluir 3 trilhas até dia X ganha Y". Todos que atingem a meta ganham o prêmio — não é ranking, é threshold.
+  </Accordion>
+
+  <Accordion title="Cascata para a equipe" icon="users">
+    Modelo em que pontuação de aprendizado dos gestores vale mais — estimula liderança a dar exemplo. Ou o inverso: pontos acumulados pela equipe inteira formam score do gestor, estimulando ele a puxar o time pra concluir trilhas juntos.
+  </Accordion>
+</AccordionGroup>
+
+## Boas práticas
+
+<AccordionGroup>
+  <Accordion title="Calibre pra uma trilha significar algo" icon="scale-balanced">
+    Se concluir uma trilha inteira dá 350 pts e o prêmio-objetivo são 1000 pts, colaborador precisa fazer 3 trilhas pra sentir que está progredindo. Se são 100 pts pra 1000 prêmio, precisa fazer 10 trilhas. Calibre pra que 1-3 trilhas bem feitas já levem a marcos tangíveis.
+  </Accordion>
+
+  <Accordion title="Evite inflação" icon="triangle-exclamation">
+    Se alguém completa 10 trilhas fracas de 3 reels cada, não deveria ganhar o mesmo que outra pessoa que completou 2 trilhas densas de 10 reels. Ajuste as trilhas (em quantidade de itens) pra refletir peso real.
+  </Accordion>
+
+  <Accordion title="Use pontuação diferenciada em modelos diferentes" icon="shuffle">
+    Durante uma campanha sazonal, os pontos de aprendizado podem valer mais. Fora da campanha, voltam ao padrão. Isso cria momentos de intensificação sem inflar a linha base.
+  </Accordion>
+
+  <Accordion title="Comunique a mecânica" icon="megaphone">
+    Colaboradores engajam muito mais quando sabem que ganham pontos por aprender. Deixe a info visível — um reel de onboarding do próprio Loop explicando o sistema, destaque no menu, post institucional periódico.
+  </Accordion>
+
+  <Accordion title="Premie concluintes com algo real" icon="gift">
+    Pontos que viram saldo abstrato engajam menos que pontos que viram **prêmio tangível** (voucher, folga, reconhecimento público). Conecte trilhas a campanhas com prêmios de verdade via [Recompensas](/pt-br/recompensas/visao-geral).
+  </Accordion>
+
+  <Accordion title="Combine com Reconhecimento" icon="handshake">
+    Admin pode reconhecer publicamente quem concluiu uma trilha (reconhecimento via stories). Dobra o incentivo: pontos gamificados + reconhecimento social.
+  </Accordion>
+</AccordionGroup>
+
+## Anti-farming
+
+A estrutura tem proteções contra tentar inflar artificialmente:
+
+- **Inscrever e desinscrever**: hoje não há desinscrição voluntária pelo usuário. Inscrever, não cursar e sair não rende pontos de item.
+- **Concluir item duas vezes**: o sistema registra conclusão por item uma única vez. Assistir o mesmo reel novamente não credita de novo.
+- **Limite diário por ação**: admin pode configurar um limite de quantas vezes cada ação pontua por dia.
+- **Pontos condicionais ao Modelo ativo**: se nenhum modelo de gamificação está ativo, nenhuma ação credita pontos (consequência: as trilhas continuam funcionando, só não pontuam).
+
+Ainda assim, ações humanas rápidas (abrir trilhas só pra fechar rapidinho) podem ocorrer. Admins atentos observam padrões (muitas conclusões em poucos minutos) e ajustam.
+
+## Integração com o ciclo completo de Desenvolvimento
+
+```
+Admin cria trilha → Colaborador descobre → Inscreve-se (+10 pts)
+→ Assiste reel 1 (+30 pts) → reel 2 (+30 pts) → ... → reel N (+30 pts)
+→ Último reel concluído, trilha finalizada (+100 pts de bônus)
+→ Total acumulado: 10 + (N × 30) + 100
+→ Pontuação alimenta ranking e campanhas
+→ Ao atingir metas, colaborador ganha prêmios
+→ Admin vê no painel: colaborador X concluiu trilha Y, score Z
+```
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Se eu desativo os pontos de aprendizado, as trilhas deixam de funcionar?">
+    Não. Trilhas continuam funcionando perfeitamente (inscrição, progresso, conclusão). Apenas não geram pontos no sistema de gamificação. Alguns ambientes preferem rodar assim pra manter trilhas como infra de treinamento sem cruzar com gamificação.
+  </Accordion>
+
+  <Accordion title="Se o colaborador abandonou uma trilha, os pontos já ganhos voltam?">
+    Não. Pontos ganhos por itens concluídos permanecem. Mesmo que o colaborador pare no meio, o que foi creditado fica. Só os pontos futuros não vêm (porque depende de ação futura).
+  </Accordion>
+
+  <Accordion title="Posso ter uma trilha que não gera pontos?">
+    Hoje não individualmente — os pontos são por **ação**, não por trilha. Se "concluir item" gera 30 pontos, vale pra toda trilha. Configuração granular por trilha está no roadmap.
+  </Accordion>
+
+  <Accordion title="Concluir a mesma trilha duas vezes (ex: nova versão) credita pontos?">
+    Hoje cada conclusão é registrada uma única vez. Não há refazer trilha pra ganhar mais pontos. Se você refaz uma trilha antiga, o progresso atualiza mas pontos não se repetem. Recursos de "certificação recorrente" estão no roadmap.
+  </Accordion>
+
+  <Accordion title="Pontos de aprendizado contam no ranking geral ou só em ranking de desenvolvimento?">
+    Contam no ranking **geral** do sistema de gamificação. Não há ranking separado por tipo de ação hoje. Rankings específicos (só aprendizado, só social) estão em avaliação.
+  </Accordion>
+
+  <Accordion title="E quando a trilha é atribuição automática de onboarding?">
+    Mesma regra — ao ser atribuído, credita pontos de "começar trilha" (10 pts padrão). Depois, cada item concluído gera os 30 pts. Independentemente de ser voluntária ou obrigatória.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Gamificação - Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Lista completa de todas as ações que geram pontos no Loop
+  </Card>
+  <Card title="Trilhas" icon="compass" href="/pt-br/desenvolvimento/trilhas">
+    Como montar as trilhas que geram os pontos
+  </Card>
+  <Card title="Campanhas de Gamificação" icon="bullseye" href="/pt-br/gamificacao/campanhas">
+    Rodar campanhas com prêmios ligadas a pontos de aprendizado
+  </Card>
+  <Card title="Recompensas" icon="gift" href="/pt-br/recompensas/visao-geral">
+    Onde os pontos ganhos podem virar prêmios reais
+  </Card>
+</CardGroup>

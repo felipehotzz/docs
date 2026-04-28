@@ -1,6 +1,327 @@
 ---
 title: "Campanhas"
-description: "Metas, prazos e premiação no final"
+description: "Campanhas com meta, prazo e premiação — transforme o motor gamificado em iniciativa de negócio focada"
 ---
 
-Em construção.
+Enquanto o [Contínuo](/pt-br/gamificacao/continuo) roda o ambiente o tempo todo sem começo nem fim, **Campanhas** são iniciativas com **prazo definido, meta clara e prêmio ao final**. Use para focar o time em um objetivo específico: engajamento no lançamento de um produto, adoção de um canal novo, mobilização por um evento.
+
+Campanhas são **criadas, executadas e encerradas** pelo admin no painel de Gamificação.
+
+## Quando usar uma campanha
+
+Use quando quiser:
+
+- **Mobilizar** o time ao redor de um objetivo com começo e fim
+- **Premiar** os melhores desempenhos de forma tangível (pontos extras, recompensas)
+- **Medir** impacto de uma iniciativa em um período delimitado
+- **Criar** senso de urgência e competição saudável
+
+Não use quando:
+
+- O objetivo é comportamento permanente (use [Contínuo](/pt-br/gamificacao/continuo))
+- Você quer ritual recorrente (ex: melhor da semana) — use [Desafios](/pt-br/gamificacao/desafios)
+- Não há prêmio definido e nem medição — só ruído
+
+## Anatomia de uma campanha
+
+Cada campanha tem 7 componentes:
+
+<CardGroup cols={2}>
+  <Card title="Identidade" icon="tag">
+    Nome, descrição, cor, banner. Como a campanha aparece no app dos colaboradores.
+  </Card>
+  <Card title="Público-alvo" icon="users">
+    Todos os colaboradores, novos contratados, grupo/departamento específico, ou filtro customizado.
+  </Card>
+  <Card title="Prazo" icon="calendar">
+    Data de início e data de fim. Pode ser em dias (ex: 30) ou datas absolutas.
+  </Card>
+  <Card title="Meta" icon="bullseye">
+    Objetivo a ser atingido: somar X pontos, atingir Y% de crescimento, completar Z ações.
+  </Card>
+  <Card title="Ações pontuáveis" icon="sparkles">
+    Quais ações geram pontos durante a campanha, com valores específicos (podem ser diferentes do contínuo).
+  </Card>
+  <Card title="Prêmios" icon="gift">
+    O que os vencedores ganham — pontos resgatáveis, itens do Marketplace, prêmios customizados.
+  </Card>
+</CardGroup>
+
+## Como criar uma campanha
+
+### Via assistente (wizard)
+
+<Steps>
+  <Step title="Abra o painel de Gamificação">
+    Painel de Gestão → **Gamificação**
+  </Step>
+  <Step title="Clique em Criar Modelo">
+    Você pode **começar do zero**, **usar um template** pré-configurado, ou **pedir pra IA gerar** baseado em uma descrição em texto.
+  </Step>
+  <Step title="Escolha o tipo Challenge">
+    No primeiro passo do wizard, selecione **Challenge (Campanha)** — diferente de Main (contínuo) e Recurring (desafio recorrente).
+  </Step>
+  <Step title="Defina identidade">
+    Nome ("Semana da Inovação", "Engajamento Q2 2026", etc), descrição, cor, banner opcional.
+  </Step>
+  <Step title="Escolha duração">
+    **Em dias** (ex: 30 dias a partir de hoje) OU **datas específicas** (start e end dates). Campanhas com datas absolutas permitem preparação antecipada.
+  </Step>
+  <Step title="Defina público-alvo">
+    - **Todos**: toda a empresa participa
+    - **Novos contratados**: apenas quem entrou nos últimos N dias
+    - **Grupo específico**: escolha 1 ou mais grupos cadastrados
+    - **Filtro customizado**: por departamento, cargo, localização, etc.
+  </Step>
+  <Step title="Configure mecânica">
+    - **Acumulativo**: quem somar mais pontos vence (ou top N vencem)
+    - **Meta**: quem atingir X pontos (ou X% de meta) ganha
+  </Step>
+  <Step title="Ative as ações pontuáveis">
+    Para cada ação do sistema (publicar, curtir, reconhecer, etc), marque se conta na campanha e quantos pontos dá **dentro dela**. Pode ser mais do que o contínuo, pra estimular.
+  </Step>
+  <Step title="Configure prêmios">
+    Defina quem ganha o quê: 1º lugar, 2º lugar, top 10, quem atingiu a meta, quem participou. Veja seção "Distribuição de prêmios" abaixo.
+  </Step>
+  <Step title="Revise e ative">
+    Última tela resume tudo. Confirma e a campanha começa (ou agenda pra data futura).
+  </Step>
+</Steps>
+
+### Via templates
+
+O Loop vem com templates pré-configurados pra cenários comuns. Na criação, escolha:
+
+- **Onboarding**: focada em novos colaboradores completarem etapas iniciais
+- **Engajamento**: aumentar atividade no Feed, Reels, Stories
+- **Conteúdo**: incentivar publicação de posts e reels
+- **Treinamento**: completar trilhas e quizzes
+- **Cultura**: reconhecer colegas alinhados a valores
+- **Conhecimento**: compartilhar conteúdo educativo
+
+Templates preenchem o wizard com escolhas padrão que você ajusta antes de ativar.
+
+## Mecânicas — Acumulativo vs Meta
+
+<AccordionGroup>
+  <Accordion title="Acumulativo (ranking-based)" icon="ranking-star">
+    Todos competem ao mesmo tempo. Quem somou mais pontos ao final leva o prêmio.
+
+    **Prêmios**: normalmente top N (top 3, top 10) ganham algo diferente cada.
+
+    **Quando usar**: quando o objetivo é estimular competição saudável e identificar os mais engajados.
+
+    **Exemplo**: "Top 10 em pontos de engajamento no mês ganham R$200 em créditos do Marketplace"
+  </Accordion>
+
+  <Accordion title="Meta (threshold-based)" icon="bullseye">
+    Você define um **alvo numérico** (pontos ou porcentagem). Todos que atingem ganham o prêmio — sem disputa.
+
+    **Prêmios**: normalmente tudo-ou-nada: bateu a meta → leva o prêmio.
+
+    **Quando usar**: quando o objetivo é **comportamento mínimo**, não competição. "Todo mundo que publicar 5 reels no mês ganha X."
+
+    **Exemplo**: "Chegue a 500 pontos até dia 31 pra ganhar uma camisa customizada do time."
+  </Accordion>
+</AccordionGroup>
+
+## Distribuição de prêmios
+
+Campanhas suportam 4 modelos de distribuição:
+
+<CardGroup cols={2}>
+  <Card title="Todos que participam" icon="users">
+    Qualquer pessoa que entrou na campanha ganha algo (mesmo que pequeno). Útil pra onboarding e engajamento inicial.
+  </Card>
+  <Card title="Todos que atingem a meta" icon="bullseye">
+    Só quem bateu o alvo numérico ganha. Comum em campanhas de meta.
+  </Card>
+  <Card title="Top N" icon="ranking-star">
+    Somente os N primeiros ganham. Com prêmio maior pro 1º, intermediário pro top N.
+  </Card>
+  <Card title="Por faixas (tiered)" icon="layer-group">
+    Prêmios diferentes por faixas de ranking. Ex: 1º-3º R$500, 4º-10º R$200, 11º-50º R$50.
+  </Card>
+</CardGroup>
+
+### Tipos de prêmio
+
+Para cada faixa, o prêmio pode ser de 3 tipos:
+
+- **Pontos resgatáveis**: cai como saldo na [Carteira](/pt-br/recompensas/carteira). Usuário resgata no Marketplace depois.
+- **Item do Marketplace**: uma recompensa específica cadastrada (produto, voucher, experiência). Cai direto no usuário.
+- **Descrição customizada**: texto livre pro admin (ex: "Almoço com o CEO", "Entrada VIP na confraternização"). Gerenciado fora do app.
+
+### Timing do prêmio
+
+- **Imediato**: prêmio cai na hora que o critério é atingido (ex: bateu a meta → recebe na hora)
+- **Ao final**: prêmio distribuído no encerramento da campanha (ranking consolidado, admin confirma e distribui)
+
+## Scoring — de onde vêm os pontos da campanha
+
+Cada campanha define uma **fonte de pontuação**:
+
+<AccordionGroup>
+  <Accordion title="Plataforma" icon="mobile">
+    Pontos vêm apenas de ações dentro do Loop (publicar, curtir, reconhecer, etc). É o modo padrão — tudo automatizado.
+  </Accordion>
+
+  <Accordion title="Externo" icon="file-import">
+    Admin **carrega scores manualmente** via tabela. Exemplo: campanha de vendas, onde pontos vêm do CRM. Admin injeta diariamente.
+
+    Useful para cross-system gamification — integrar outras métricas ao Loop sem automação.
+  </Accordion>
+
+  <Accordion title="Misto" icon="shuffle">
+    Combina plataforma + externo. Cada ponto conta no mesmo ranking, independente da origem.
+
+    Útil em campanhas híbridas — vendas (externo) + engajamento no app (plataforma).
+  </Accordion>
+</AccordionGroup>
+
+## Leaderboard em tempo real
+
+Durante a campanha, colaboradores veem um **ranking ao vivo** dentro da página da campanha no app:
+
+- Posição atual (com subida/descida em relação ao dia anterior)
+- Pontos acumulados
+- Distância pra próxima posição
+- Top 10 em destaque
+- Visualização completa com busca
+
+O ranking é calculado **em tempo real** a cada query (não há cache). Isso garante atualização imediata mas também pode pesar em ambientes muito grandes — o sistema tá sendo otimizado.
+
+## Participação
+
+### Abertura
+
+Por padrão campanhas são **abertas** — todo mundo do público-alvo participa automaticamente (não precisa se inscrever).
+
+Se você configura **participação opt-in**, o colaborador precisa tocar "Participar" na página da campanha. Útil para campanhas sensíveis (ex: vendas, onde só quem tá no processo comercial conta).
+
+### Listagem
+
+Colaboradores veem campanhas ativas na aba **Recompensas** → seção **Campanhas**. Filtros disponíveis:
+
+- **Hoje**: campanhas que estão ativas agora
+- **Todas**: campanhas de qualquer status (futuras, ativas, encerradas)
+- **Desafio**: só recorrentes
+- **Campanha**: só com meta/prazo
+- **Contínuo**: modelo base
+
+Cada card mostra: banner, nome, contador regressivo, pontos ganhos hoje na campanha, barra de progresso (se é campanha de meta).
+
+## Como encerrar
+
+Três formas:
+
+1. **Automaticamente**: quando a data final é atingida, a campanha fica encerrada
+2. **Manualmente**: admin pode encerrar antecipadamente via painel (status muda pra encerrada, data registrada)
+3. **Extensão**: admin pode editar a data final pra estender — campanha continua ativa, prêmios recalculados no novo final
+
+### Distribuição de prêmios ao encerrar
+
+Quando a campanha encerra:
+
+1. Ranking final é consolidado automaticamente
+2. Admin abre o painel da campanha e vê **lista de vencedores** por faixa de prêmio
+3. Admin clica **Distribuir prêmios** → sistema dispara atribuição (para pontos resgatáveis e itens do Marketplace)
+4. Prêmios customizados precisam ser entregues fora do app (admin marca como "entregue" no painel)
+
+## Regras e limites
+
+- **Múltiplas campanhas ativas**: sim, várias ao mesmo tempo — cada colaborador pode estar em N campanhas simultaneamente (se estiver no público-alvo de cada)
+- **Edição após início**: possível mas limitada — datas, prêmios e texto podem ser ajustados; ações e pontos, tecnicamente sim, mas **evite** pra não confundir participantes
+- **Exclusão de campanha ativa**: desencorajada mas possível; cancela pontuação futura, histórico permanece
+- **Cap de pontos por dia**: campanha pode ter seu próprio limite diário global, separado do limite por ação
+- **Pontos da campanha contam no contínuo?**: depende da fonte de pontuação configurada — por padrão, campanha é fonte separada, não se soma ao saldo contínuo do usuário
+
+## Exemplos de campanha
+
+<AccordionGroup>
+  <Accordion title="Mês da Inovação (30 dias, acumulativo)" icon="lightbulb">
+    - **Objetivo**: estimular publicação de posts e reels sobre temas inovadores
+    - **Duração**: 30 dias corridos, fixos
+    - **Público**: todos
+    - **Ações pontuáveis com valor aumentado**: publicar post com imagem (60 pts, contra 30 do contínuo), publicar reel (100 pts, contra 50)
+    - **Distribuição**: Top 10 ganham prêmios tier (1º: R$500 em pontos, 2º-3º: R$200, 4º-10º: R$50)
+    - **Banner**: ilustração de lâmpada com cor laranja
+  </Accordion>
+
+  <Accordion title="Onboarding 30 dias (novos colaboradores)" icon="seedling">
+    - **Objetivo**: fazer novos colaboradores completarem etapas iniciais
+    - **Duração**: 30 dias a partir da entrada de cada colaborador
+    - **Público**: novos contratados (últimos 30 dias)
+    - **Ações pontuáveis**: completar perfil (50 pts), primeiro post (30 pts), primeiro reconhecimento (40 pts), completar trilha de onboarding (100 pts)
+    - **Distribuição**: todos que completaram 4 das 5 etapas ganham camisa + kit de boas-vindas
+  </Accordion>
+
+  <Accordion title="Vendas Q3 (scoring externo)" icon="handshake">
+    - **Objetivo**: reconhecer top vendedores do trimestre
+    - **Duração**: 3 meses (Q3 inteiro)
+    - **Público**: grupo "Comercial"
+    - **Fonte de pontos**: **externa** (admin atualiza semanalmente os scores baseado no CRM)
+    - **Distribuição**: top 3 vão pra convenção internacional
+  </Accordion>
+
+  <Accordion title="Semana da Cultura (7 dias, meta)" icon="heart">
+    - **Objetivo**: todo mundo dar pelo menos 3 reconhecimentos
+    - **Duração**: 7 dias corridos
+    - **Público**: todos
+    - **Mecânica**: meta de 3 reconhecimentos dados
+    - **Distribuição**: todos que baterem a meta entram em sorteio de 10 kits de brinde
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Pontos de campanha contam no meu saldo total da Carteira?">
+    Só se o prêmio da campanha inclui crédito em pontos resgatáveis. O ranking em si não vira saldo automático — é uma moeda separada de reconhecimento. Veja a seção de distribuição de prêmios.
+  </Accordion>
+
+  <Accordion title="Posso criar uma campanha só para um time/departamento?">
+    Sim. No passo de público-alvo, escolha "Grupo específico" ou "Filtro customizado" por departamento, cargo, localização ou combinação.
+  </Accordion>
+
+  <Accordion title="Como extender uma campanha que está pra acabar?">
+    No painel da campanha, edite a data final. A campanha continua ativa até a nova data. Avise os participantes — mudanças de prazo durante campanhas são comumente recebidas com desconfiança.
+  </Accordion>
+
+  <Accordion title="Prêmios podem ser retroativos?">
+    Não. Pontos e prêmios contam do momento em que a campanha **inicia** (data agendada) em diante. Atividade anterior ao start não retroage.
+  </Accordion>
+
+  <Accordion title="Posso pausar uma campanha e retomar depois?">
+    Oficialmente não — você pode **desativar** o modelo (pontos param de contar) e **reativar** mais tarde, mas o período desativado é "perdido" na contagem. Para prazos suspensos oficialmente, ajuste as datas.
+  </Accordion>
+
+  <Accordion title="Como ver quem está ganhando durante a campanha?">
+    No próprio painel da campanha (admin) você acessa o leaderboard em tempo real — top participantes com pontuação. Os colaboradores veem a mesma info pela página da campanha no app, com o próprio destaque.
+  </Accordion>
+
+  <Accordion title="Dá pra importar os participantes e os scores via planilha?">
+    Sim, para campanhas com fonte de pontuação externa ou mista. Admin sobe uma tabela com identificador do colaborador + valor do score e o sistema injeta automaticamente.
+  </Accordion>
+
+  <Accordion title="Posso ter 2 campanhas idênticas para dois grupos diferentes?">
+    Sim. Crie a campanha para o grupo A, duplique (botão disponível no painel) e troque o público-alvo pra grupo B. Ambas rodam em paralelo com regras iguais, contagens independentes.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Desafios" icon="trophy" href="/pt-br/gamificacao/desafios">
+    Temporadas recorrentes que ciclam automaticamente
+  </Card>
+  <Card title="Contínuo" icon="infinity" href="/pt-br/gamificacao/continuo">
+    Pontuação base do ambiente, sem prazo nem meta
+  </Card>
+  <Card title="Acompanhamento" icon="chart-line" href="/pt-br/gamificacao/acompanhamento">
+    Histórico, ranking e métricas durante e após a campanha
+  </Card>
+  <Card title="Carteira" icon="wallet" href="/pt-br/recompensas/carteira">
+    Onde os prêmios de pontos resgatáveis caem
+  </Card>
+</CardGroup>

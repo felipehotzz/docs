@@ -1,6 +1,237 @@
 ---
 title: "Pilares e Tipos"
-description: "Atrelados aos valores e metas da empresa"
+description: "Como admins configuram os pilares de valor e os tipos de reconhecimento disponíveis no ambiente"
 ---
 
-Em construção.
+Os **pilares** são as grandes categorias de valor que orientam o reconhecimento no ambiente. Cada pilar reúne múltiplos **tipos** de reconhecimento — comportamentos específicos que podem ser celebrados. Esta configuração é feita pelo administrador no Painel de Gestão.
+
+<Note>
+  Apenas **Proprietários** e **Administradores** têm acesso à configuração de pilares e tipos. Moderadores e colaboradores não veem essa área.
+</Note>
+
+## Como acessar
+
+No computador, abra o **Painel de Gestão** e navegue até **Reconhecimento** no menu lateral.
+
+A primeira vez que você entra, o sistema abre um **assistente (wizard)** de configuração passo a passo. Em visitas seguintes, você vê a lista de tipos já cadastrados com opções de editar, ativar/desativar e excluir.
+
+## Os 9 pilares base
+
+O Loop traz **9 pilares pré-definidos**, organizados em 4 categorias. Você seleciona quais fazem sentido pro seu ambiente — não precisa ativar todos.
+
+### Cultura
+
+<CardGroup cols={3}>
+  <Card title="Cultura e valores" icon="heart">
+    **💛** Reconhecimentos ligados aos valores da empresa, identidade, DNA organizacional
+  </Card>
+  <Card title="Colaboração" icon="handshake">
+    **🤝** Trabalho em equipe, apoio entre colegas, parcerias entre áreas
+  </Card>
+  <Card title="Inovação" icon="lightbulb">
+    **💡** Novas ideias, soluções criativas, quebra de padrões estabelecidos
+  </Card>
+</CardGroup>
+
+### Resultados
+
+<CardGroup cols={3}>
+  <Card title="Metas e entregas" icon="bullseye">
+    **🎯** Atingimento de objetivos, entregas dentro do prazo, foco em resultado
+  </Card>
+  <Card title="Excelência no atendimento" icon="star">
+    **⭐** Cuidado com cliente interno ou externo, qualidade excepcional de serviço
+  </Card>
+  <Card title="Superação" icon="chart-line">
+    **📈** Entregar além do esperado, resiliência em situações difíceis, crescimento pessoal visível
+  </Card>
+</CardGroup>
+
+### Desenvolvimento
+
+<CardGroup cols={2}>
+  <Card title="Compartilhar conhecimento" icon="book">
+    **📚** Ensinar colegas, documentar aprendizados, mentoria informal
+  </Card>
+  <Card title="Desenvolver pessoas" icon="seedling">
+    **🌱** Apoio ao crescimento de colegas, feedback construtivo, liderança que forma
+  </Card>
+</CardGroup>
+
+### Personalizado
+
+<CardGroup cols={1}>
+  <Card title="Outro pilar" icon="pen">
+    **✏️** Use quando nenhum dos 8 pilares acima encaixa. Permite descrição totalmente livre — útil pra valores muito específicos da sua empresa
+  </Card>
+</CardGroup>
+
+<Warning>
+  Os 9 pilares são **fixos** no sistema. Não é possível criar um 10º pilar totalmente novo nem renomear/recolorir os existentes. O pilar "Personalizado" existe como escape hatch pra quando nada encaixar — ele aceita qualquer descrição que você queira colocar.
+</Warning>
+
+## O assistente de criação
+
+Na primeira configuração, o Loop abre um wizard em duas etapas:
+
+<Steps>
+  <Step title="Selecionar pilares">
+    Marque os pilares que fazem sentido pro seu ambiente. Você pode marcar quantos quiser (mínimo 1 pra avançar).
+
+    **Dica**: começar com 3-5 pilares facilita a adoção. Pilares demais fragmentam os reconhecimentos e dificultam a análise posterior.
+  </Step>
+  <Step title="Customizar cada tipo">
+    Pra cada pilar selecionado, você configura 1 ou mais **tipos** de reconhecimento. Cada tipo precisa ter:
+
+    - **Nome** — texto curto que aparece no sticker e na lista (ex: "Sangue Laranja", "Entrega Heroica")
+    - **Descrição** — explicação do comportamento que esse tipo celebra
+    - **Ícone** — escolha entre 15 emojis pré-selecionados: 💛 🤝 💡 🎯 ⭐ 📈 📚 🌱 🏆 💪 🔥 ✨ 🌟 💎 🎉
+    - **Quem pode dar** — abre regra de permissão (veja [Permissões](/pt-br/reconhecimento/permissoes))
+
+    Configuração de **pontos** não é feita no wizard — vem depois, no painel de Gamificação.
+  </Step>
+</Steps>
+
+## Gerenciar tipos existentes
+
+Depois do wizard inicial, você entra no painel de Reconhecimento e vê a lista de tipos cadastrados. Para cada tipo, as opções são:
+
+<AccordionGroup>
+  <Accordion title="Ativar ou desativar" icon="toggle-on">
+    Toggle que liga/desliga o tipo. Tipos desativados:
+    - Somem da lista de escolha no sticker pros colaboradores
+    - Não geram mais pontos pra novas aplicações
+    - Reconhecimentos **já dados** com esse tipo permanecem no histórico intactos
+
+    Útil pra retirar um tipo temporariamente sem perder o histórico.
+  </Accordion>
+
+  <Accordion title="Excluir permanentemente" icon="trash">
+    Remove o tipo do sistema. **Atenção**: reconhecimentos associados a esse tipo ficam no histórico com referência órfã — aparecem como "Tipo removido" na UI.
+
+    Prefira **desativar** em vez de excluir sempre que possível.
+  </Accordion>
+
+  <Accordion title="Editar detalhes" icon="pencil">
+    Altera nome, descrição, ícone ou permissões do tipo.
+
+  </Accordion>
+</AccordionGroup>
+
+## Configurar os pontos
+
+A configuração de **quantos pontos** cada tipo gera é feita em um painel separado — o **Gamificação**.
+
+### Caminho
+
+1. Painel de Gestão → **Gamificação**
+2. Abra o **Modelo de Gamificação** ativo (ou crie um)
+3. Role até a seção **Reconhecimento**
+4. Para cada tipo cadastrado, ajuste:
+   - **Pontos ao receber (receiver)** — quanto o recebedor ganha (ex: 20-50 pts)
+   - **Pontos ao dar (giver)** — quanto o doador ganha (ex: 5-10 pts)
+   - **Toggle ON/OFF** — se esse tipo gera pontos nessa campanha/modelo específico
+
+<Note>
+  Você pode ter o mesmo tipo cadastrado mas com **pontos diferentes** em campanhas diferentes. Ex: durante uma campanha de "Cultura Q2", o tipo "Colaboração" vale 50 pts; fora da campanha, vale 20 pts.
+</Note>
+
+## Limites por tipo
+
+Cada tipo aceita um campo de **limite mensal** (quantas vezes por mês um mesmo usuário pode dar aquele tipo).
+
+Quando estiver ativo, o limite serve pra evitar inflação: se todo mundo distribui "Colaboração" a torto e a direito, o reconhecimento perde valor.
+
+## Exemplos de configuração
+
+### Empresa pequena (30 pessoas, clima de startup)
+
+Pilares ativos: **Cultura e valores**, **Colaboração**, **Inovação**, **Personalizado**
+
+Tipos sugeridos:
+- Pilar Cultura → "Jeito [Empresa]" (10 pts)
+- Pilar Colaboração → "Ajudou no Fogo" (15 pts)
+- Pilar Inovação → "Foi Além do Óbvio" (20 pts)
+- Pilar Personalizado → "Demo Day Hero" (25 pts, tipo sazonal)
+
+### Empresa média (500 pessoas, setor tradicional)
+
+Pilares ativos: **Colaboração**, **Metas e entregas**, **Excelência no atendimento**, **Desenvolver pessoas**
+
+Tipos sugeridos:
+- Colaboração → "Cross-áreas" (15 pts), "Mão na Massa" (10 pts)
+- Metas → "Bateu Meta" (25 pts), "Fecha Mês" (30 pts)
+- Excelência → "Cliente Fã" (20 pts)
+- Desenvolver → "Mentor" (20 pts), "Onboarding 10" (15 pts)
+
+### Empresa grande (5.000+, muitas unidades)
+
+Pilares ativos: todos exceto Personalizado
+
+Tipos mais estruturados, geralmente mapeando 1-1 com os valores da empresa:
+- 1-2 tipos por pilar, pontos calibrados para evitar inflação
+- Limites mensais ativos (quando enforcement estiver pronto)
+- Gestores têm tipos exclusivos (ex: "Promoção Justa" só disponível pra gestores)
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Quantos tipos eu devo cadastrar?">
+    Depende da maturidade cultural. Times pequenos se beneficiam de 3-5 tipos bem claros. Empresas grandes podem chegar a 10-15 tipos distribuídos em 5-6 pilares. **Mais que 20 tipos vira confuso** — colaboradores não sabem qual escolher e o poder narrativo se dilui.
+  </Accordion>
+
+  <Accordion title="Posso ter um tipo sem pontos?">
+    Sim. No painel de Gamificação, basta deixar os campos de pontos em 0 ou desligar o toggle daquele tipo. O reconhecimento continua funcionando (aparece no Feed, vai pro destaque) mas não alimenta campanhas.
+  </Accordion>
+
+  <Accordion title="Posso copiar a configuração de um ambiente pra outro?">
+    Hoje não — cada ambiente é configurado do zero. Estamos avaliando um sistema de templates (incluindo um "Starter Kit" com 5 tipos prontos) que você pode aplicar no primeiro setup. Contate o suporte se precisa migrar uma configuração existente.
+  </Accordion>
+
+  <Accordion title="Se eu desativo um tipo, os pontos já dados com ele somem?">
+    Não. O histórico é imutável. Desativação só afeta **novos** reconhecimentos dali pra frente — impede que mais gente use aquele tipo.
+  </Accordion>
+
+  <Accordion title="Posso criar um tipo restrito a uma área específica?">
+    Sim. No cadastro do tipo, escolha "Quem pode dar → Grupos específicos" e selecione os grupos elegíveis. Veja [Permissões](/pt-br/reconhecimento/permissoes).
+  </Accordion>
+
+  <Accordion title="Posso restringir quem pode RECEBER um tipo?">
+    Atualmente não — qualquer pessoa do ambiente pode receber qualquer tipo. Restringir recebedores está no roadmap (útil pra tipos exclusivos como "Superação do Líder", que só faria sentido pra cargos de liderança).
+  </Accordion>
+
+  <Accordion title="Como medir se os tipos estão funcionando?">
+    Relatórios analíticos de reconhecimento (top tipos, top recebedores, distribuição por pilar, tendências) **ainda não estão disponíveis** na UI. Dados ficam no banco — enquanto o painel de analytics não sai, o caminho é extrair via suporte.
+  </Accordion>
+
+  <Accordion title="Um tipo pode pertencer a mais de um pilar?">
+    Não. Cada tipo é vinculado a um único pilar. Se um comportamento é relevante pra dois pilares, escolha o principal ou crie dois tipos separados (um por pilar).
+  </Accordion>
+</AccordionGroup>
+
+## Regras e limites
+
+- **9 pilares pré-definidos**: não é possível criar um 10º pilar totalmente novo (use "Personalizado" como escape)
+- **Tipos ilimitados por pilar**: você pode ter quantos tipos quiser dentro de cada pilar
+- **Nome único por tipo**: dois tipos não podem ter o mesmo nome dentro do mesmo pilar
+- **Ícone fixo**: 15 emojis pré-selecionados. Não é possível subir emoji customizado ou imagem
+- **Pontos configuráveis em Gamificação**: receiver e giver, por tipo, por modelo de campanha
+- **Desativação preserva histórico**: reconhecimentos antigos não somem ao desativar um tipo
+- **Edição de tipo em desenvolvimento**: pra alterações atuais, o caminho é desativar + recriar
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Permissões" icon="lock" href="/pt-br/reconhecimento/permissoes">
+    Configure quem pode dar cada tipo de reconhecimento
+  </Card>
+  <Card title="Gamificado" icon="trophy" href="/pt-br/reconhecimento/gamificado">
+    Como os pontos configurados alimentam campanhas e rankings
+  </Card>
+  <Card title="Via Stories" icon="bolt" href="/pt-br/reconhecimento/via-stories">
+    Como colaboradores usam os tipos no app
+  </Card>
+  <Card title="Gamificação — Visão Geral" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    Modelo de gamificação e campanhas
+  </Card>
+</CardGroup>

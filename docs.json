@@ -64,8 +64,7 @@
             "pages": [
               "pt-br/recompensas/visao-geral",
               "pt-br/recompensas/marketplace",
-              "pt-br/recompensas/carteira",
-              "pt-br/recompensas/loop-card"
+              "pt-br/recompensas/carteira"
             ]
           },
           {
@@ -95,7 +94,6 @@
               "pt-br/influenciadores-internos/visao-geral",
               "pt-br/influenciadores-internos/descoberta",
               "pt-br/influenciadores-internos/perfis",
-              "pt-br/influenciadores-internos/campanhas",
               "pt-br/influenciadores-internos/metricas-de-influencia"
             ]
           },
@@ -103,6 +101,7 @@
             "group": "Plataforma",
             "pages": [
               "pt-br/plataforma/visao-geral",
+              "pt-br/plataforma/usuarios",
               "pt-br/plataforma/moderacao",
               "pt-br/plataforma/analytics",
               "pt-br/plataforma/integracoes",
@@ -119,6 +118,19 @@
             "group": "Jornadas",
             "pages": [
               "pt-br/jornadas/em-breve"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Legal",
+        "groups": [
+          {
+            "group": "Documentos",
+            "pages": [
+              "pt-br/legal/termos-de-uso",
+              "pt-br/legal/politica-de-privacidade",
+              "pt-br/legal/politica-de-cookies"
             ]
           }
         ]
@@ -156,9 +168,27 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
       "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+      "linkedin": "https://www.linkedin.com/company/comunica-in"
+    },
+    "links": [
+      {
+        "header": "Legal",
+        "items": [
+          {
+            "label": "Termos de Uso",
+            "href": "/pt-br/legal/termos-de-uso"
+          },
+          {
+            "label": "Política de Privacidade",
+            "href": "/pt-br/legal/politica-de-privacidade"
+          },
+          {
+            "label": "Política de Cookies",
+            "href": "/pt-br/legal/politica-de-cookies"
+          }
+        ]
+      }
+    ]
   }
 }

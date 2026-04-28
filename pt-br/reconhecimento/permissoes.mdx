@@ -1,6 +1,177 @@
 ---
 title: "Permissões"
-description: "Controle quem reconhece quem"
+description: "Controle granular de quem pode dar cada tipo de reconhecimento no ambiente"
 ---
 
-Em construção.
+Por padrão, qualquer colaborador do ambiente pode dar qualquer tipo de reconhecimento. Mas em muitos casos, você quer **restringir** — tipos específicos só devem estar disponíveis pra gestores, outros pra áreas específicas, e alguns talvez sejam exclusivos de admins.
+
+A configuração de permissões por tipo fica no Painel de Gestão, junto com o cadastro do tipo.
+
+<Note>
+  Permissões são configuradas **por tipo de reconhecimento**, não globalmente. Cada tipo pode ter sua própria regra. Apenas Proprietários e Administradores configuram.
+</Note>
+
+## Três modos de permissão
+
+Ao cadastrar ou editar um tipo de reconhecimento (veja [Pilares e Tipos](/pt-br/reconhecimento/pilares-e-tipos)), você escolhe entre três modos:
+
+<CardGroup cols={3}>
+  <Card title="Todos" icon="users">
+    **Todos os colaboradores ativos** podem dar esse tipo. É o padrão.
+  </Card>
+  <Card title="Apenas gestores" icon="user-tie">
+    Só pessoas marcadas como **gestor** (com liderados vinculados) podem dar esse tipo.
+  </Card>
+  <Card title="Grupos específicos" icon="users-rectangle">
+    Apenas membros de **grupos selecionados** podem dar. Você escolhe quais grupos.
+  </Card>
+</CardGroup>
+
+## Cenários de uso
+
+### Reconhecimento democrático — tipo aberto a todos
+
+Tipos como **"Colaboração"**, **"Jeito [Empresa]"** e **"Mão na Massa"** geralmente ficam abertos a todos. Qualquer colaborador pode reconhecer qualquer outro por esses comportamentos. É o caso mais comum e deve ser o padrão.
+
+**Configuração**: Quem pode dar → **Todos**
+
+### Reconhecimento gerencial — exclusivo de líderes
+
+Tipos como **"Promoção Merecida"**, **"Sucessão Natural"** ou **"Superação Gerencial"** geralmente só fazem sentido vindos de um gestor. Se qualquer pessoa pudesse dar, o valor simbólico se dilui.
+
+**Configuração**: Quem pode dar → **Apenas gestores**
+
+<Warning>
+  A validação de "gestor" depende dos **dados de hierarquia** cadastrados no ambiente. Se nenhum colaborador está marcado como gestor de ninguém, o tipo fica efetivamente inativo (sem ninguém elegível). Certifique-se de ter a estrutura de gestores populada antes de usar esse modo.
+</Warning>
+
+### Reconhecimento de nicho — grupos específicos
+
+Alguns tipos fazem sentido apenas dentro de uma área ou contexto. Exemplos:
+
+- **"Revisão de Código Exemplar"** — apenas membros do grupo **Engenharia**
+- **"Atendimento 5 Estrelas"** — apenas **Atendimento ao Cliente**
+- **"Fechou o Mês"** — apenas **Comercial**
+
+Nesses casos, escolher **Grupos específicos** e marcar os grupos relevantes limita o uso do tipo àquele contexto.
+
+**Configuração**: Quem pode dar → **Grupos específicos** → seleciona os grupos
+
+<Note>
+  Grupos são criados na [Gestão de Usuários](/pt-br/plataforma/usuarios#grupos). Certifique-se de ter os grupos cadastrados antes de configurar as permissões.
+</Note>
+
+## Quem pode receber
+
+**Atualmente o Loop não restringe quem pode receber reconhecimento** — qualquer pessoa do ambiente pode receber qualquer tipo, independente do grupo, cargo ou área.
+
+Consequências práticas:
+
+- Se um analista reconhece um estagiário com um tipo "Liderança Executiva", o reconhecimento acontece normalmente
+- A narrativa pode ficar estranha, mas o sistema não bloqueia
+- Um admin ainda pode intervir depois (exclusão manual não é possível via UI, mas via suporte sim)
+
+## Auto-reconhecimento
+
+**O sistema não bloqueia** alguém de se reconhecer (dar um reconhecimento pra si mesmo como recebedor).
+
+## Validação em tempo real vs retroativa
+
+O que o sistema **valida agora** quando alguém tenta dar um reconhecimento:
+
+| Validação | Status |
+|---|---|
+| Recebedor é um colaborador ativo do mesmo ambiente | ✅ validado |
+| Tipo de reconhecimento está **ativo** no ambiente | ✅ validado |
+| Giver está **logado** e tem identidade | ✅ validado |
+| Giver pertence aos **grupos permitidos** (se modo "grupos específicos") | ⚠️ em desenvolvimento |
+| Giver é **gestor** (se modo "apenas gestores") | ⚠️ em desenvolvimento |
+| Giver **não excedeu limite mensal** do tipo | ⚠️ em desenvolvimento |
+| Giver **não é o recebedor** (anti auto-reconhecimento) | ⚠️ em desenvolvimento |
+
+Os itens marcados como **em desenvolvimento** existem na configuração e no banco de dados, mas a regra não é aplicada ao dar o reconhecimento hoje. Dê configuração normal — quando o enforcement for lançado, passa a valer automaticamente.
+
+## Efeitos das permissões no app
+
+### Na interface do colaborador
+
+Quando um colaborador abre o sticker de reconhecimento, a lista de tipos mostrada é **filtrada pela elegibilidade dele**:
+
+- Tipos abertos a **todos** aparecem pra qualquer pessoa
+- Tipos restritos a **gestores** aparecem só pra quem está marcado como gestor
+- Tipos restritos a **grupos específicos** aparecem só pra quem está naqueles grupos
+
+Quem não está elegível simplesmente **não vê** o tipo na lista — não há mensagem de erro ou opção bloqueada. Silêncio é a UX escolhida pra evitar constrangimento.
+
+### No histórico
+
+Reconhecimentos **já dados** não são afetados por mudanças futuras de permissão. Se você abre um tipo pra "todos" hoje, restringe amanhã pra gestores, os reconhecimentos que foram dados ontem por colaboradores comuns **permanecem válidos** no histórico.
+
+## Recomendações de configuração
+
+<AccordionGroup>
+  <Accordion title="Comece aberto, restrinja conforme necessário" icon="door-open">
+    Na primeira configuração, deixe quase todos os tipos como "Todos". Conforme você observa padrões (ou desvios), vai restringindo tipos específicos. Começar muito restritivo sufoca a adoção.
+  </Accordion>
+
+  <Accordion title="Use 'Apenas gestores' com parcimônia" icon="user-tie">
+    Poucos tipos realmente precisam ser gerenciais. Se mais de 20-30% dos tipos forem restritos a gestores, o sistema começa a parecer "top-down" em vez de "comunitário".
+  </Accordion>
+
+  <Accordion title="Grupos específicos são pra tipos temáticos" icon="users-rectangle">
+    Use pra tipos muito específicos de contexto (ex: "Revisão Exemplar de Código" só pra Engenharia). Se quase todo tipo tem grupo restrito, sinaliza que a taxonomia precisa de repensar — talvez os tipos estejam fragmentados demais.
+  </Accordion>
+
+  <Accordion title="Marque gestores com cuidado na Gestão de Usuários" icon="sitemap">
+    A regra "apenas gestores" só funciona se a estrutura de liderança estiver cadastrada. Revise quem tem liderados vinculados antes de depender dessa regra.
+  </Accordion>
+</AccordionGroup>
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="O que acontece se eu tornar um tipo 'apenas gestores' mas não tem ninguém marcado como gestor?">
+    O tipo fica efetivamente inativo — ninguém pode dar. Na UI do colaborador, o tipo não aparece na lista de escolha. Corrija atualizando a estrutura de liderança na gestão de usuários, ou troque o modo de permissão pra "Todos" enquanto isso.
+  </Accordion>
+
+  <Accordion title="Posso restringir um tipo por cargo em vez de grupo?">
+    Não diretamente. Cargo é um campo livre em Usuários, não é usado como filtro de permissão. Pra efeito similar, crie um **grupo** com as pessoas de certo cargo e use o modo "Grupos específicos".
+  </Accordion>
+
+  <Accordion title="Dois grupos podem receber o mesmo tipo?">
+    Sim. No modo "Grupos específicos", você pode marcar múltiplos grupos. A pessoa precisa estar em **pelo menos um** dos grupos para ser elegível.
+  </Accordion>
+
+  <Accordion title="Colaboradores externos (consultores, parceiros) podem dar reconhecimento?">
+    Depende de como estão cadastrados. Se têm conta ativa no ambiente com papel de colaborador, sim. Tipos restritos a gestores ou a grupos onde eles não estão, não.
+  </Accordion>
+
+  <Accordion title="Admins podem dar qualquer tipo, mesmo os restritos?">
+    Sim. Administradores e Proprietários são **elegíveis para todos os tipos**, independente das restrições configuradas. Isso protege contra "eu mesmo fiz uma regra e agora não consigo usar".
+  </Accordion>
+
+  <Accordion title="Um moderador é tratado como gestor pra fins de reconhecimento?">
+    Não. "Gestor" aqui refere-se à estrutura hierárquica do ambiente (tem liderados vinculados). Moderadores são um papel administrativo separado — se um moderador também for gestor, aí sim é elegível.
+  </Accordion>
+
+  <Accordion title="Como eu identifico quais tipos uma pessoa pode dar?">
+    Pergunta pra ela abrir o sticker de reconhecimento no app — a lista que aparece é exatamente a dos tipos elegíveis pra ela. Não há painel admin que mostre "fulano pode dar tais tipos" hoje — essa visão tá no roadmap.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Pilares e Tipos" icon="layer-group" href="/pt-br/reconhecimento/pilares-e-tipos">
+    Cadastro de pilares e tipos onde as permissões são definidas
+  </Card>
+  <Card title="Gestão de Usuários" icon="users" href="/pt-br/plataforma/usuarios">
+    Cadastrar grupos e marcar gestores
+  </Card>
+  <Card title="Permissões da Plataforma" icon="lock" href="/pt-br/plataforma/permissoes">
+    Permissões de nível de plataforma (papéis admin, proprietário, colaborador)
+  </Card>
+  <Card title="Moderação" icon="shield-halved" href="/pt-br/plataforma/moderacao">
+    Filtros e restrições de publicação no ambiente
+  </Card>
+</CardGroup>

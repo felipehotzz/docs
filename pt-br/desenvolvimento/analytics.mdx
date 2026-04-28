@@ -1,6 +1,256 @@
 ---
 title: "Analytics"
-description: "Conclusão, progresso e engajamento por pessoa e time"
+description: "Métricas de conclusão, progresso e engajamento por pessoa e por time — como medir a eficácia do aprendizado no Loop"
 ---
 
-Em construção.
+O painel de **Analytics de Desenvolvimento** mostra pro admin como as trilhas estão performando: quem está se inscrevendo, quem conclui, onde as pessoas desistem, e como cada departamento ou grupo se compara.
+
+Esta página detalha o que o painel mostra hoje, como interpretar as métricas e o que ainda está em desenvolvimento.
+
+<Note>
+  Analytics de Desenvolvimento é acessível exclusivamente a **Proprietários e Administradores**. Moderadores não têm acesso. Colaboradores veem apenas o próprio progresso em suas trilhas inscritas.
+</Note>
+
+## Como acessar
+
+**Painel de Gestão** → **Desenvolvimento** → aba **Analytics** (ou dashboard do admin com filtro de Desenvolvimento).
+
+Algumas métricas de trilhas também aparecem no dashboard geral do admin (veja [Analytics da Plataforma](/pt-br/plataforma/analytics)).
+
+## Métricas por trilha
+
+Para cada trilha do ambiente, o painel mostra:
+
+<CardGroup cols={2}>
+  <Card title="Inscritos" icon="user-plus">
+    Quantos colaboradores se inscreveram (manualmente ou via onboarding automático). Indicador de **atração** da trilha.
+  </Card>
+  <Card title="Concluídos" icon="circle-check">
+    Quantos colaboradores concluíram todos os itens. Indicador de **engajamento até o fim**.
+  </Card>
+  <Card title="Taxa de conclusão" icon="percent">
+    Concluídos ÷ Inscritos × 100. Métrica mais importante pra qualidade da trilha. Abaixo de 30% geralmente é sinal de problema.
+  </Card>
+  <Card title="Progresso médio" icon="chart-line">
+    Média simples do percentual de progresso de todos os inscritos. Revela em que ponto médio as pessoas estão (quem nunca começou também conta como 0%).
+  </Card>
+</CardGroup>
+
+## Como interpretar cada métrica
+
+### Inscritos
+
+Indica **quantas pessoas se interessaram o suficiente pra se inscrever** (ou foram inscritas automaticamente via regras de onboarding).
+
+**Inscritos baixos** podem significar:
+
+- Nome ou descrição da trilha pouco convidativa
+- Tema não interessa pro público do ambiente
+- Trilha escondida (sem regras de onboarding, sem divulgação interna)
+- Público-alvo muito pequeno (se é uma trilha específica pra uma área de 10 pessoas, 8 inscritos pode ser ótimo)
+
+**Inscritos altos** podem significar:
+
+- Trilha bem posicionada
+- Regras de onboarding automáticas capturando muita gente
+- Tema urgente ou de grande interesse
+- Boa divulgação interna (cita em outros lugares do app)
+
+### Concluídos
+
+Quantos **foram até o fim** da trilha. Muito mais significativo que inscritos — inscrever é barato, concluir não.
+
+**Concluídos baixos com inscritos altos** é o padrão mais comum e revela uma trilha que **atrai mas não segura**. Causas típicas:
+
+- Trilha longa demais (>12 reels)
+- Ordem didática ruim (os primeiros reels não engancham)
+- Reels individuais fracos (baixa retenção)
+- Tema não entrega o prometido na descrição
+
+### Taxa de conclusão
+
+A métrica **mais importante**. Relativiza concluídos em relação a inscritos.
+
+**Benchmarks informais** (variam por empresa e tema):
+
+- **Abaixo de 20%**: problema sério, revisar a trilha
+- **20-40%**: normal em trilhas longas ou técnicas, mas há espaço pra melhorar
+- **40-60%**: bom
+- **60-80%**: excelente
+- **Acima de 80%**: raro, pode indicar trilha muito curta ou obrigatória no onboarding
+
+Trilhas mandatórias de onboarding tendem a ter taxa de conclusão mais alta (porque têm cobrança). Trilhas voluntárias dependem mais da qualidade.
+
+### Progresso médio
+
+Mostra onde as pessoas **param**. Se o progresso médio é 40% e a taxa de conclusão é 30%, significa que o grupo grande está concentrado lá pelo item 4-5 de uma trilha de 10 itens.
+
+Combine com a taxa de conclusão:
+
+- **Progresso médio alto + taxa de conclusão alta**: trilha boa e bem consumida
+- **Progresso médio alto + taxa de conclusão baixa**: as pessoas quase chegam ao fim mas desistem. Último item é o problema
+- **Progresso médio baixo + taxa de conclusão baixa**: a maior parte para no começo. Primeiros itens são fracos
+
+## Métricas agregadas do ambiente
+
+Além de métricas por trilha, o painel mostra totais gerais:
+
+- **Total de inscritos**: soma de todas as inscrições ativas no ambiente
+- **Total de conclusões**: soma de todas as conclusões
+- **Progresso médio geral**: média ponderada do progresso em todas as trilhas do ambiente
+
+Use esses números pra ter um "pulso" geral — está crescendo? Está caindo? Depois abra trilha a trilha pra entender o detalhe.
+
+## Filtros
+
+Você pode aplicar filtros para cortar as métricas por:
+
+- **Departamento**: ver como uma área específica está consumindo trilhas
+- **Localização**: comparar unidades ou cidades
+- **Cargo**: ver padrões por nível hierárquico
+- **Período**: últimos 7 dias, 30 dias, 90 dias
+
+Filtros te permitem responder perguntas como:
+
+- "Como o time de Vendas está engajando com as trilhas de produto?"
+- "A filial de São Paulo está mais ativa em desenvolvimento que a do Rio?"
+- "Taxa de conclusão entre líderes é diferente da do time operacional?"
+
+## Diagnosticando problemas comuns
+
+<AccordionGroup>
+  <Accordion title="Taxa de conclusão muito baixa (<20%)" icon="triangle-exclamation">
+    **Prováveis causas:**
+    - Trilha muito longa (>15 itens)
+    - Primeiros 1-2 reels não engancham
+    - Tema não é prioridade real para o público
+    - Falta de gatilho ou "cobrança" leve (nudge pra continuar)
+
+    **O que fazer:**
+    - Corte a trilha ao meio, deixe a parte mais forte
+    - Reorganize a ordem pra começar com o reel mais cativante
+    - Adicione uma comunicação interna mencionando a trilha (post no Feed, mensagem em canais)
+    - Considere atribuir como parte de onboarding se o tema é crítico
+  </Accordion>
+
+  <Accordion title="Poucas inscrições (<10% do público-alvo)" icon="users-slash">
+    **Prováveis causas:**
+    - Nome ou descrição da trilha pouco convidativa
+    - Colaboradores não conhecem a seção de Desenvolvimento
+    - Tema muito nichado ou irrelevante
+
+    **O que fazer:**
+    - Reescrever nome e descrição com foco em benefício claro ("Como triplicar sua taxa de resposta de cliente" > "Trilha de Comunicação Corporativa")
+    - Divulgar internamente (um reel de um líder falando sobre a trilha é ótimo)
+    - Considerar se o tema realmente importa — talvez precise repensar
+  </Accordion>
+
+  <Accordion title="Inscrições altas mas progresso baixo" icon="person-falling">
+    **Indica**: pessoas se inscrevem no impulso mas não começam, ou abandonam muito cedo.
+
+    **O que fazer:**
+    - Revise os primeiros 2 reels — eles precisam ser os mais fortes
+    - Adicione uma descrição mais honesta do tempo real necessário (pessoas desistem quando a expectativa não bate)
+    - Considere enviar lembretes (roadmap — por enquanto, divulgação manual via post institucional)
+  </Accordion>
+
+  <Accordion title="Concluíram mas zero feedback ou conversa" icon="volume-xmark">
+    **Indica**: o conteúdo foi consumido mas não gerou conversa, compartilhamento ou mudança de comportamento visível.
+
+    **O que fazer:**
+    - Inclua nos reels CTAs pra discussão (perguntas abertas no final, peça comentários)
+    - Crie um canal ou thread específica pra discussão pós-trilha
+    - Reveja os reels — são conteúdo passivo ou provocam reflexão?
+  </Accordion>
+
+  <Accordion title="Só gente de uma área está fazendo" icon="chart-pie">
+    **Indica**: a trilha não é relevante (ou não está sendo comunicada) em outras áreas.
+
+    **O que fazer:**
+    - Se a trilha é realmente pra uma área só, tudo bem — métrica boa dentro do público-alvo
+    - Se deveria ser universal, divulgue nos departamentos que não estão consumindo (DM pras lideranças daquela área pedindo divulgação interna)
+    - Ajuste descrição pra mostrar relevância pra outros papéis
+  </Accordion>
+</AccordionGroup>
+
+## Boas práticas de monitoramento
+
+<AccordionGroup>
+  <Accordion title="Revise mensalmente" icon="calendar">
+    Olhe as trilhas ativas uma vez por mês. Identifique as 2-3 que performam pior e decida: melhorar, substituir ou aposentar.
+  </Accordion>
+
+  <Accordion title="Compare trilhas similares" icon="scale-balanced">
+    Se você tem 3 trilhas de onboarding (uma por função), compare taxas de conclusão. Se uma é muito superior, entenda por quê e aplique nas outras.
+  </Accordion>
+
+  <Accordion title="Cruze com resultados reais" icon="bullseye">
+    Analytics de trilhas mede consumo, não efeito no trabalho. Se você tem uma trilha sobre "como fechar vendas", cruze conclusão com performance de vendas dos que fizeram vs. dos que não fizeram. Se não tem correlação, a trilha talvez esteja entregando conteúdo errado.
+  </Accordion>
+
+  <Accordion title="Não obcecue em 100% de conclusão" icon="heart">
+    Uma trilha com 60% de conclusão genuína é melhor que uma com 95% forçada (onboarding obrigatório com pessoas clicando sem assistir). Qualidade > métrica inflada.
+  </Accordion>
+
+  <Accordion title="Documente o que funciona" icon="book">
+    Quando achar um padrão de trilha que converte bem (tempo X, Y reels, estrutura Z), documente. Isso vira template pra próximas trilhas e acelera a curadoria.
+  </Accordion>
+</AccordionGroup>
+
+## Exportar dados
+
+Hoje, o **export direto via painel** está em desenvolvimento. Para análises avançadas ou relatórios em ferramentas externas:
+
+- **Solicite via suporte**: a gente gera CSV com dados brutos de inscrições, conclusões e progresso individual
+- **Frequência sugerida**: mensal ou trimestral, conforme sua necessidade de reporting
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Com que frequência as métricas atualizam?">
+    Métricas agregadas (inscritos, concluídos, progresso médio) atualizam **em tempo real** quando alguém faz uma ação. Pode ter cache curto (alguns segundos) dependendo do painel.
+  </Accordion>
+
+  <Accordion title="Vejo o nome das pessoas que concluíram?">
+    No painel de analytics atual, você vê **números agregados**. Lista individual de "quem concluiu" por trilha ainda está em desenvolvimento. Se precisa hoje, exporte via suporte.
+  </Accordion>
+
+  <Accordion title="Consigo ver quanto tempo cada pessoa gastou numa trilha?">
+    Hoje o sistema registra **data de inscrição e data de conclusão** — então você sabe o tempo entre esses dois eventos. Mas tempo real de consumo (minutos assistidos vs. abandonados) ainda não é medido. No roadmap.
+  </Accordion>
+
+  <Accordion title="Uma pessoa que cancela a inscrição conta como 'desistência'?">
+    Hoje não há função de "cancelar inscrição" pro usuário. A trilha fica no histórico mesmo se a pessoa não progride. A exclusão de inscrição só acontece quando admin apaga a trilha inteira ou quando o colaborador é removido do ambiente.
+  </Accordion>
+
+  <Accordion title="Posso pedir pro sistema me alertar quando uma trilha cai abaixo de X%?">
+    Alertas automáticos ainda não existem. Por enquanto, é revisão manual periódica. Alertas por email estão no roadmap.
+  </Accordion>
+
+  <Accordion title="As métricas consideram trilhas desativadas?">
+    Trilhas desativadas não aparecem no painel principal, mas os dados ficam preservados. Se reativar, os dados voltam a aparecer junto com novos eventos. Pra acessar dados de trilhas desativadas específicas, contate suporte.
+  </Accordion>
+
+  <Accordion title="Por que o progresso médio é menor que a taxa de conclusão em algumas trilhas?">
+    Porque a **taxa de conclusão** considera somente inscritos, e o **progresso médio** considera todos os inscritos (incluindo quem nunca começou, que conta como 0%). Se muita gente se inscreveu e nunca abriu a trilha, o progresso médio cai fortemente.
+
+    Exemplo: 100 inscritos, 30 concluíram, 70 nunca começaram. Taxa de conclusão = 30%. Progresso médio = (30 × 100% + 70 × 0%) / 100 = 30% também. Mas se os 70 começaram e pararam na metade: Progresso médio = (30 × 100% + 70 × 50%) / 100 = 65%.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Trilhas" icon="compass" href="/pt-br/desenvolvimento/trilhas">
+    Como criar e gerenciar as trilhas que produzem essas métricas
+  </Card>
+  <Card title="Aprendizado Gamificado" icon="trophy" href="/pt-br/desenvolvimento/aprendizado-gamificado">
+    Como as ações de aprendizado geram pontos para os colaboradores
+  </Card>
+  <Card title="Analytics da Plataforma" icon="chart-line" href="/pt-br/plataforma/analytics">
+    Dashboard geral do admin com métricas de vários módulos incluindo Desenvolvimento
+  </Card>
+  <Card title="Visão Geral" icon="layer-group" href="/pt-br/desenvolvimento/visao-geral">
+    Contexto completo da área de Desenvolvimento
+  </Card>
+</CardGroup>

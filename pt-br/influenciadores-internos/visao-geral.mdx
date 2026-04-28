@@ -1,6 +1,152 @@
 ---
 title: "Influenciadores Internos"
-description: "Identifique quem tem influência pra catalisar a cultura"
+description: "Identifique quem tem influência real dentro da empresa pra catalisar a cultura — mesmo sem cargo formal"
 ---
 
-Em construção.
+Em toda empresa existem pessoas que **pautam conversas, mobilizam colegas e definem o que é cool ou não** — independente do cargo no organograma. Um vendedor que todo mundo segue no feed. Uma analista que ensina sem pedir. Um coordenador que posta o reel que viraliza na empresa toda.
+
+Os **Influenciadores Internos** do Loop identificam essas pessoas automaticamente, classificam em 4 tipos de perfil e permitem que você ative elas estrategicamente em iniciativas de cultura, comunicação e mudança.
+
+<Note>
+  Esse é um painel **exclusivo de administradores**. Colaboradores comuns não veem quem está classificado como influenciador, nem o próprio score deles. O objetivo é informar decisões de gestão, não gerar comparação pública.
+</Note>
+
+## Por que esse painel existe
+
+Comunicação top-down quase nunca converte. Políticas vêm de cima, mas o comportamento se espalha pelos pares. Quando você quer:
+
+- Lançar uma campanha de cultura
+- Anunciar uma mudança estratégica
+- Estimular a adoção de uma nova prática
+- Quebrar silos entre áreas
+- Celebrar um valor organizacional
+
+…o seu **canal mais poderoso** é quem os colaboradores já escolheram seguir dentro do Loop. Se você manda o CEO falar, muitos escutam por obrigação. Se 10 influenciadores internos compartilham o mesmo recado, a cultura pega de verdade.
+
+Esse painel te dá o **mapa dessas pessoas** — quem são, como se comportam, onde operam e qual tipo de pauta cada uma conduz bem.
+
+## Os 4 componentes
+
+<CardGroup cols={2}>
+  <Card title="Descoberta" icon="magnifying-glass" href="/pt-br/influenciadores-internos/descoberta">
+    Lista dos colaboradores do ambiente ordenada por influência, com filtros, busca tradicional e busca inteligente por IA.
+  </Card>
+  <Card title="Perfis" icon="layer-group" href="/pt-br/influenciadores-internos/perfis">
+    Cada influenciador é classificado em 1 de 4 tipos (Autoridade, Especialista, Conector, Criador) baseado no comportamento observado.
+  </Card>
+  <Card title="Métricas de Influência" icon="chart-line" href="/pt-br/influenciadores-internos/metricas-de-influencia">
+    O score de 0 a 100 calculado a partir de 5 dimensões (seguidores, impressões, engajamento, diversidade, consistência) mais métricas detalhadas por pessoa.
+  </Card>
+</CardGroup>
+
+## Como acessar
+
+No computador, abra o **Painel de Gestão** e navegue até **Influenciadores Internos** no menu lateral. O painel abre na visão de Descoberta com a lista ranqueada por score.
+
+## Como o sistema descobre influenciadores
+
+Sem precisar nomear ninguém manualmente, o Loop observa comportamentos que naturalmente acontecem no app e compõe um **score de 0 a 100** pra cada colaborador:
+
+- Quantas pessoas o seguem
+- Quantas impressões o conteúdo dele acumula
+- Taxa de engajamento (curtidas e comentários por impressão)
+- Diversidade de formatos (posta em posts, reels, stories?)
+- Consistência (publica com regularidade nas últimas semanas?)
+
+Depois do score, o sistema classifica cada pessoa em um **tipo de perfil** baseado em qual dimensão ela se destaca — a mecânica completa está em [Métricas de Influência](/pt-br/influenciadores-internos/metricas-de-influencia) e [Perfis](/pt-br/influenciadores-internos/perfis).
+
+<Note>
+  Nem todos os colaboradores são classificados em um tipo. Quem tem pouco conteúdo ou score muito baixo fica sem tipo definido — porque a assinatura comportamental ainda não está clara. Focar em poucos e bons evita ranquear quase-quietos.
+</Note>
+
+## Quem pode usar
+
+| Ação | Colaborador | Verificado | Institucional | Admin |
+|---|---|---|---|---|
+| Ver o painel de Influenciadores Internos | ✗ | ✗ | ✗ | ✓ |
+| Ver o próprio score ou tipo | ✗ | ✗ | ✗ | ✓ |
+| Aparecer no ranking (sem visualizá-lo) | ✓ | ✓ | ✓ | ✓ |
+| Recomputar os scores do ambiente | ✗ | ✗ | ✗ | ✓ |
+| Aplicar filtros e busca inteligente | ✗ | ✗ | ✗ | ✓ |
+| Abrir o detalhe de um influenciador | ✗ | ✗ | ✗ | ✓ |
+
+<Note>
+  Colaboradores **são analisados** (sem opção de opt-out hoje), mas **não veem** os resultados da análise. Somente admins acessam. Se você precisa oferecer opt-out para conformidade com LGPD, fale com o suporte — a funcionalidade está em avaliação.
+</Note>
+
+## Como isso se conecta com outras áreas
+
+<CardGroup cols={2}>
+  <Card title="Feed, Reels, Stories" icon="rectangle-list" href="/pt-br/social/feed">
+    Todo conteúdo publicado gera os sinais (impressões, engajamento) que alimentam o score
+  </Card>
+  <Card title="Recompensas e Gamificação" icon="trophy" href="/pt-br/gamificacao/visao-geral">
+    Sistemas paralelos por enquanto — futuro: campanhas pra influenciadores com incentivos distintos
+  </Card>
+  <Card title="Reconhecimento" icon="handshake" href="/pt-br/reconhecimento/visao-geral">
+    Planejado: reconhecimentos recebidos alimentarão dimensões de expertise e conexão no score
+  </Card>
+  <Card title="Usuários" icon="users" href="/pt-br/plataforma/usuarios">
+    Departamento, cargo e localização dos colaboradores aparecem como filtros na descoberta
+  </Card>
+</CardGroup>
+
+## Regras e limites gerais
+
+- **Apenas admins e proprietários**: moderadores e colaboradores não têm acesso
+- **Análise automática de todos**: não é preciso "ativar" cada colaborador. Quem tem atividade no app é analisado
+- **Classificação só acima de um piso**: colaboradores com pouco conteúdo (menos de 5 itens) ou score muito baixo ficam sem tipo atribuído
+- **Recomputação é manual**: admin dispara manualmente quando quiser score atualizado
+- **Contas de IA e bots são excluídas**: assistentes automáticos não entram na análise
+- **Isolamento por ambiente**: influenciadores de um tenant não atravessam para outro
+- **Sem histórico de versões**: a cada recomputação, snapshots do score são salvos em uma linha do tempo — útil pra ver evolução ao longo de semanas e meses
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Colaboradores comuns veem que são influenciadores?">
+    Não. O painel é exclusivo de admins. Nem score, nem tipo, nem ranking são expostos a colaboradores. Isso evita virar concurso público e preserva a intenção de usar o painel como ferramenta de gestão.
+  </Accordion>
+
+  <Accordion title="Com que frequência o sistema recalcula o score?">
+    Hoje é manual — o admin abre o painel e clica em "Atualizar scores" quando quiser dados frescos. Recomputação automática (diária, semanal) está no roadmap.
+  </Accordion>
+
+  <Accordion title="Posso marcar alguém como influenciador manualmente?">
+    Ainda não. A classificação é 100% automática baseada no comportamento observado. Flagging manual está no roadmap pra casos de VIP interno ou contas institucionais.
+  </Accordion>
+
+  <Accordion title="O que acontece se um influenciador deixar a empresa?">
+    Quando você desativa o colaborador em Usuários, ele sai do ranking. Se for só afastamento temporário, pode reativar depois e o score volta na próxima recomputação.
+  </Accordion>
+
+  <Accordion title="Esse painel tem implicação de LGPD?">
+    Pode ter. Classificar colaboradores por perfil de influência é um processamento de dados pessoais. Recomendamos incluir menção na sua política de privacidade interna e avisar colaboradores que a empresa analisa padrões de uso do Loop. Se precisar mecanismos de opt-out explícitos, contate o suporte.
+  </Accordion>
+
+  <Accordion title="O score leva em conta reconhecimentos dados ou recebidos?">
+    Hoje não. Reconhecimento alimenta gamificação, não o score de influência. A integração está planejada — reconhecimentos recebidos (especialmente de múltiplas áreas) deve entrar nas dimensões de expertise e conexão.
+  </Accordion>
+
+  <Accordion title="Tem quanto tempo de histórico?">
+    A cada recomputação, o sistema salva uma snapshot. O histórico cresce indefinidamente, mas o painel mostra por padrão as últimas 30 snapshots por pessoa (variação de score ao longo do tempo). Para extração de dados mais profundos, contato com suporte.
+  </Accordion>
+
+  <Accordion title="E se meu ambiente tem pouca gente ou pouco conteúdo?">
+    O sistema funciona mas pode classificar poucos em tipos. Como o sistema exige um piso de atividade pra classificar, ambientes com até 10 colaboradores podem ter ninguém classificado no primeiro mês. Com o tempo e maior uso, a lista vai aparecendo.
+  </Accordion>
+</AccordionGroup>
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Descoberta" icon="magnifying-glass" href="/pt-br/influenciadores-internos/descoberta">
+    Como encontrar os influenciadores no painel: filtros, busca tradicional e IA
+  </Card>
+  <Card title="Perfis" icon="layer-group" href="/pt-br/influenciadores-internos/perfis">
+    Os 4 tipos em profundidade, com comportamento e casos de uso
+  </Card>
+  <Card title="Métricas de Influência" icon="chart-line" href="/pt-br/influenciadores-internos/metricas-de-influencia">
+    As 5 dimensões do score e como interpretar
+  </Card>
+</CardGroup>
