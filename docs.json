@@ -112,6 +112,17 @@
         ]
       },
       {
+        "tab": "Novidades",
+        "groups": [
+          {
+            "group": "Novidades",
+            "pages": [
+              "pt-br/novidades"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Jornadas",
         "groups": [
           {
