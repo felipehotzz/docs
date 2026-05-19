@@ -45,6 +45,16 @@
             ]
           },
           {
+            "group": "Conhecimento",
+            "pages": [
+              "pt-br/conhecimento/visao-geral",
+              "pt-br/conhecimento/criar-paginas",
+              "pt-br/conhecimento/base-para-ia",
+              "pt-br/conhecimento/busca-com-ia",
+              "pt-br/conhecimento/boas-praticas"
+            ]
+          },
+          {
             "group": "Agentes",
             "pages": [
               "pt-br/agentes/visao-geral"

@@ -1,0 +1,85 @@
+---
+title: "Base para IA"
+description: "Como páginas viram fonte para respostas, busca semântica e agentes"
+---
+
+As páginas de conhecimento formam uma base consultável pela IA do Loop. Quando uma página está ativa, seu conteúdo pode ser indexado e usado para encontrar respostas, sugerir fontes e apoiar agentes.
+
+## Como funciona
+
+<Steps>
+  <Step title="O admin cria ou importa uma página">
+    O conteúdo entra na base de páginas do tenant.
+  </Step>
+
+  <Step title="A página é salva e publicada">
+    Páginas ativas ficam disponíveis para consulta. Rascunhos devem ser revisados antes de virar referência.
+  </Step>
+
+  <Step title="O conteúdo é indexado">
+    O Loop gera representações pesquisáveis do conteúdo para busca semântica e respostas com IA.
+  </Step>
+
+  <Step title="A busca encontra fontes relevantes">
+    Quando alguém pesquisa, o Loop procura páginas, trechos e outros conteúdos relacionados à pergunta.
+  </Step>
+
+  <Step title="A IA responde com base nas fontes">
+    Quando há contexto suficiente, a IA gera uma resposta resumida e exibe fontes para validação.
+  </Step>
+</Steps>
+
+## O que a IA usa como fonte
+
+A resposta com IA pode considerar:
+
+- páginas de conhecimento ativas;
+- trechos indexados dessas páginas;
+- tabelas estruturadas extraídas de arquivos;
+- conteúdos internos relevantes, como posts e reels indexados;
+- memória corporativa disponível no ambiente.
+
+## Fontes e validação
+
+Quando a resposta se apoia em páginas ou documentos internos, o Loop mostra fontes relacionadas. Isso permite abrir o conteúdo original e confirmar a origem da informação.
+
+Para temas sensíveis, como política, benefício, processo jurídico, segurança ou compliance, a recomendação é sempre conferir a fonte.
+
+## O que melhora a resposta
+
+- títulos claros;
+- uma página por assunto;
+- respostas diretas para perguntas frequentes;
+- datas, responsáveis e regras explícitas;
+- exemplos práticos;
+- conteúdo atualizado;
+- termos que as pessoas realmente usam no dia a dia.
+
+## O que piora a resposta
+
+- documentos duplicados com regras diferentes;
+- páginas muito longas sem seção;
+- arquivos antigos ainda ativos;
+- siglas sem explicação;
+- títulos genéricos como "Documento final";
+- misturar muitas políticas diferentes na mesma página.
+
+## Limites importantes
+
+<Warning>
+  A IA depende do conteúdo disponível. Se a base não tem uma resposta confiável, a busca pode retornar fontes parciais ou informar que não encontrou informação suficiente.
+</Warning>
+
+A base de conhecimento não substitui governança. Cada área deve manter suas páginas atualizadas e remover conteúdo obsoleto.
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Criar páginas" icon="pen-line" href="/pt-br/conhecimento/criar-paginas">
+    Como estruturar conteúdo na base.
+  </Card>
+
+  <Card title="Busca com IA" icon="search" href="/pt-br/conhecimento/busca-com-ia">
+    Como colaboradores consultam a base.
+  </Card>
+</CardGroup>
