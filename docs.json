@@ -100,6 +100,17 @@
             ]
           },
           {
+            "group": "Analytics",
+            "pages": [
+              "pt-br/analytics/visao-geral",
+              "pt-br/analytics/dashboard",
+              "pt-br/analytics/conteudo",
+              "pt-br/analytics/perfil",
+              "pt-br/analytics/trilhas",
+              "pt-br/analytics/loop-sense"
+            ]
+          },
+          {
             "group": "Influenciadores Internos",
             "pages": [
               "pt-br/influenciadores-internos/visao-geral",
@@ -113,8 +124,7 @@
             "pages": [
               "pt-br/plataforma/visao-geral",
               "pt-br/plataforma/usuarios",
-              "pt-br/plataforma/moderacao",
-              "pt-br/plataforma/analytics"
+              "pt-br/plataforma/moderacao"
             ]
           }
         ]
