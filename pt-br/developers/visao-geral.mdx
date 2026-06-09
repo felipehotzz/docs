@@ -1,0 +1,80 @@
+---
+title: "Developer Platform"
+description: "Área para times de TI configurarem integrações, homologação, políticas de sincronização e logs"
+---
+
+A **Loop Developer Platform** é a área técnica do Loop para times de TI configurarem integrações corporativas sem entrar no fluxo operacional do aplicativo.
+
+Ela foi desenhada para implantação, homologação e auditoria. O objetivo é responder com clareza:
+
+- como o Loop acessa um sistema externo;
+- quais campos serão consumidos;
+- o que será criado, atualizado ou inativado;
+- quais regras protegem a base de colaboradores;
+- quando uma execução aconteceu e qual foi o resultado.
+
+<Note>
+  A Developer Platform não é uma API pública aberta. Ela é uma área de implantação e governança para integrações contratadas com o Loop.
+</Note>
+
+## O que existe na plataforma
+
+<CardGroup cols={2}>
+  <Card title="Conexões" icon="plug">
+    Configuração de endpoint, ambiente, autenticação e credenciais.
+  </Card>
+
+  <Card title="Mapeamento" icon="table-columns">
+    Tradução dos campos do sistema externo para os campos usados pelo Loop.
+  </Card>
+
+  <Card title="Política de sincronização" icon="sliders">
+    Regras que definem quando criar, atualizar, inativar ou preservar colaboradores.
+  </Card>
+
+  <Card title="Preview" icon="play">
+    Simulação antes de gravar mudanças na base de usuários.
+  </Card>
+
+  <Card title="Execuções" icon="file-clock">
+    Histórico de testes, previews e sincronizações.
+  </Card>
+
+  <Card title="Fallback CSV" icon="file-csv">
+    Apoio para PJs, terceiros ou pessoas fora do cadastro principal de RH.
+  </Card>
+</CardGroup>
+
+## Primeiro conector: Senior HCM
+
+A primeira integração suportada pela Developer Platform é com a **Senior HCM**.
+
+O conector Senior tem como foco sincronizar a base de colaboradores do cliente com o Loop:
+
+- novos colaboradores;
+- alterações cadastrais;
+- áreas, cargos e centros de custo;
+- status ativo/inativo;
+- desligamentos;
+- dados adicionais para segmentação.
+
+## Fluxo de implantação
+
+1. TI informa endpoint, ambiente e modelo de autenticação.
+2. Loop configura a conexão em homologação.
+3. TI e Loop ajustam o mapeamento de campos.
+4. A plataforma gera um preview sem alterar colaboradores.
+5. TI valida os impactos: criados, atualizados, inativados e preservados.
+6. Após homologação, a integração pode ser promovida para produção.
+
+## Veja também
+
+<CardGroup cols={2}>
+  <Card title="Senior HCM" icon="database" href="/pt-br/developers/senior-hcm">
+    Campos esperados, autenticação e fluxo de homologação.
+  </Card>
+
+  <Card title="Checklist para TI" icon="list-checks" href="/pt-br/developers/checklist-ti">
+    Informações necessárias para iniciar a integração.
+  </Card>
+</CardGroup>

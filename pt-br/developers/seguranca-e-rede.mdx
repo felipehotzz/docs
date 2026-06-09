@@ -1,0 +1,68 @@
+---
+title: "Segurança e rede"
+description: "Hospedagem, comunicação, credenciais e requisitos técnicos para integrações"
+---
+
+As integrações da Developer Platform são executadas em infraestrutura cloud. O cliente não precisa instalar servidor local para o Loop.
+
+## Comunicação
+
+O modelo padrão é **cloud-to-cloud**:
+
+1. o Loop chama o endpoint autorizado pelo cliente;
+2. a comunicação usa HTTPS;
+3. a resposta é processada pela camada de integração;
+4. o resultado é registrado como teste, preview ou sincronização.
+
+## Portas e firewall
+
+Requisito padrão:
+
+| Item | Requisito |
+| --- | --- |
+| Protocolo | HTTPS |
+| Porta | 443 outbound |
+| Origem | Infraestrutura cloud do Loop |
+| Destino | Endpoint disponibilizado pelo cliente ou pela Senior |
+
+Se o ambiente do cliente usar firewall, allowlist ou VPN, a TI deve informar as restrições antes da homologação.
+
+## Credenciais
+
+As credenciais de integração são cadastradas na Developer Platform e armazenadas criptografadas.
+
+Boas práticas:
+
+- usar credenciais próprias para homologação;
+- trocar para credenciais de produção apenas após validação;
+- não compartilhar secrets por canais abertos;
+- rotacionar credenciais quando necessário;
+- remover credenciais antigas ao encerrar uma integração.
+
+## Dados processados
+
+No conector Senior, a integração processa dados cadastrais de colaboradores, como:
+
+- matrícula;
+- nome;
+- área;
+- cargo;
+- centro de custo;
+- status ativo/inativo;
+- campos adicionais aprovados pelo cliente.
+
+O Loop deve consumir apenas campos necessários para operação, segmentação e autenticação contratadas.
+
+## Logs
+
+A plataforma registra execuções para auditoria operacional:
+
+- testes de conexão;
+- previews;
+- sincronizações;
+- erros;
+- contagens de criados, atualizados, inativados e ignorados.
+
+<Note>
+  Logs ajudam TI e Loop a entender o resultado da integração sem expor secrets.
+</Note>

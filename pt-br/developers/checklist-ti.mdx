@@ -1,0 +1,89 @@
+---
+title: "Checklist para TI"
+description: "Informações necessárias para iniciar uma integração com o Loop"
+---
+
+Use este checklist para preparar uma integração entre o Loop e um sistema corporativo, como a Senior HCM.
+
+## Informações de ambiente
+
+- Nome do sistema de origem.
+- Ambiente de homologação disponível.
+- Ambiente de produção disponível.
+- URL base do endpoint.
+- Path de colaboradores.
+- Path ou endpoint para teste de conexão.
+
+## Autenticação
+
+- Tipo de autenticação: Bearer token, client credentials, basic auth ou outro.
+- `client_id`, quando aplicável.
+- Token, secret ou credencial equivalente.
+- Prazo de expiração das credenciais.
+- Processo de rotação de credenciais.
+
+## Rede
+
+- Endpoint acessível por HTTPS.
+- Porta 443 liberada.
+- Regras de firewall ou allowlist.
+- Necessidade de VPN, IP fixo ou restrição por origem.
+- Contato técnico para troubleshooting.
+
+## Campos de colaboradores
+
+Campos mínimos recomendados:
+
+- matrícula;
+- nome;
+- status ativo/inativo;
+- área;
+- cargo;
+- centro de custo.
+
+Campos opcionais:
+
+- líder;
+- diretoria;
+- unidade;
+- benefícios;
+- perfil familiar;
+- outros campos de segmentação.
+
+## Política de sincronização
+
+Antes da produção, TI deve validar:
+
+- se demitidos devem ser inativados automaticamente;
+- se ausentes na Senior devem ser inativados;
+- se PJs e cadastros manuais devem ser preservados;
+- frequência desejada da rotina;
+- quem aprova o preview inicial.
+
+## Homologação
+
+Fluxo recomendado:
+
+1. Cadastrar credenciais de homologação.
+2. Salvar conexão.
+3. Testar conexão.
+4. Ajustar mapeamento de campos.
+5. Rodar preview.
+6. Validar contagens e amostra de registros.
+7. Ajustar política de sincronização.
+8. Repetir preview até aprovação.
+9. Promover para produção.
+
+## Contatos
+
+Informe pelo menos:
+
+- responsável de TI;
+- responsável de RH ou Comunicação Interna;
+- responsável por credenciais;
+- responsável por firewall/rede;
+- canal para incidentes durante homologação.
+
+<Tip>
+  Quanto mais cedo TI confirma endpoint, autenticação e campos disponíveis, menor o tempo de implantação.
+</Tip>

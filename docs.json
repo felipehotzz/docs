@@ -152,6 +152,22 @@
         ]
       },
       {
+        "tab": "Developers",
+        "groups": [
+          {
+            "group": "Developer Platform",
+            "pages": [
+              "pt-br/developers/visao-geral",
+              "pt-br/developers/senior-hcm",
+              "pt-br/developers/politica-de-sincronizacao",
+              "pt-br/developers/login-por-matricula",
+              "pt-br/developers/seguranca-e-rede",
+              "pt-br/developers/checklist-ti"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Legal",
         "groups": [
           {

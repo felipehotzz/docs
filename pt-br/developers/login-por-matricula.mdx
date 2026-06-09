@@ -1,0 +1,55 @@
+---
+title: "Login por matrícula"
+description: "Conceito, requisitos e impacto do login sem email corporativo"
+---
+
+Algumas operações não possuem email corporativo para todos os colaboradores. Nesses casos, o Loop pode usar a **matrícula** como identificador de acesso.
+
+O objetivo é permitir que colaboradores entrem no Loop usando um dado já conhecido pela empresa, sem depender de email individual.
+
+## Requisitos
+
+Para usar login por matrícula, a base precisa garantir:
+
+- matrícula preenchida para os colaboradores elegíveis;
+- matrícula única dentro do mesmo tenant;
+- status ativo/inativo confiável;
+- fluxo de primeiro acesso definido;
+- canal para recuperação de acesso.
+
+<Note>
+  A mesma matrícula só precisa ser única dentro do ambiente do cliente. O Loop é multi-tenant: dados de um tenant não se misturam com outro.
+</Note>
+
+## Relação com a Senior
+
+Na integração Senior, a matrícula normalmente vem como campo principal do colaborador.
+
+Ela é mapeada para `employee_id` no Loop e pode ser usada para:
+
+- identificar se o colaborador já existe;
+- atualizar os dados corretos;
+- habilitar login por matrícula;
+- evitar duplicidade em novas cargas.
+
+## Primeiro acesso
+
+O fluxo final pode variar por cliente, mas normalmente envolve:
+
+1. colaborador informa matrícula;
+2. Loop valida se a matrícula existe e está ativa;
+3. colaborador cria senha ou confirma um fator adicional;
+4. acesso fica vinculado ao cadastro do tenant.
+
+## Pontos de atenção
+
+- Se a matrícula mudar no RH, o vínculo de login pode ser afetado.
+- Colaboradores inativos não devem conseguir concluir primeiro acesso.
+- Pessoas PJ fora da Senior precisam de cadastro manual ou CSV com identificador próprio.
+- A recuperação de senha precisa considerar que nem todos terão email corporativo.
+
+## Veja também
+
+<Card title="Usuários" icon="users" href="/pt-br/plataforma/usuarios">
+  Gestão de colaboradores, status, matrícula e importação CSV.
+</Card>

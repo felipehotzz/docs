@@ -1,0 +1,70 @@
+---
+title: "Política de sincronização"
+description: "Regras que definem como a integração pode criar, atualizar, inativar ou preservar colaboradores"
+---
+
+A política de sincronização define o comportamento da integração quando compara os dados da Senior com a base atual do Loop.
+
+Ela existe para reduzir risco operacional. Antes de ligar uma integração, TI precisa saber quem entra, quem muda e quem pode perder acesso.
+
+## Controles principais
+
+<CardGroup cols={2}>
+  <Card title="Preview obrigatório" icon="eye">
+    Exige uma simulação antes da primeira escrita na base.
+  </Card>
+
+  <Card title="Inativar demitidos" icon="user-x">
+    Quando a Senior envia status inativo ou desligado, o Loop pode bloquear o acesso.
+  </Card>
+
+  <Card title="Inativar ausentes na Senior" icon="triangle-alert">
+    Simula bloqueio de colaboradores ativos que não aparecem mais na carga.
+  </Card>
+
+  <Card title="Preservar manual/CSV" icon="file-csv">
+    Protege PJs, terceiros e cadastros manuais fora da Senior.
+  </Card>
+</CardGroup>
+
+## Regra recomendada para primeira implantação
+
+Para homologação inicial, recomendamos:
+
+| Regra | Valor recomendado | Motivo |
+| --- | --- | --- |
+| Preview obrigatório | Ligado | Evita impacto não revisado |
+| Inativar demitidos | Ligado | Segurança de acesso |
+| Inativar ausentes na Senior | Desligado | Evita bloquear PJs ou cadastros manuais por engano |
+| Preservar manual/CSV | Ligado | Protege pessoas fora da fonte oficial |
+| Frequência | Diária | Mantém base atualizada sem operação manual |
+
+## Demitidos vs ausentes
+
+Essas duas situações parecem parecidas, mas têm riscos diferentes.
+
+**Demitido** significa que a Senior informou explicitamente que a pessoa está inativa ou desligada. Neste caso, normalmente o Loop deve bloquear o acesso.
+
+**Ausente na Senior** significa que a pessoa não apareceu na carga. Isso pode indicar desligamento, mas também pode indicar:
+
+- colaborador PJ em cadastro separado;
+- terceiro cadastrado manualmente;
+- erro temporário na extração;
+- filtro aplicado no endpoint;
+- diferença entre ambientes de homologação e produção.
+
+Por isso, a regra de ausentes deve começar desligada.
+
+## Como o preview usa essas regras
+
+O preview aplica a política atual e classifica cada linha:
+
+- `create`: colaborador novo;
+- `update`: colaborador existente com dados a atualizar;
+- `deactivate`: colaborador que seria inativado;
+- `ignore`: registro preservado por regra;
+- `error`: linha inválida ou sem campo obrigatório.
+
+<Warning>
+  Ligar "Inativar ausentes na Senior" sem validar o preview pode bloquear pessoas corretas, especialmente quando existem PJs ou usuários importados por CSV.
+</Warning>
