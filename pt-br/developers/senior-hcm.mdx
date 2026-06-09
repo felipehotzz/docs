@@ -28,17 +28,71 @@ Campos adicionais podem ser mapeados depois, como líder, diretoria, benefícios
 
 ## Conexão
 
+A configuração começa pela escolha do modelo de API usado pelo cliente:
+
+<CardGroup cols={2}>
+  <Card title="REST / JSON" icon="braces">
+    A Senior retorna uma resposta em JSON. O Loop identifica a lista de colaboradores pelo path configurado e trata os campos diretamente.
+  </Card>
+
+  <Card title="SOAP / XML / WSDL" icon="code-xml">
+    A Senior retorna XML. O Loop converte o XML para uma estrutura JSON interna antes de aplicar o mapeamento de campos.
+  </Card>
+</CardGroup>
+
 A tela de conexão permite configurar:
 
 - ambiente: homologação ou produção;
 - endpoint base;
+- modelo de API: REST/JSON ou SOAP/XML/WSDL;
 - tipo de autenticação;
 - `client_id`;
 - token ou segredo, quando aplicável;
 - path de colaboradores;
-- path de teste de conexão.
+- path de teste de conexão;
+- path da lista dentro do JSON ou XML convertido;
+- parâmetros fixos, quando o serviço exigir.
 
 As credenciais são enviadas para uma função segura e armazenadas criptografadas.
+
+## REST / JSON
+
+No modelo REST, a TI normalmente informa:
+
+- endpoint de login, quando houver geração de `access_token`;
+- endpoint de refresh, quando houver `refresh_token`;
+- endpoint de colaboradores;
+- formato do body de login;
+- campo onde o `access_token` aparece na resposta;
+- path da lista de colaboradores no JSON.
+
+Exemplos comuns de path da lista:
+
+- `data`
+- `items`
+- `colaboradores`
+- `data.colaboradores`
+
+## SOAP / XML / WSDL
+
+No modelo SOAP, a TI normalmente informa:
+
+- URL do WSDL ou endpoint SOAP;
+- `SOAPAction` ou método do serviço;
+- usuário, senha e identificadores exigidos pelo serviço;
+- parâmetros como empresa, filial, cliente ou código de consulta;
+- envelope SOAP de teste;
+- path da lista de colaboradores dentro do XML convertido.
+
+Exemplo de path após conversão:
+
+```txt
+Envelope.Body.consultarColaboradoresResponse.return.colaborador
+```
+
+<Note>
+  Em SOAP, o preview pode receber uma amostra XML real de homologação para validar a conversão antes de qualquer gravação.
+</Note>
 
 ## Preview
 
@@ -51,6 +105,8 @@ Ele mostra:
 - colaboradores que seriam inativados;
 - registros ignorados por regra;
 - erros de mapeamento ou dados obrigatórios ausentes.
+
+Para REST, a amostra do preview pode ser JSON. Para SOAP, a amostra pode ser XML. Em ambos os casos, o resultado final é normalizado para o mesmo formato interno antes da comparação com a base do Loop.
 
 <Note>
   O preview é a etapa principal de homologação com TI. Ele deve ser revisado antes de liberar qualquer sincronização definitiva.

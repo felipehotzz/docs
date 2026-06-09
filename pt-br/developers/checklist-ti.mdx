@@ -8,11 +8,35 @@ Use este checklist para preparar uma integração entre o Loop e um sistema corp
 ## Informações de ambiente
 
 - Nome do sistema de origem.
+- Modelo de API usado: REST/JSON ou SOAP/XML/WSDL.
 - Ambiente de homologação disponível.
 - Ambiente de produção disponível.
 - URL base do endpoint.
 - Path de colaboradores.
 - Path ou endpoint para teste de conexão.
+
+## REST / JSON
+
+Se a integração for REST, informe:
+
+- endpoint de login;
+- endpoint de refresh, se existir;
+- endpoint de colaboradores;
+- formato do body de login;
+- campo da resposta que contém o `access_token`;
+- campo da resposta que contém o `refresh_token`;
+- path da lista de colaboradores no JSON.
+
+## SOAP / XML / WSDL
+
+Se a integração for SOAP, informe:
+
+- URL do WSDL ou endpoint SOAP;
+- `SOAPAction` ou método a ser chamado;
+- envelope SOAP de teste;
+- parâmetros obrigatórios, como empresa, cliente, filial ou serviço;
+- path da lista de colaboradores dentro do XML convertido;
+- exemplo de resposta XML de homologação.
 
 ## Autenticação
 
